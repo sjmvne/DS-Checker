@@ -185,10 +185,22 @@ Compila il form con questi dati esatti:
 | **Instance Type** | `Free` |
 
 ### 4. Variabili d'Ambiente (Environment Variables)
-Scorri giù fino alla sezione "Environment Variables" e clicca **Add Environment Variable**:
+Ci sono due modi per farlo, scegli quello che preferisci:
 
+**Opzione A: Environment Variables (Consigliato)**
+Scorri giù fino alla sezione "Environment Variables", clicca **Add Environment Variable** e inserisci:
 *   **Key**: `PERPLEXITY_API_KEY`
-*   **Value**: `pplx-xxxxxxxx...` (La tua chiave segreta)
+*   **Value**: `pplx-xxxxxxxx...` (La tua chiave)
+
+**Opzione B: Secret Files (Alternativa comoda)**
+Se preferisci incollare tutto il file:
+1.  Clicca su **Secret Files**.
+2.  Nome file: `.env`
+3.  Contenuto: Incolla l'intero contenuto del tuo file `.env` locale.
+    ```env
+    PERPLEXITY_API_KEY=pplx-xxxxxxxxxxxxxxxx
+    ```
+Questa opzione creerà fisicamente il file sul server, che verrà letto da `server.js`.
 
 Clicca **Create Web Service**.
 
