@@ -7,13 +7,18 @@
 
     const app = express();
     const PORT = process.env.PORT || 3000;
+    
+    // Trust the first proxy (Render/Heroku load balancer)
+    app.set('trust proxy', 1);
+    
+    // Determine environment
+    const isProduction = process.env.NODE_ENV === 'production';
 
     // Configura CORS per alccettare richieste dal tuo frontend
     app.use(cors({
         origin: [
             'http://localhost:5173', 
-            'https://sjmvne.github.io',
-            'https://sjmvne.github.io/DS-Checker' 
+            'https://sjmvne.github.io'
         ],
         credentials: true
     }));
@@ -21,7 +26,13 @@
     app.use(cookieParser());
     
     // CSRF Protection
-    const csrfProtection = csrf({ cookie: true });
+    const csrfProtection = csrf({ 
+        cookie: { 
+            httpOnly: true,
+            secure: isProduction, // Secure in production (Render HTTPS)
+            sameSite: isProduction ? 'none' : 'lax' // Cross-site in prod, Lax locally
+        } 
+    });
     
     // Expose CSRF token
     app.get('/api/csrf-token', csrfProtection, (req, res) => {
@@ -29,8 +40,6 @@
     });
 
     // Apply CSRF protection to all unsafe methods (POST, PUT, DELETE)
-    // Note: csurf middleware does this check automatically when used. 
-    // We can apply it globally or per route. Global is safer.
     app.use(csrfProtection);
 
     // Endpoint per la ricerca INCI
@@ -117,7 +126,6 @@
 
             res.json({
                 status: 'success',
-                data: jsonResult,
                 data: jsonResult,
                 confidence: jsonResult.confidence_score || 0.95 
             });
