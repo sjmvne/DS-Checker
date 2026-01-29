@@ -1,6 +1,8 @@
  require('dotenv').config();
     const express = require('express');
     const cors = require('cors');
+    const cookieParser = require('cookie-parser');
+    const csrf = require('csurf');
     const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     const app = express();
@@ -12,9 +14,24 @@
             'http://localhost:5173', 
             'https://sjmvne.github.io',
             'https://sjmvne.github.io/DS-Checker' 
-        ]
+        ],
+        credentials: true
     }));
     app.use(express.json());
+    app.use(cookieParser());
+    
+    // CSRF Protection
+    const csrfProtection = csrf({ cookie: true });
+    
+    // Expose CSRF token
+    app.get('/api/csrf-token', csrfProtection, (req, res) => {
+        res.json({ csrfToken: req.csrfToken() });
+    });
+
+    // Apply CSRF protection to all unsafe methods (POST, PUT, DELETE)
+    // Note: csurf middleware does this check automatically when used. 
+    // We can apply it globally or per route. Global is safer.
+    app.use(csrfProtection);
 
     // Endpoint per la ricerca INCI
     app.post('/api/v1/ai/search-inci', async (req, res) => {

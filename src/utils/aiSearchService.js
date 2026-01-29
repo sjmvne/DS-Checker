@@ -6,6 +6,22 @@
 const API_BASE_URL = import.meta.env.VITE_AI_API_URL || 'http://localhost:3000'; // Default to local for dev
 
 /**
+ * Fetch CSRF Token
+ */
+async function getCsrfToken() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/csrf-token`, {
+            credentials: 'include' 
+        });
+        const data = await response.json();
+        return data.csrfToken;
+    } catch (e) {
+        console.error('Failed to fetch CSRF token', e);
+        return null;
+    }
+}
+
+/**
  * Search for product ingredients using AI
  * @param {Object} params
  * @param {string} params.barcode
@@ -20,11 +36,16 @@ export async function searchProductIngredients({ barcode, productName, brand, co
   console.log('🤖 AI Search:', { barcode, productName, brand, country });
 
   try {
+    // Get CSRF Token first
+    const csrfToken = await getCsrfToken();
+
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'CSRF-Token': csrfToken
       },
+      credentials: 'include',
       body: JSON.stringify({
         barcode: barcode || undefined,
         product_name: productName,
