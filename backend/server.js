@@ -8,7 +8,11 @@
 
     // Configura CORS per alccettare richieste dal tuo frontend
     app.use(cors({
-        origin: ['http://localhost:5173', 'https://tuo-username.github.io']
+        origin: [
+            'http://localhost:5173', 
+            'https://sjmvne.github.io',
+            'https://sjmvne.github.io/DS-Checker' 
+        ]
     }));
     app.use(express.json());
 
