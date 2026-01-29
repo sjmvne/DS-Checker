@@ -1,0 +1,84 @@
+{
+  "terms": [
+    {
+      "term": "Malassezia",
+      "definition": "Un genere di funghi (lieviti) che vive naturalmente sulla pelle umana. Nella dermatite seborroica, questi lieviti proliferano eccessivamente nutrendosi del sebo e producendo sostanze irritanti.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Biofilm",
+      "definition": "Uno strato protettivo 'viscido' prodotto dai microrganismi (come la Malassezia) per proteggersi dai trattamenti antifungini e dal sistema immunitario.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Acidi Grassi",
+      "definition": "Componenti fondamentali dei grassi e degli oli. Acidi grassi specifici (lunghezza C11-C24) nutrono la Malassezia e devono essere evitati.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Barriera Cutanea",
+      "definition": "Lo strato esterno della pelle che trattiene l'umidità e protegge dagli agenti esterni. Nella DS, la barriera è spesso compromessa, causando infiammazione.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Esteri",
+      "definition": "Composti chimici formati dalla reazione tra un acido grasso e un alcol. Molti esteri 'pesanti' (es. Isopropyl Palmitate) sono cibo per la Malassezia.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Idrolisi",
+      "definition": "Un processo chimico in cui l'acqua spezza i legami molecolari. La Malassezia usa enzimi (lipasi) per idrolizzare i trigliceridi del sebo e liberare acidi grassi liberi irritanti.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Lipidi",
+      "definition": "Termine generale per grassi, oli e cere. Non tutti i lipidi sono dannosi per la DS: lo squalano e l'olio MCT sono lipidi 'sicuri'.",
+      "category": "Chimica"
+    },
+    {
+      "term": "INCI",
+      "definition": "International Nomenclature of Cosmetic Ingredients. È la lista standardizzata degli ingredienti che trovi sul retro dei prodotti cosmetici.",
+      "category": "Legale"
+    },
+    {
+      "term": "Sebo",
+      "definition": "Sostanza oleosa prodotta dalle ghiandole sebacee della pelle. È il nutrimento naturale della Malassezia.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Olio MCT",
+      "definition": "Trigliceridi a Catena Media (C8 e C10). Un olio speciale che la Malassezia NON può metabolizzare, rendendolo l'unico olio sicuro per idratare la pelle con DS.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Squalano",
+      "definition": "Un idrocarburo stabile derivato (spesso) dall'oliva o canna da zucchero. È chimicamente identico a parte del sebo umano ma non nutre il fungo.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "pH",
+      "definition": "Misura dell'acidità. Il cuoio capelluto sano ha pH 5.5. Un pH più alto (>6.0) favorisce la crescita della Malassezia.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Lipasi",
+      "definition": "Enzimi prodotti dalla Malassezia per 'digerire' i grassi (sebo o prodotti cosmetici) e trasformarli in nutrimento.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Desquamazione",
+      "definition": "Il distacco accelerato delle cellule morte della pelle, visibile come 'forfora'. È una risposta infiammatoria alla presenza di acidi grassi liberi irritanti.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Polisorbati",
+      "definition": "Emulsionanti comuni (es. Polysorbate-20, -80) che contengono acidi grassi. Spesso usati nei farmaci, ma possono nutrire la Malassezia se non bilanciati.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Fermenti",
+      "definition": "Ingredienti derivati dalla fermentazione microbica (es. Galactomyces). Molto popolari nella K-Beauty, ma rischiosi per la DS perché spesso contengono residui nutrienti per i lieviti.",
+      "category": "Ingredienti"
+    }
+  ]
+}

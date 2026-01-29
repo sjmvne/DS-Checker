@@ -1,0 +1,346 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6); /* Darker overlay for contrast */
+/* INCI Box */
+.modal-inci-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  margin: 5px 0 10px;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+.inci-label {
+  color: var(--color-text-dim);
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.inci-value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Category Context */
+.category-context {
+  border: 1px dashed var(--color-border);
+  background: rgba(139, 92, 246, 0.03);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-md);
+}
+
+.category-context h3 {
+  color: var(--color-primary);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.category-context p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.category-context strong {
+  color: var(--color-primary-light);
+}
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999; /* Very high z-index to stay on top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Allow scrolling if modal is tall */
+  padding: 20px;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.85); /* Light mode base */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* Prevent overflowing screen height */
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .modal-content {
+  background: rgba(30, 30, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-close:hover {
+  color: var(--color-text);
+  transform: scale(1.1);
+}
+
+.modal-header {
+  padding: 30px 30px 20px 30px; /* More padding */
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05), transparent);
+}
+
+.modal-risk-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border: 1px solid transparent; /* Prepare for border colors */
+}
+
+/* Specific Risk Styling */
+.risk-safe { 
+  background: rgba(16, 185, 129, 0.15); 
+  color: #34d399; 
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.risk-caution { 
+  background: rgba(234, 179, 8, 0.15); 
+  color: #facc15; 
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.risk-warning { 
+  background: rgba(249, 115, 22, 0.15); 
+  color: #fb923c; 
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.risk-danger, .risk-high, .risk-critical { 
+  background: rgba(239, 68, 68, 0.15); 
+  color: #f87171; 
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.modal-category {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.modal-body {
+  padding: 30px;
+  overflow-y: auto; /* Inner scroll */
+}
+
+.modal-section {
+  margin-bottom: 25px;
+}
+
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.modal-reason {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.modal-alternative {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-success);
+  padding: 15px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-alternative::before {
+  content: '💡';
+  font-size: 1.2rem;
+}
+
+/* Tech Specs Grid */
+.tech-specs {
+  background: rgba(0,0,0,0.03);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  border: 1px solid var(--color-border);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tech-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.tech-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.tech-value {
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tech-value.warning {
+  color: var(--color-danger);
+}
+
+.modal-inci {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 5px;
+}
+
+/* Composition Table */
+.composition-grid {
+  display: grid;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: var(--radius-md);
+}
+
+.composition-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.composition-value {
+  font-weight: 700;
+  font-family: monospace;
+}
+
+/* Warnings */
+.warning-box {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 15px;
+  border-radius: var(--radius-md);
+  color: #ef4444; /* Force red text for specific warnings */
+}
+
+.warning-box h3 {
+  color: #ef4444;
+  margin-top: 0;
+}
+
+/* Product Tags */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.product-tag {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.modal-footer {
+  padding: 20px 30px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.modal-btn {
+  padding: 10px 24px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}

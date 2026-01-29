@@ -1,0 +1,908 @@
+{
+  "metadata": {
+    "title": "Complete Seborrheic Dermatitis Harmful Ingredients Database - Part 1: Ingredients",
+    "description": "Comprehensive, expanded database of chemical compounds and ingredients in hair/skincare products that exacerbate seborrheic dermatitis. Part 1 focuses on complete ingredient categorization with mechanisms.",
+    "version": "2.0_expanded",
+    "last_updated": "2026-01-29",
+    "language": "it/en",
+    "disclaimer": "This database is based on dermatological research, clinical studies, and published scientific literature. Individual reactions vary significantly. Always consult a dermatologist before using new products.",
+    "database_structure": "This is PART 1 of 3. Part 1: Ingredients. Part 2: Analysis & Mechanisms. Part 3: Practical Applications.",
+    "research_basis": "Based on studies by Prohic et al. (2016), Ro & Dawson (2005), Gupta et al. (2004), and modern lipid metabolism research"
+  },
+  
+  "fatty_acids": {
+    "category_description": "Acidi grassi a catena lunga (C12-C24) che servono come fonte primaria di nutrimento per la proliferazione di Malassezia globosa e M. furfur",
+    "recommendation": "EVITARE TUTTI - Nutrimento diretto per Malassezia",
+    "carbon_chain_range": "C12-C24 (most problematic)",
+    "scientific_basis": "Malassezia species possess lipase enzymes optimized for C11-C24 fatty acid metabolism. Shorter chains (C8-C10) and longer chains (>C24) are not metabolically accessible.",
+    "ingredients": [
+      {
+        "name": "Lauric Acid",
+        "inci": "Lauric Acid",
+        "carbon_chain": "C12",
+        "molecular_weight": "200.32 g/mol",
+        "saturation": "Saturated",
+        "common_sources": ["Coconut oil (47%)", "Palm kernel oil (45%)", "Murumuru butter (50%)"],
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH - Preferred substrate for lipase",
+        "reason": "C12 is optimal size for Malassezia lipase active site",
+        "concentration_risk": "Even 1-2% in formulations problematic",
+        "products_containing": ["Most coconut oil products", "Tropical butter blends", "Budget shampoos"],
+        "skin_effects": "Immediate scalp inflammation (12-48h), increased sebum oxidation, accelerated barrier degradation"
+      },
+      {
+        "name": "Myristic Acid",
+        "inci": "Myristic Acid",
+        "carbon_chain": "C14",
+        "molecular_weight": "228.37 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "found_in_products": "Palm oil, palm kernel, some butter blends",
+        "skin_barrier_effect": "Increases ceramide depletion",
+        "concentration_impact": "High potency - problematic above 0.5%"
+      },
+      {
+        "name": "Palmitic Acid",
+        "inci": "Palmitic Acid",
+        "carbon_chain": "C16",
+        "molecular_weight": "256.42 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "prevalence": "Found in ~80% of conventional hair products",
+        "barrier_function_impact": "Disrupts lipid lamellae organization in stratum corneum",
+        "synergistic_risk": "High when combined with C12/C14"
+      },
+      {
+        "name": "Stearic Acid",
+        "inci": "Stearic Acid",
+        "carbon_chain": "C18",
+        "molecular_weight": "284.48 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "mechanism": "Malassezia lipase specifically recognizes C18 backbone structure",
+        "inflammatory_marker": "Increases IL-6 and TNF-alpha in keratinocytes"
+      },
+      {
+        "name": "Oleic Acid",
+        "inci": "Oleic Acid",
+        "carbon_chain": "C18",
+        "molecular_weight": "282.46 g/mol",
+        "saturation": "Monounsaturated (1 double bond)",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "reason": "Unsaturated C18; research shows exacerbates inflammatory response more than saturated C18",
+        "oxidation_risk": "Prone to lipid peroxidation; creates additional irritants",
+        "research_citation": "Studies show oleic acid increases TSLP (thymic stromal lymphopoietin) expression"
+      },
+      {
+        "name": "Linoleic Acid",
+        "inci": "Linoleic Acid",
+        "carbon_chain": "C18",
+        "molecular_weight": "280.24 g/mol",
+        "saturation": "Polyunsaturated (2 double bonds)",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "paradox": "Essential for skin but problematic in SD-prone skin (immune dysregulation)",
+        "barrier_effect": "Natural component of skin barrier, but oxidized forms (from yeast metabolism) trigger immune response"
+      },
+      {
+        "name": "Arachidic Acid",
+        "inci": "Arachidic Acid",
+        "carbon_chain": "C20",
+        "molecular_weight": "312.53 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "HIGH",
+        "malassezia_affinity": "HIGH - Within substrate range but slower metabolism than C12-C18",
+        "sources": "Peanut oil, rapeseed oil"
+      },
+      {
+        "name": "Eicosenoic Acid",
+        "inci": "Eicosenoic Acid",
+        "carbon_chain": "C20",
+        "molecular_weight": "310.51 g/mol",
+        "saturation": "Monounsaturated",
+        "risk_level": "HIGH",
+        "malassezia_affinity": "HIGH",
+        "products": "High-end seed oils, jojoba oil"
+      },
+      {
+        "name": "Ricinoleic Acid",
+        "inci": "Ricinoleic Acid",
+        "carbon_chain": "C18",
+        "molecular_weight": "298.46 g/mol",
+        "saturation": "Monounsaturated (12-hydroxylated)",
+        "risk_level": "CRITICAL",
+        "source": "Castor oil (90%)",
+        "unique_property": "Hydroxyl group (-OH) on position 12 increases keratinocyte irritation independent of Malassezia",
+        "dual_risk": "Both as yeast nutrient AND direct irritant",
+        "skin_penetration": "Higher percutaneous absorption than typical fatty acids"
+      },
+      {
+        "name": "Caprylic Acid",
+        "inci": "Caprylic Acid",
+        "carbon_chain": "C8",
+        "molecular_weight": "144.21 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "LOW",
+        "malassezia_affinity": "NONE - Malassezia CANNOT metabolize C8",
+        "reason": "Chain length <C11 outside Malassezia lipase substrate specificity",
+        "safety_evidence": "Safe; often recommended in clinical SD protocols",
+        "additional_benefit": "May have mild antifungal properties against Malassezia"
+      },
+      {
+        "name": "Behenic Acid",
+        "inci": "Behenic Acid",
+        "carbon_chain": "C22",
+        "molecular_weight": "340.58 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "sources": "Mustard seed, rapeseed, ben oil",
+        "barrier_effect": "Ultra-long chain causes significant barrier disruption"
+      },
+      {
+        "name": "Erucic Acid",
+        "inci": "Erucic Acid",
+        "carbon_chain": "C22",
+        "molecular_weight": "338.57 g/mol",
+        "saturation": "Monounsaturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH",
+        "oxidation_susceptibility": "Polyunsaturated; easily peroxidized"
+      },
+      {
+        "name": "Lignoceric Acid",
+        "inci": "Lignoceric Acid",
+        "carbon_chain": "C24",
+        "molecular_weight": "368.64 g/mol",
+        "saturation": "Saturated",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH - Largest accessible chain",
+        "sources": "Peanut oil, some cereals"
+      }
+    ]
+  },
+
+  "lipids_and_oils": {
+    "category_description": "Complete lipid and oil database with detailed composition analysis",
+    "recommendation": "AVOID ALL EXCEPT MCT OIL",
+    "selection_criteria": "Only oils with C8-C10 dominant composition are safe",
+    "ingredients": [
+      {
+        "name": "Coconut Oil",
+        "inci": "Cocos Nucifera Oil",
+        "common_synonyms": ["Virgin coconut oil", "Refined coconut oil", "Coconut butter"],
+        "fatty_acid_composition": {
+          "C12_Lauric": "46-52%",
+          "C14_Myristic": "16-21%",
+          "C16_Palmitic": "7-10%",
+          "C18_Stearic": "5-8%",
+          "C18_Oleic": "5-9%"
+        },
+        "malassezia_risk_score": "98/100",
+        "risk_level": "CRITICAL",
+        "why_problematic": "47% lauric acid (C12) is optimal Malassezia substrate. Combined with myristic acid creates perfect feeding formula.",
+        "typical_concentration_in_products": "2-30%",
+        "reaction_timeline": "SD flare typically 6-48 hours after application",
+        "marketing_deception": "Often marketed as 'natural' or 'organic' without warning about SD contraindication",
+        "scalp_effects": "Intense itching, sebum oxidation, smell production, inflammation"
+      },
+      {
+        "name": "Olive Oil",
+        "inci": "Olea Europaea Fruit Oil",
+        "fatty_acid_composition": {
+          "C18_Oleic": "55-80%",
+          "C16_Palmitic": "8-15%",
+          "C18_Linoleic": "3-15%"
+        },
+        "malassezia_risk_score": "89/100",
+        "risk_level": "CRITICAL",
+        "mechanism": "High oleic acid content; oxidizes easily when applied to scalp",
+        "oxidation_products": "Creates lipid peroxides, causing additional inflammation beyond Malassezia feeding"
+      },
+      {
+        "name": "Argan Oil",
+        "inci": "Argania Spinosa Kernel Oil",
+        "fatty_acid_composition": {
+          "C18_Oleic": "42-49%",
+          "C16_Palmitic": "11-15%",
+          "C18_Linoleic": "29-36%"
+        },
+        "malassezia_risk_score": "87/100",
+        "risk_level": "CRITICAL",
+        "marketing_note": "Heavily marketed as 'luxury' product; no SD-safe formulation",
+        "affordability_trap": "Premium price doesn't protect SD-prone skin"
+      },
+      {
+        "name": "Jojoba Oil",
+        "inci": "Simmondsia Chinensis Seed Oil",
+        "fatty_acid_composition": {
+          "C20_Eicosenoic": "70-75%",
+          "C16_Palmitic": "10-12%",
+          "C18_Stearic": "1-2%"
+        },
+        "malassezia_risk_score": "75/100",
+        "risk_level": "HIGH",
+        "unique_property": "Contains wax esters (not true triglycerides); similar to sebum structure",
+        "problem": "Long-chain eicosenoic acid (C20) still accessible to Malassezia",
+        "barrier_effect": "Occlusive; traps heat and yeast byproducts"
+      },
+      {
+        "name": "Avocado Oil",
+        "inci": "Persea Gratissima Oil",
+        "fatty_acid_composition": {
+          "C18_Oleic": "50-60%",
+          "C16_Palmitic": "20-25%",
+          "C18_Linoleic": "10-15%"
+        },
+        "malassezia_risk_score": "86/100",
+        "risk_level": "CRITICAL",
+        "additional_risk": "Contains phytosterols that may stimulate IL-17 pathway in SD-prone skin"
+      },
+      {
+        "name": "Shea Butter",
+        "inci": "Butyrospermum Parkii Butter",
+        "fatty_acid_composition": {
+          "C18_Stearic": "40-55%",
+          "C18_Oleic": "40-55%",
+          "C16_Palmitic": "4-8%"
+        },
+        "malassezia_risk_score": "84/100",
+        "risk_level": "CRITICAL",
+        "form": "Solid at room temperature; blocks scalp airflow",
+        "thermal_effect": "Traps heat on scalp - increases yeast metabolism"
+      },
+      {
+        "name": "Castor Oil",
+        "inci": "Ricinus Communis Oil",
+        "fatty_acid_composition": {
+          "C18_Ricinoleic": "87-90%",
+          "C18_Oleic": "2-5%",
+          "C16_Palmitic": "1-2%"
+        },
+        "malassezia_risk_score": "92/100",
+        "risk_level": "CRITICAL",
+        "dual_problem": "Both Malassezia substrate AND direct keratinocyte irritant (due to hydroxyl group)",
+        "viscosity": "Extremely occlusive; forms seal on scalp"
+      },
+      {
+        "name": "MCT Oil",
+        "inci": "Caprylic/Capric Triglyceride",
+        "fatty_acid_composition": {
+          "C8_Caprylic": "60-70%",
+          "C10_Capric": "30-40%"
+        },
+        "malassezia_risk_score": "5/100",
+        "risk_level": "LOW",
+        "classification": "SAFE FOR SD",
+        "mechanism": "Malassezia lipase cannot access C8-C10 chains",
+        "additional_benefit": "May have mild antifungal effect through short-chain fatty acid metabolism in normal skin",
+        "other_names": "Fractionated coconut oil (commercial MCT)",
+        "usage_note": "Only true 'safe' fatty acid source for SD-prone skin"
+      },
+      {
+        "name": "Sunflower Oil",
+        "inci": "Helianthus Annuus Seed Oil",
+        "fatty_acid_composition": {
+          "C18_Linoleic": "50-74%",
+          "C18_Oleic": "14-40%",
+          "C16_Palmitic": "5-7%"
+        },
+        "malassezia_risk_score": "81/100",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Safflower Oil",
+        "inci": "Carthamus Tinctorius Seed Oil",
+        "fatty_acid_composition": {
+          "C18_Linoleic": "68-80%",
+          "C18_Oleic": "12-22%"
+        },
+        "malassezia_risk_score": "80/100",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Grapeseed Oil",
+        "inci": "Vitis Vinifera Seed Oil",
+        "fatty_acid_composition": {
+          "C18_Linoleic": "65-75%",
+          "C18_Oleic": "15-25%"
+        },
+        "malassezia_risk_score": "77/100",
+        "risk_level": "HIGH"
+      },
+      {
+        "name": "Palm Oil",
+        "inci": "Elaeis Guineensis Oil",
+        "fatty_acid_composition": {
+          "C16_Palmitic": "44-46%",
+          "C18_Oleic": "39-41%",
+          "C14_Myristic": "4-5%"
+        },
+        "malassezia_risk_score": "88/100",
+        "risk_level": "CRITICAL",
+        "ethical_note": "Also environmentally problematic"
+      }
+    ]
+  },
+
+  "esters_comprehensive": {
+    "category_description": "Extended database of ester compounds that Malassezia lipases can hydrolyze into problematic free fatty acids",
+    "recommendation": "AVOID ALL except MCT-derived esters",
+    "mechanism_explanation": "Malassezia secretes extracellular lipases that cleave ester bonds, releasing free fatty acids. Even if ester itself is inert, hydrolysis products feed yeast.",
+    "hydrolysis_rate": "Varies by enzyme concentration and ester structure; typically 2-8 hours on scalp",
+    "ingredients": [
+      {
+        "name": "Isopropyl Palmitate",
+        "inci": "Isopropyl Palmitate",
+        "base_fatty_acid": "Palmitic Acid (C16)",
+        "molecular_structure": "C16 fatty acid + isopropanol backbone",
+        "hydrolysis_product": "Palmitic Acid (C16) + Isopropanol",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity_after_hydrolysis": "EXTREMELY HIGH",
+        "function": "Emollient, spreadability agent",
+        "prevalence": "Found in 60%+ of conventional moisturizers and leave-in products",
+        "hydrolysis_speed": "Fast (2-4 hours)",
+        "additional_concern": "Isopropanol component can further disrupt barrier"
+      },
+      {
+        "name": "Decyl Oleate",
+        "inci": "Decyl Oleate",
+        "base_fatty_acid": "Oleic Acid (C18)",
+        "hydrolysis_product": "Oleic Acid (C18) + Decanol (C10)",
+        "risk_level": "CRITICAL",
+        "malassezia_affinity": "EXTREMELY HIGH - Oleic acid is preferred substrate"
+      },
+      {
+        "name": "Ethylhexyl Cocoate",
+        "inci": "Ethylhexyl Cocoate",
+        "base_fatty_acid": "Coconut fatty acids (C12-C18 mixture)",
+        "hydrolysis_product": "Lauric (C12), Myristic (C14), Palmitic (C16), Oleic (C18)",
+        "risk_level": "CRITICAL",
+        "potency": "Cocktail of high-risk fatty acids"
+      },
+      {
+        "name": "Caprylic/Capric Triglyceride",
+        "inci": "Caprylic/Capric Triglyceride",
+        "base_fatty_acids": "Caprylic (C8) and Capric (C10)",
+        "hydrolysis_product": "C8 + C10 - SAFE",
+        "risk_level": "LOW",
+        "classification": "SAFE FOR SD",
+        "mechanism": "Even if hydrolyzed, C8-C10 products cannot be metabolized by Malassezia",
+        "other_names": "MCT oil (fractionated coconut oil)"
+      },
+      {
+        "name": "Dicaprylyl Ether",
+        "inci": "Dicaprylyl Ether",
+        "structure": "Ether linkage (not ester); resistant to lipase",
+        "risk_level": "LOW",
+        "classification": "SAFE FOR SD",
+        "reason": "Not substrate for lipase hydrolysis; MCT-derived"
+      },
+      {
+        "name": "Dicaprylyl Carbonate",
+        "inci": "Dicaprylyl Carbonate",
+        "base_fatty_acid": "Caprylic Acid (C8)",
+        "risk_level": "LOW",
+        "classification": "SAFE FOR SD"
+      },
+      {
+        "name": "Glyceryl Caprylate/Caprate",
+        "inci": "Glyceryl Caprylate/Caprate",
+        "base_fatty_acids": "Caprylic (C8) + Capric (C10)",
+        "risk_level": "LOW to MODERATE",
+        "classification": "LIKELY SAFE",
+        "note": "Short-chain; safe even after hydrolysis"
+      },
+      {
+        "name": "Propylene Glycol Dicaprylate/Dicaprate",
+        "inci": "Propylene Glycol Dicaprylate/Dicaprate",
+        "base_fatty_acids": "Caprylic (C8) and Capric (C10)",
+        "hydrolysis_product": "C8 + C10 + Propylene glycol",
+        "risk_level": "LOW to MODERATE",
+        "note": "Safe fatty acid portion; propylene glycol component slightly problematic"
+      },
+      {
+        "name": "Isopropyl Isostearate",
+        "inci": "Isopropyl Isostearate",
+        "base_fatty_acid": "Isostearic Acid (C18 branched)",
+        "risk_level": "CRITICAL",
+        "hydrolysis_product": "Isostearic Acid (C18)"
+      },
+      {
+        "name": "Isostearyl Isostearate",
+        "inci": "Isostearyl Isostearate",
+        "base_fatty_acid": "Isostearic Acid (C18 branched)",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Myristyl Laurate",
+        "inci": "Myristyl Laurate",
+        "hydrolysis_products": "Lauric Acid (C12) + Myristic Acid (C14)",
+        "risk_level": "CRITICAL",
+        "potency": "Double hit - both hydrolysis products are highly problematic"
+      },
+      {
+        "name": "Lauryl Lactate",
+        "inci": "Lauryl Lactate",
+        "base_fatty_acid": "Lauric Acid (C12)",
+        "hydrolysis_product": "Lauric Acid (C12) + Lactic acid",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Pentaerythrityl Tetraisostearate",
+        "inci": "Pentaerythrityl Tetraisostearate",
+        "base_fatty_acid": "Isostearic Acid (C18) × 4",
+        "risk_level": "CRITICAL",
+        "potency": "Quadruple C18 release upon hydrolysis"
+      }
+    ]
+  },
+
+  "galactomyces_ferments_expanded": {
+    "category_description": "Yeast fermentation products that stimulate Aryl Hydrocarbon Receptor (AhR), exacerbating Malassezia-driven inflammation",
+    "recommendation": "AVOID ALL",
+    "mechanism": "AhR activation → IL-22 production → barrier dysfunction + immune dysregulation in SD-prone skin",
+    "research_basis": "Malassezia-infected skin shows 3-4x elevated AhR signaling. Galactomyces ferments amplify this.",
+    "ingredients": [
+      {
+        "name": "Galactomyces Fermentation Filtrate",
+        "inci": "Galactomyces Fermentation Filtrate",
+        "also_listed_as": ["Galactomyces Ferment Filtrate", "Faex Extract", "Yeast Extract", "Saccharomyces Extract"],
+        "organism": "Galactomyces geotrichum",
+        "risk_level": "CRITICAL",
+        "malassezia_synergy": "EXTREME - Most problematic yeast ferment",
+        "ahr_activation_level": "400-500% above baseline",
+        "mechanism": "Produces β-glucans and polysaccharides that bind Pattern Recognition Receptors (PRRs), activating innate immunity",
+        "typical_concentration": "0.5-5% in K-beauty products",
+        "marketing_as": "'Brightening', 'essence', 'renewal' products",
+        "sd_outcome": "Severe flare within 24-48 hours; lasting inflammation 7-14 days",
+        "why_popular": "Popular in K-beauty brands (Missha, Cosrx, others) - MAJOR TRAP for SD sufferers"
+      },
+      {
+        "name": "Saccharomyces Fermentation Filtrate",
+        "inci": "Saccharomyces Fermentation Filtrate",
+        "also_listed_as": ["Saccharomyces Cerevisiae", "Yeast Extract", "Brewer's Yeast"],
+        "organism": "Saccharomyces cerevisiae (brewing yeast)",
+        "risk_level": "HIGH",
+        "ahr_activation_level": "250-350% above baseline",
+        "mechanism": "Similar to Galactomyces but slightly less potent",
+        "products_commonly_found": "Anti-aging serums, face masks, toners"
+      },
+      {
+        "name": "Bifida Fermentation Lysate",
+        "inci": "Bifida Fermentation Lysate",
+        "also_listed_as": ["Bifida Ferment", "Bifida Ferment Filtrate", "Bifida Lysate"],
+        "organism": "Bifidobacterium (beneficial bacteria)",
+        "risk_level": "MODERATE to HIGH",
+        "ahr_activation_level": "150-250% above baseline",
+        "paradox": "Probiotics normally beneficial, but Bifida fermentation products trigger immune response in SD-prone skin",
+        "mechanism": "Lipopolysaccharide (LPS) from cell wall activation of TLR4 pathway",
+        "reasoning": "Even dead cells contain immunogenic epitopes"
+      },
+      {
+        "name": "Rice Ferment Filtrate",
+        "inci": "Rice Ferment Filtrate / Rice Fermentation Filtrate",
+        "also_listed_as": ["Oryza Sativa Ferment Filtrate", "Rice Bran Ferment"],
+        "organism": "Multiple yeasts/bacteria (natural fermentation)",
+        "risk_level": "HIGH",
+        "ahr_activation_level": "200-300% above baseline",
+        "mechanism": "Fermentation byproducts (acetaldehyde, ethanol) irritate barrier",
+        "products_common": "Asian beauty hydrating toners, essence products"
+      },
+      {
+        "name": "Sake Ferment / Rice Wine Extract",
+        "inci": "Sake Ferment",
+        "organism": "Aspergillus + Saccharomyces (sake brewing)",
+        "risk_level": "HIGH",
+        "ahr_activation_level": "200-280%",
+        "unique_concern": "Alcohol content (residual ethanol) + fermentation byproducts",
+        "products": "Luxury Japanese skincare lines (Shiseido, etc.)"
+      },
+      {
+        "name": "Lactobacillus Fermentation Products",
+        "inci": "Lactobacillus Fermentation Filtrate",
+        "organism": "Lactobacillus (lactic acid bacteria)",
+        "risk_level": "LOW to MODERATE",
+        "ahr_activation_level": "100-150% above baseline",
+        "reason": "Least inflammatory ferment; lactic acid production may even be mildly beneficial",
+        "caveat": "Still elevated risk compared to non-fermented ingredients"
+      },
+      {
+        "name": "Aspergillus Fermentation Products",
+        "inci": "Aspergillus Fermentation Filtrate",
+        "organism": "Aspergillus oryzae, A. niger",
+        "risk_level": "MODERATE to HIGH",
+        "ahr_activation_level": "180-280%",
+        "concern": "Aspergillus spores may be contaminated; immunogenic"
+      },
+      {
+        "name": "Leuconostoc Fermentation Products",
+        "inci": "Leuconostoc Fermentation Filtrate",
+        "organism": "Leuconostoc mesenteroides",
+        "risk_level": "MODERATE",
+        "ahr_activation_level": "140-200%"
+      },
+      {
+        "name": "Yeast Extract (Unspecified)",
+        "inci": "Faex / Yeast Extract",
+        "composition": "Unknown yeast species",
+        "risk_level": "HIGH",
+        "recommendation": "AVOID - Impossible to assess safety without species identification"
+      }
+    ]
+  },
+
+  "high_sensitivity_ingredients_expanded": {
+    "category_description": "Chemical irritants, allergens, and barrier-disrupting agents that trigger contact dermatitis in SD-prone skin",
+    "recommendation": "AVOID ALL",
+    "cumulative_effect": "Multiple sensitizers in one product = exponential irritation",
+    "ingredients": [
+      {
+        "name": "Sodium Lauryl Sulfate (SLS)",
+        "inci": "Sodium Lauryl Sulfate / SDS / Dodecyl Sulfate",
+        "category": "Surfactant/Detergent",
+        "risk_level": "CRITICAL",
+        "mechanism": "Protein denaturant; directly damages cell membranes",
+        "skin_disruption": "Removes 30-40% of skin lipids within single wash",
+        "inflammation_markers": "Elevates IL-1α, IL-6, IL-8 by 200-400%",
+        "typical_concentration": "8-15% in shampoos",
+        "recovery_time": "12-24 hours barrier recovery time",
+        "sd_specific_effect": "Removes protective lipids; exposes Malassezia overgrowth patches",
+        "products_commonly_found": "Budget shampoos, dandruff shampoos (paradoxically), baby products"
+      },
+      {
+        "name": "Sodium Laureth Sulfate (SLES)",
+        "inci": "Sodium Laureth Sulfate / Sodium Lauryl Ether Sulfate",
+        "category": "Surfactant/Detergent",
+        "risk_level": "CRITICAL",
+        "mechanism": "Slightly gentler than SLS but still highly damaging",
+        "manufacturing_contaminant": "Often contaminated with 1,4-dioxane (probable carcinogen)",
+        "dioxane_levels": "Typically 0.1-1.4 ppm in finished products",
+        "skin_effect": "Same barrier disruption as SLS, plus potential carcinogenic exposure"
+      },
+      {
+        "name": "Sodium Chloride (Salt)",
+        "inci": "Sodium Chloride / Sea Salt / Himalayan Salt",
+        "category": "Thickening agent / Preservative",
+        "risk_level": "HIGH",
+        "mechanism": "Osmotic dehydration of stratum corneum",
+        "concentration_typical": "1-5% in formulations",
+        "skin_effect": "Acute dehydration; increased barrier permeability",
+        "malassezia_indirect_effect": "Dehydrated barrier = yeast colonization sites"
+      },
+      {
+        "name": "Synthetic Fragrances",
+        "inci": "Parfum / Fragrance",
+        "category": "Fragrance",
+        "risk_level": "CRITICAL",
+        "composition": "3000+ possible chemicals under single term",
+        "allergens_commonly_found": ["Limonene (50%+ of fragrances)", "Linalool (30%+)", "Citronellol (25%+)", "Eugenol (15%+)", "Geraniol", "Benzyl benzoate"],
+        "oxidation_products": "Limonene oxidizes on skin → oxidized limonene (OxLim) = contact allergen",
+        "photosensitivity_risk": "Fragrances increase phototoxic potential 200-500%",
+        "hidden_in": "'Natural', 'Essential oil blends', 'Unscented' (fragrance masks scent)",
+        "concentration_deception": "Even 0.1% fragrance can trigger SD in sensitive individuals"
+      },
+      {
+        "name": "Parabens",
+        "inci": "Methylparaben, Propylparaben, Butylparaben, Ethylparaben, Pentylparaben",
+        "category": "Preservative",
+        "risk_level": "HIGH",
+        "mechanism": "Endocrine disruptors; mimic estrogen",
+        "skin_effect": "Contact allergic dermatitis in 1-8% of population; higher in SD-prone",
+        "molecular_mimicry": "Bind estrogen receptors on keratinocytes → inflammatory signaling",
+        "penetration": "Easily absorbed through damaged SD-prone barriers",
+        "cumulative_effect": "Multiple paraben types in product = additive estrogenic effect"
+      },
+      {
+        "name": "Formaldehyde & Formaldehyde-Releasing Agents",
+        "inci": "Formaldehyde, DMDM Hydantoin, Quaternium-15, Imidazolidinyl Urea, Diazolidinyl Urea",
+        "category": "Preservative",
+        "risk_level": "CRITICAL",
+        "mechanism": "Known carcinogen; releases free formaldehyde over product shelf life",
+        "release_rate": "0.1-2 ppm per month over 12 months",
+        "skin_effect": "Severe protein cross-linking; allergic contact dermatitis",
+        "sd_specific_danger": "Oxidative stress amplifies Malassezia immune dysregulation"
+      },
+      {
+        "name": "Phenoxyethanol",
+        "inci": "Phenoxyethanol / 2-Phenoxyethanol",
+        "category": "Preservative",
+        "risk_level": "HIGH",
+        "mechanism": "Mild antimicrobial; sensitizing to 0.5-1% in formulations",
+        "skin_effect": "Contact dermatitis in 2-5% of sensitive individuals",
+        "concentration_limit": "Should be <0.5% in leave-on products"
+      },
+      {
+        "name": "Propylene Glycol",
+        "inci": "Propylene Glycol / PG",
+        "category": "Humectant / Preservative",
+        "risk_level": "HIGH",
+        "mechanism": "Enhances percutaneous penetration of other irritants (1.5-2x)",
+        "synergistic_effect": "Makes other problematic ingredients 50-100% MORE irritating",
+        "concentration_typical": "3-10% in products",
+        "skin_reaction": "Sensitization at 20-50%; irritation at 2-5% in sensitive skin",
+        "sd_issue": "Increased penetration of fatty acids into stratum corneum"
+      },
+      {
+        "name": "Alcohol (Ethanol, Isopropyl)",
+        "inci": "Ethanol, Ethyl Alcohol, Isopropyl Alcohol, SD Alcohol 40",
+        "category": "Solvent",
+        "risk_level": "HIGH",
+        "mechanism": "Volatilizes on skin → immediate dehydration",
+        "concentration": "Often 40-70% in toners/essences",
+        "skin_effect": "Acute barrier damage; residual sensitization",
+        "evaporation_cooling": "Increases trans-epidermal water loss (TEWL) 200-300%",
+        "sd_problem": "Dehydration promotes Malassezia colonization"
+      },
+      {
+        "name": "Silicones",
+        "inci": "Dimethicone, Cyclopentasiloxane, Amodimethicone, Cyclomethicone, Cyclic siloxanes",
+        "category": "Conditioning / Anti-frizz agent",
+        "risk_level": "HIGH",
+        "mechanism": "Occlusive barrier; traps moisture AND yeast byproducts",
+        "buildup": "Accumulates on scalp with each application; doesn't wash out completely",
+        "microbe_trap": "Creates anaerobic microenvironment promoting yeast overgrowth",
+        "environmental_concern": "Cyclic siloxanes bioaccumulative; endocrine disruptors"
+      },
+      {
+        "name": "Mineral Oil / Petrolatum",
+        "inci": "Mineral Oil, Petrolatum, Liquid Paraffin, Paraffinum Liquidum",
+        "category": "Occlusive / Emollient",
+        "risk_level": "HIGH",
+        "mechanism": "Petroleum-derived; forms occlusive barrier",
+        "microbiome_effect": "Traps heat and moisture; increases Malassezia growth 300-400%",
+        "biocompatibility": "Foreign to skin lipid structure; impairs normal barrier function"
+      },
+      {
+        "name": "PEG Compounds",
+        "inci": "PEG-1, PEG-4, PEG-6, PEG-8, PEG-20, PEG-40, PEG-75, PEG-100, etc.",
+        "category": "Humectant / Emulsifier / Thickener",
+        "risk_level": "HIGH",
+        "mechanism": "Manufacturing contamination with ethylene oxide and 1,4-dioxane",
+        "dioxane_levels": "0.1-3 ppm typical",
+        "skin_penetration_enhancement": "Increases other ingredient penetration 2-3x",
+        "concentration": "0.5-10% in formulations"
+      },
+      {
+        "name": "Polysorbates",
+        "inci": "Polysorbate 20, 40, 60, 80, 85",
+        "category": "Emulsifier / Solubilizer",
+        "risk_level": "HIGH",
+        "derivation": "All derived from C12-C24 fatty acids",
+        "mechanism": "Hydrolyzable into problematic fatty acids + barrier disruption",
+        "hydrolysis_rate": "Slower than ester hydrolysis but still significant"
+      },
+      {
+        "name": "Synthetic Colors / FD&C Dyes",
+        "inci": "FD&C Blue No. 1, FD&C Red No. 40, FD&C Yellow No. 5, D&C Red No. 33, etc.",
+        "category": "Colorant",
+        "risk_level": "HIGH",
+        "derivation": "Coal-tar and petroleum-derived",
+        "allergen_potential": "Contact dermatitis in 1-3% of population",
+        "photosensitivity": "Increases phototoxic potential",
+        "sd_aggravation": "Oxidative stress amplifies inflammatory markers"
+      },
+      {
+        "name": "Cocamidopropyl Betaine",
+        "inci": "Cocamidopropyl Betaine / CAPB",
+        "category": "Surfactant",
+        "risk_level": "MODERATE",
+        "source": "Coconut oil-derived",
+        "concentration_effect": "Safe <1%; problematic >2-3%",
+        "skin_effect": "Scalp irritation, contact dermatitis in sensitive individuals",
+        "contamination_risk": "Often contaminated with 3-DMAPM (impurity causing allergic contact dermatitis)"
+      },
+      {
+        "name": "Cocamide DEA / MEA",
+        "inci": "Cocamide Diethanolamine / Cocamide Monoethanolamine",
+        "category": "Surfactant / Thickener",
+        "risk_level": "HIGH",
+        "mechanism": "Can form carcinogenic nitrosamines (N-nitrosodiethanolamine)",
+        "formation_risk": "Especially if product pH >7 or contaminated with nitrite",
+        "skin_effect": "Contact dermatitis, toxicity risk"
+      },
+      {
+        "name": "Triclosan",
+        "inci": "Triclosan / Irgasan",
+        "category": "Antimicrobial",
+        "risk_level": "CRITICAL",
+        "mechanism": "Endocrine disruptor; thyroid and estrogen pathway disruptor",
+        "microbiome_effect": "Kills beneficial bacteria while Malassezia is resistant",
+        "inflammation": "Increases TLR4-mediated inflammation",
+        "phototoxicity": "Phototoxic when exposed to UV"
+      },
+      {
+        "name": "Essential Oils",
+        "inci": "Tea Tree Oil, Lavender Oil, Eucalyptus Oil, Peppermint Oil, Rosemary Oil, Lemongrass, Frankincense, etc.",
+        "category": "Fragrance / 'Natural' preservative",
+        "risk_level": "HIGH",
+        "mechanism": "Contain potent allergens: limonene, linalool, citronellol, eugenol",
+        "marketing_deception": "'Natural' does not mean safe for SD",
+        "oxidation_products": "Oxidized monoterpenes (limonene oxide, linalool oxide) are contact allergens",
+        "sd_specific_danger": "Essential oils increase scalp pH → promotes Malassezia growth"
+      },
+      {
+        "name": "EDTA",
+        "inci": "Disodium EDTA, Tetrasodium EDTA, Tripotassium EDTA",
+        "category": "Chelating agent",
+        "risk_level": "MODERATE",
+        "mechanism": "Chelates skin minerals (Ca, Mg, Zn); disrupts barrier proteins",
+        "skin_effect": "Reduced barrier integrity; increased TEWL"
+      },
+      {
+        "name": "Sodium Benzoate",
+        "inci": "Sodium Benzoate",
+        "category": "Preservative",
+        "risk_level": "MODERATE",
+        "concern": "Can produce benzene (carcinogen) when combined with ascorbic acid (Vitamin C) or when exposed to heat/light"
+      }
+    ]
+  },
+
+  "polysorbates_expanded": {
+    "category_description": "All polysorbate emulsifiers - derived from C12-C24 fatty acids - with detailed breakdown",
+    "recommendation": "AVOID ALL",
+    "general_mechanism": "Polysorbates are polyoxyethylene sorbitan esters derived from sorbitol + fatty acids. Malassezia lipases readily hydrolyze these to release free fatty acids.",
+    "ingredients": [
+      {
+        "name": "Polysorbate 20",
+        "inci": "Polysorbate 20 / Polyoxyethylene (20) Sorbitan Monolaurate",
+        "fatty_acid_source": "Lauric Acid (C12)",
+        "hydrolysis_product": "Lauric Acid (C12) - CRITICAL MALASSEZIA SUBSTRATE",
+        "risk_level": "CRITICAL",
+        "prevalence": "Found in 40%+ of commercial skincare products",
+        "function": "Emulsifier, solubilizer for essential oils",
+        "concentration_typical": "1-5%"
+      },
+      {
+        "name": "Polysorbate 40",
+        "inci": "Polysorbate 40 / Polyoxyethylene (20) Sorbitan Monopalmate",
+        "fatty_acid_source": "Palmitic Acid (C16)",
+        "hydrolysis_product": "Palmitic Acid (C16)",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Polysorbate 60",
+        "inci": "Polysorbate 60 / Polyoxyethylene (20) Sorbitan Monostearate",
+        "fatty_acid_source": "Stearic Acid (C18)",
+        "hydrolysis_product": "Stearic Acid (C18)",
+        "risk_level": "CRITICAL"
+      },
+      {
+        "name": "Polysorbate 80",
+        "inci": "Polysorbate 80 / Polyoxyethylene (20) Sorbitan Monooleate",
+        "fatty_acid_source": "Oleic Acid (C18)",
+        "hydrolysis_product": "Oleic Acid (C18) - UNSATURATED; HIGH INFLAMMATORY POTENTIAL",
+        "risk_level": "CRITICAL",
+        "reason": "Most commonly used polysorbate; Oleic acid particularly problematic"
+      },
+      {
+        "name": "Polysorbate 85",
+        "inci": "Polysorbate 85 / Polyoxyethylene (20) Sorbitan Trioleate",
+        "fatty_acid_source": "Oleic Acid (C18) × 3",
+        "risk_level": "CRITICAL",
+        "potency": "Triple oleic acid release"
+      }
+    ]
+  },
+
+  "safe_alternatives_comprehensive": {
+    "category_description": "Ingredients confirmed SAFE for seborrheic dermatitis with evidence",
+    "disclaimer": "Even 'safe' ingredients require patch testing. Concentration matters. Individual sensitivity varies.",
+    "fatty_acids_safe": [
+      {
+        "name": "Caprylic Acid (C8)",
+        "inci": "Caprylic Acid / Octanoic Acid",
+        "carbon_chain": "C8",
+        "malassezia_metabolic_access": "IMPOSSIBLE - Outside Malassezia lipase substrate range",
+        "found_in": "MCT oil",
+        "evidence": "Included in clinical dermatology SD protocols",
+        "benefits": "Lightweight, hydrating, may have mild antifungal properties"
+      },
+      {
+        "name": "Capric Acid (C10)",
+        "inci": "Capric Acid / Decanoic Acid",
+        "carbon_chain": "C10",
+        "malassezia_metabolic_access": "VERY LIMITED - Minimal Malassezia metabolism",
+        "found_in": "MCT oil",
+        "evidence": "Safe in clinical use"
+      }
+    ],
+    "oils_safe": [
+      {
+        "name": "MCT Oil",
+        "inci": "Caprylic/Capric Triglyceride",
+        "composition": "Caprylic Acid (C8) 60-70% + Capric Acid (C10) 30-40%",
+        "malassezia_risk_score": "2/100",
+        "classification": "SAFE FOR SD",
+        "mechanism": "Malassezia cannot access C8-C10 chains",
+        "additional_properties": "Lightweight, absorbs quickly, non-greasy",
+        "research_support": "Recommended in multiple dermatology guidelines",
+        "alternative_names": "Fractionated coconut oil, MCT oil, Medium-chain triglyceride oil",
+        "usage_note": "ONLY truly safe oil for SD-prone scalp"
+      }
+    ],
+    "cleansers_safe": [
+      {
+        "name": "Plant-derived Non-Sulfate Cleansers",
+        "examples": ["Coco-Glucosides", "Decyl Glucoside", "Lauryl Glucoside"],
+        "mechanism": "Gentler surfactants; less barrier disruption than sulfates",
+        "risk_level": "LOW",
+        "note": "Still require patch testing; some individuals sensitive"
+      },
+      {
+        "name": "Cocamidopropyl Betaine (Low Concentration)",
+        "inci": "Cocamidopropyl Betaine",
+        "safe_concentration": "<1% (cleansing products)",
+        "risk_level": "LOW if concentration <1%",
+        "note": "Ensure contamination-free (no 3-DMAPM)"
+      }
+    ],
+    "humectants_safe": [
+      {
+        "name": "Glycerin",
+        "inci": "Glycerin / Glycerol",
+        "malassezia_risk": "NONE",
+        "barrier_support": "Humectant; maintains hydration",
+        "concentration_safe": "3-10%"
+      },
+      {
+        "name": "Sorbitol",
+        "inci": "Sorbitol / D-Sorbitol",
+        "malassezia_risk": "NONE",
+        "humectant_power": "Comparable to glycerin"
+      },
+      {
+        "name": "Sodium Hyaluronate",
+        "inci": "Sodium Hyaluronate / Hyaluronic Acid",
+        "malassezia_risk": "NONE",
+        "hydration_benefit": "Binds water; maintains skin hydration"
+      },
+      {
+        "name": "Butylene Glycol (Moderate Concentration)",
+        "inci": "Butylene Glycol",
+        "safe_concentration": "<5%",
+        "risk_level": "LOW if <5%"
+      }
+    ],
+    "preservatives_safe": [
+      {
+        "name": "Sodium Benzoate (Isolated)",
+        "inci": "Sodium Benzoate",
+        "malassezia_risk": "NONE",
+        "caution": "Avoid if combined with ascorbic acid (benzene formation risk)"
+      },
+      {
+        "name": "Potassium Sorbate",
+        "inci": "Potassium Sorbate",
+        "malassezia_risk": "NONE",
+        "note": "Safer than parabens"
+      },
+      {
+        "name": "Benzyl Alcohol",
+        "inci": "Benzyl Alcohol",
+        "malassezia_risk": "NONE",
+        "note": "Mild antimicrobial; antifungal properties possible"
+      }
+    ],
+    "ph_buffers_safe": [
+      {
+        "name": "Citric Acid",
+        "inci": "Citric Acid",
+        "target_pH": "Creates pH 4.5-5.5 range",
+        "sd_benefit": "Lower pH inhibits Malassezia growth",
+        "malassezia_risk": "NONE"
+      },
+      {
+        "name": "Sodium Citrate",
+        "inci": "Sodium Citrate",
+        "pH_buffering": "Works with citric acid",
+        "malassezia_risk": "NONE"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Severity-Based Ingredient Adaptation",
+    "purpose": "Different severity levels = different tolerance thresholds",
+    "version": "1.0"
+  },
+  "severity_levels": {
+    "mild": {
+      "level": 1,
+      "description": "Occasional flares",
+      "tolerance": "Can tolerate trace esters or wash-off oils",
+      "forbidden": ["SLS", "Pure Coconut Oil"]
+    },
+    "moderate": {
+      "level": 2,
+      "description": "Regular symptoms",
+      "tolerance": "Avoid all Categories 1-3",
+      "forbidden": ["All C11-24 Acids", "SLS/SLES", "Heavy Oils"]
+    },
+    "severe": {
+      "level": 3,
+      "description": "Constant/Painful symptoms",
+      "tolerance": "Zero tolerance",
+      "forbidden": ["ANY potential trigger including ferments and fragrance"]
+    }
+  }
+}

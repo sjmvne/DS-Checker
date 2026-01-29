@@ -1,0 +1,46 @@
+:root {
+  /* Colors */
+  --color-primary: #8b5cf6;
+  --color-primary-dark: #7c3aed;
+  
+  --color-bg: #f8f7ff;
+  --color-surface: rgba(255, 255, 255, 0.7);
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: rgba(139, 92, 246, 0.1);
+  
+  /* Status */
+  --color-success: #10b981;  /* Safe */
+  --color-caution: #facc15;  /* Low/Medium risk (Yellow) - Ferments */
+  --color-warning: #f97316;  /* Medium/High risk (Orange) - Esters */
+  --color-danger: #ef4444;   /* High risk (Red) - Lipids/Fatty Acids */
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+  --spacing-40: 40px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family: 'Outfit', -apple-system, sans-serif;
+  
+  /* Transitions */
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #0f0f1e;
+  --color-surface: rgba(30, 30, 50, 0.7);
+  --color-text: #f3f4f6;
+  --color-text-muted: #9ca3af;
+  --color-border: rgba(139, 92, 246, 0.2);
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "Safe Ingredient Alternatives for Seborrheic Dermatitis",
+    "version": "1.0",
+    "purpose": "Replace harmful categories with SD-safe alternatives"
+  },
+  "safe_alternatives": {
+    "for_fatty_acids": {
+      "harmful_category": "C12-C24 fatty acids (Malassezia substrate)",
+      "safe_replacement": "MCT Oil (C8-C10 only)",
+      "alternative_1": {
+        "name": "Caprylic/Capric Triglyceride",
+        "inci": "Caprylic/Capric Triglyceride",
+        "source": "Fractionated coconut oil",
+        "risk_level": "LOW",
+        "benefits": "Lightweight, absorbs quickly, safe"
+      }
+    },
+    "for_occlusive_moisturizers": {
+      "harmful_category": "Shea butter, argan oil, heavy oils",
+      "safe_replacement": "Water-based hydration + mineral-based sealing",
+      "alternative_1": {
+        "name": "Glycerin",
+        "inci": "Glycerin",
+        "concentration_sd_safe": "3-5%",
+        "mechanism": "Hygroscopic humectant"
+      },
+      "alternative_2": {
+        "name": "Hyaluronic Acid",
+        "inci": "Sodium Hyaluronate",
+        "concentration": "0.5-2%",
+        "mechanism": "Holds 1000x weight in water"
+      },
+      "alternative_3": {
+        "name": "Squalane",
+        "inci": "Squalane",
+        "source": "Sugar cane or Olive",
+        "risk_level": "SAFE",
+        "mechanism": "Biocompatible hydrocarbon"
+      }
+    },
+    "for_surfactants": {
+      "harmful_category": "SLS, SLES, strong anionic sulfates",
+      "safe_replacement": "Amino acid-based gentle cleansers",
+      "alternative_1": {
+        "name": "Sodium Cocoyl Isethionate",
+        "inci": "Sodium Cocoyl Isethionate",
+        "risk_level": "LOW",
+        "mechanism": "Mild surfactant"
+      },
+      "alternative_2": {
+        "name": "Cocamidopropyl Betaine",
+        "inci": "Cocamidopropyl Betaine",
+        "risk_level": "LOW",
+        "mechanism": "Gentle amphoteric"
+      },
+      "alternative_3": {
+        "name": "Decyl Glucoside",
+        "inci": "Decyl Glucoside",
+        "risk_level": "LOW",
+        "mechanism": "Non-ionic gentle"
+      }
+    },
+    "for_actives": {
+      "harmful_category": "Tea tree oil, strong botanicals",
+      "safe_replacement": "Proven antifungal actives",
+      "alternative_1": {
+        "name": "Zinc Pyrithione",
+        "inci": "Zinc Pyrithione",
+        "risk_level": "SAFE_ACTIVE",
+        "mechanism": "Inhibits Malassezia"
+      },
+      "alternative_2": {
+        "name": "Ketoconazole",
+        "inci": "Ketoconazole",
+        "risk_level": "SAFE_ACTIVE",
+        "mechanism": "Medical antifungal"
+      },
+      "alternative_3": {
+        "name": "Salicylic Acid",
+        "inci": "Salicylic Acid",
+        "risk_level": "SAFE_ACTIVE",
+        "mechanism": "Exfoliant / Keratolytic"
+      },
+      "alternative_4": {
+        "name": "Piroctone Olamine",
+        "inci": "Piroctone Olamine",
+        "risk_level": "SAFE_ACTIVE",
+        "mechanism": "Antifungal"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "title": "Ingredient Synergy & Interaction Matrix",
+    "purpose": "Calculate composite risk when multiple problematic ingredients present",
+    "version": "1.0"
+  },
+  "synergy_rules": [
+    {
+      "id": "rule_barrier_yeast_food",
+      "description": "Barrier-damaging surfactant + yeast-feeding fatty acid",
+      "triggers": { "category_1": "surfactants_detergents", "category_2": "lipids" },
+      "multiplier": 1.5,
+      "warning": "CRITICAL COMBINATION: Surfactant breaks barrier, allowing oil to feed yeast deeper."
+    },
+    {
+      "id": "rule_occlusion_yeast_food",
+      "description": "Occlusive polymer + yeast-feeding fatty acid",
+      "triggers": { "category_1": "silicones_film_formers", "category_2": "lipids" },
+      "multiplier": 1.3,
+      "warning": "HIGH RISK: Silicone traps oil and heat, creating incubator for fungus."
+    },
+    {
+      "id": "rule_immune_barrier",
+      "description": "Immune trigger + Barrier damage",
+      "triggers": { "category_1": "botanical_extracts_problematic", "category_2": "surfactants_detergents" },
+      "multiplier": 1.4,
+      "warning": "Irritant penetration increased by stripped barrier."
+    }
+  ]
+}

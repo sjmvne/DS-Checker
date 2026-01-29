@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Fast Lookup: Harmful Ingredients Index",
+    "purpose": "Quick ingredient search for app users",
+    "version": "1.0"
+  },
+  "index_by_inci": {
+    "Cocos Nucifera Oil": {
+      "common_name": "Coconut Oil",
+      "risk_level": "CRITICAL",
+      "risk_score": 98,
+      "reason_short": "Contains 47% Lauric Acid - primary Malassezia food",
+      "safe_alternative": "MCT Oil"
+    },
+    "Olea Europaea Fruit Oil": {
+      "common_name": "Olive Oil",
+      "risk_level": "CRITICAL",
+      "risk_score": 90,
+      "reason_short": "Contains Oleic Acid (C18) - feeds yeast",
+      "safe_alternative": "Squalane"
+    },
+    "Sodium Lauryl Sulfate": {
+      "common_name": "SLS",
+      "risk_level": "CRITICAL",
+      "risk_score": 95,
+      "reason_short": "Destroys skin barrier, enabling infection",
+      "safe_alternative": "Sodium Cocoyl Isethionate"
+    },
+    "Sodium Laureth Sulfate": {
+      "common_name": "SLES",
+      "risk_level": "CRITICAL",
+      "risk_score": 85,
+      "reason_short": "Barrier damage + ethoxylated residue",
+      "safe_alternative": "Cocamidopropyl Betaine"
+    },
+    "Polysorbate 20": {
+      "common_name": "Polysorbate 20",
+      "risk_level": "WARNING",
+      "risk_score": 60,
+      "reason_short": "Fatty acid ester, can feed yeast",
+      "safe_alternative": "Peg-free solubilizers"
+    },
+    "Glyceryl Oleate": {
+      "common_name": "Glyceryl Oleate",
+      "risk_level": "WARNING",
+      "risk_score": 65,
+      "reason_short": "Ester of Oleic Acid",
+      "safe_alternative": "Caprylic/Capric Triglyceride"
+    },
+    "Galactomyces Ferment Filtrate": {
+      "common_name": "Galactomyces",
+      "risk_level": "CAUTION",
+      "risk_score": 40,
+      "reason_short": "Ferment byproduct, sensitivity risk",
+      "safe_alternative": "Niacinamide"
+    },
+    "Dimethicone": {
+      "common_name": "Dimethicone",
+      "risk_level": "HIGH",
+      "risk_score": 75,
+      "reason_short": "Occlusive, traps heat/sweat on scalp",
+      "safe_alternative": "Hemisqualane"
+    },
+    "Butyrospermum Parkii Butter": {
+      "common_name": "Shea Butter",
+      "risk_level": "CRITICAL",
+      "risk_score": 88,
+      "reason_short": "Rich in Stearic/Oleic acids",
+      "safe_alternative": "Mango Butter (refined) or Squalane"
+    },
+    "Isopropyl Myristate": {
+      "common_name": "Isopropyl Myristate",
+      "risk_level": "WARNING",
+      "risk_score": 70,
+      "reason_short": "Ester of Myristic Acid (C14)",
+      "safe_alternative": "Squalane"
+    }
+  }
+}

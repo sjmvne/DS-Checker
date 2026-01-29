@@ -1,0 +1,56 @@
+.card {
+  padding: var(--spacing-24, 24px);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  background: var(--color-primary-soft, rgba(139, 92, 246, 0.1));
+  padding: var(--spacing-8);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.card-body {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* @resp 768px */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--spacing-16);
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* @dark support via global [data-theme="dark"] and variables.css */
+[data-theme="dark"] .card-icon {
+  background: rgba(139, 92, 246, 0.2);
+}

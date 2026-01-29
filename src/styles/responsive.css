@@ -1,0 +1,7 @@
+/* Global Responsive Utilities can go here if extra needed */
+@media (max-width: 768px) {
+  :root {
+    --spacing-30: 20px;
+    --spacing-40: 24px;
+  }
+}

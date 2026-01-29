@@ -1,0 +1,151 @@
+import React, { useState } from 'react';
+import Card from './Card';
+import IngredientModal from './IngredientModal';
+import { titleCase } from '../utils/formatters';
+import './Results.css';
+
+const Results = ({ data }) => {
+  const { productName, date, analysis, score, totalIngredients } = data;
+  const [selectedIngredient, setSelectedIngredient] = useState(null);
+  const [showAllIngredients, setShowAllIngredients] = useState(false);
+  
+  // Badge color based on score
+  const getScoreColor = (s) => {
+    if (s >= 80) return 'var(--color-success)';
+    if (s >= 50) return 'var(--color-warning)';
+    return 'var(--color-danger)';
+  };
+
+  const getScoreLabel = (s) => {
+    if (s >= 80) return 'Prodotto Sicuro';
+    if (s >= 50) return 'Usa con Prudenza';
+    return 'Non Sicuro';
+  };
+
+  const scoreColor = getScoreColor(score);
+
+  const circleStyle = {
+    background: `conic-gradient(${scoreColor} ${score}%, transparent 0)`,
+    borderColor: 'transparent',
+    color: scoreColor
+  };
+
+  // Helper component for list item
+  const IngredientRow = ({ item, status }) => (
+    <div 
+      className={`ingredient-row row-${status}`} 
+      onClick={() => setSelectedIngredient(item)}
+      role="button"
+      tabIndex={0}
+    >
+      <div className="row-content">
+        <span className="row-name">{titleCase(item.name)}</span>
+        {item.category && <span className="row-category">{item.category}</span>}
+      </div>
+      <div className="row-badge">
+        <span className={`status-pill pill-${status}`}>
+          {status === 'danger' && 'ALTO RISCHIO'}
+          {status === 'warning' && 'MEDIO'}
+          {status === 'caution' && 'BASSO RISCHIO'}
+          {status === 'safe' && 'SICURO'}
+          {status === 'unknown' && 'SCONOSCIUTO'}
+        </span>
+        <span className="info-icon">ℹ️</span>
+      </div>
+    </div>
+  );
+
+  const hasIssues = analysis.danger.length > 0 || (analysis.warning && analysis.warning.length > 0) || analysis.caution.length > 0;
+
+  // Flatten all for "Show All" view
+  const allIngredientsList = [
+    ...analysis.danger,
+    ...(analysis.warning || []),
+    ...analysis.caution,
+    ...analysis.safe,
+    ...analysis.unknown
+  ];
+
+  return (
+    <div className="results-container">
+      {/* Header Card */}
+      <Card className="results-header-card">
+        <div className="results-header-content">
+          <div className="product-info">
+            <h2 className="product-name">{productName}</h2>
+            <div className="meta-info">
+              <span>📅 {date}</span>
+              <span>🧪 {totalIngredients} ingredienti</span>
+            </div>
+          </div>
+          
+          <div className="score-badge-container">
+             <div className="score-badge" style={circleStyle}>
+               <div className="score-inner">
+                 <span className="score-number">{Math.round(score)}%</span>
+               </div>
+             </div>
+             <div className="score-icon-large">{score >= 80 ? '✅' : score >= 50 ? '⚠️' : '❌'}</div>
+          </div>
+        </div>
+        <p className="score-verdict" style={{ color: scoreColor }}>
+          {getScoreLabel(score)}
+        </p>
+      </Card>
+
+      {/* Problematic Ingredients List (Vertical) */}
+      <div className="issues-list">
+        {analysis.danger.map((item, idx) => (
+          <IngredientRow key={idx} item={item} status="danger" />
+        ))}
+        {analysis.warning && analysis.warning.map((item, idx) => (
+          <IngredientRow key={idx} item={item} status="warning" />
+        ))}
+        {analysis.caution.map((item, idx) => (
+          <IngredientRow key={idx} item={item} status="caution" />
+        ))}
+      </div>
+
+      {/* Safe Message if clean */}
+      {!hasIssues && (
+         <Card className="section-safe">
+           <div className="all-clear-message">
+             <h3>✅ Nessun ingrediente problematico trovato!</h3>
+             <p>Questo prodotto sembra sicuro per la Dermatite Seborroica basandosi sul nostro database.</p>
+           </div>
+         </Card>
+      )}
+
+      {/* Show All Toggle */}
+      <div className="show-all-container">
+        <button 
+          className="btn-toggle-all"
+          onClick={() => setShowAllIngredients(!showAllIngredients)}
+        >
+          {showAllIngredients ? 'Nascondi Lista Ingredienti' : 'Mostra Lista Ingredienti'}
+        </button>
+      </div>
+
+      {/* Full List */}
+      {showAllIngredients && (
+        <Card title="📄 Analisi Completa Ingredienti" className="full-list-card">
+          <div className="full-list-grid">
+            {allIngredientsList.map((item, idx) => (
+              <IngredientRow key={`all-${idx}`} item={item} status={item.status} />
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Modal */}
+      {selectedIngredient && (
+        <IngredientModal 
+          ingredient={selectedIngredient} 
+          onClose={() => setSelectedIngredient(null)} 
+        />
+      )}
+    </div>
+  );
+};
+
+export default Results;

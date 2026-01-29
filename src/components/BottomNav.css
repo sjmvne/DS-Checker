@@ -1,0 +1,81 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 10px;
+  border-radius: 25px !important; /* Override standard glass radius for pill shape */
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+  display: none; /* Hidden by default, shown in media query */
+}
+
+[data-theme="dark"] .bottom-nav {
+  background: rgba(30, 30, 45, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  flex: 1;
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  transition: transform 0.2s;
+}
+
+.nav-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-item.active {
+  color: var(--color-primary);
+}
+
+.nav-item.active .nav-icon {
+  transform: translateY(-3px);
+}
+
+/* Active Indicator Dot */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    animation: slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translate(-50%, 100px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
