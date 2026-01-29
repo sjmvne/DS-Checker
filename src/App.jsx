@@ -31,7 +31,7 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState('home') // 'home', 'database', 'references', 'credits', 'science', 'protocols'
 
-  const handleAnalyze = (productName, ingredientsInput) => {
+  const handleAnalyze = (productName, ingredientsInput, metadata = {}) => {
     // Determine if input is valid (string or non-empty array)
     const isValidInput = Array.isArray(ingredientsInput) 
       ? ingredientsInput.length > 0
@@ -66,6 +66,11 @@ export default function App() {
         analysis,
         score: calculateScore(analysis),
         totalIngredients: analysis.total || ingredients.length,
+        // AI Metadata (if provided)
+        imageUrl: metadata.imageUrl || null,
+        sources: metadata.sources || [],
+        barcode: metadata.barcode || null,
+        confidence: metadata.confidence || null
       }
       
       setResults(result)

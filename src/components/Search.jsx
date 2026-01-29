@@ -64,7 +64,13 @@ const Search = ({ onAnalyze }) => {
   const handleAcceptAiResult = () => {
     if (!aiResult || !aiResult.data) return;
     // Pass raw ingredients list (array) directly to analyzer
-    onAnalyze(aiResult.data.product_name, aiResult.data.ingredients_list);
+    // Pass raw ingredients list (array) directly to analyzer, plus metadata
+    onAnalyze(aiResult.data.product_name, aiResult.data.ingredients_list, {
+      imageUrl: aiResult.data.product_image_url,
+      sources: aiResult.data.sources,
+      barcode: aiResult.data.barcode,
+      confidence: aiResult.confidence
+    });
     // Optional: Reset AI search after accept? Or keep it visible? 
     // Let's reset to show results below (handled by parent App scrolling)
   };
