@@ -74,16 +74,18 @@ const Search = ({ onAnalyze, aiRequest }) => {
 
   const handleAcceptAiResult = () => {
     if (!aiResult || !aiResult.data) return;
-    // Pass raw ingredients list (array) directly to analyzer
-    // Pass raw ingredients list (array) directly to analyzer, plus metadata
+    
+    // 1. Send data to App for analysis/display
     onAnalyze(aiResult.data.product_name, aiResult.data.ingredients_list, {
       imageUrl: aiResult.data.product_image_url,
       sources: aiResult.data.sources,
       barcode: aiResult.data.barcode,
       confidence: aiResult.confidence
     });
-    // Optional: Reset AI search after accept? Or keep it visible? 
-    // Let's reset to show results below (handled by parent App scrolling)
+
+    // 2. Reset Search Card completely
+    handleClear(); 
+    setAiMode(false);
   };
 
   return (
@@ -221,7 +223,11 @@ const Search = ({ onAnalyze, aiRequest }) => {
                </div>
                
                {/* Global Loader for AI Search */}
-               <LoadingOverlay isVisible={aiLoading} />
+               <LoadingOverlay 
+                 isVisible={aiLoading} 
+                 icon={<img src={perplexityLogo} alt="AI" />} 
+                 text="Analisi AI in corso..."
+               />
                
                {aiError && (
                  <div className="ai-error glass-panel">

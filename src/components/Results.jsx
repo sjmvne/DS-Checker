@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import IngredientModal from './IngredientModal';
 import { titleCase } from '../utils/formatters';
@@ -10,7 +10,37 @@ const Results = ({ data }) => {
   const [selectedIngredient, setSelectedIngredient] = useState(null);
   const [showAllIngredients, setShowAllIngredients] = useState(false);
   
-  // Badge color based on score
+  // Animation State
+  const [animatedScore, setAnimatedScore] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = score;
+    const duration = 5000; // 5 seconds
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      
+      const current = start + (end - start) * ease;
+      setAnimatedScore(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+    
+    // Clean up not strictly needed for raf but good practice
+  }, [score]);
+
+  // Badge color based on score (use final score for color consistency, or animated? usually final color is better, or transition color)
+  // Let's use final score for color determination to avoid flashing red -> green.
   const getScoreColor = (s) => {
     if (s >= 80) return 'var(--color-success)';
     if (s >= 50) return 'var(--color-warning)';
@@ -26,10 +56,15 @@ const Results = ({ data }) => {
   const scoreColor = getScoreColor(score);
 
   const circleStyle = {
-    background: `conic-gradient(${scoreColor} ${score}%, transparent 0)`,
+    background: `conic-gradient(${scoreColor} ${animatedScore}%, transparent 0)`,
     borderColor: 'transparent',
     color: scoreColor
   };
+
+  // ... (rest of component)
+  
+  // Update the displayed number:
+  // <span className="score-number">{Math.round(animatedScore)}%</span>
 
   // Helper component for list item
   const IngredientRow = ({ item, status }) => (
@@ -83,7 +118,7 @@ const Results = ({ data }) => {
           <div className="score-badge-container">
              <div className="score-badge" style={circleStyle}>
                <div className="score-inner">
-                 <span className="score-number">{Math.round(score)}%</span>
+                 <span className="score-number">{Math.round(animatedScore)}%</span>
                </div>
              </div>
              <div className="score-icon-large">

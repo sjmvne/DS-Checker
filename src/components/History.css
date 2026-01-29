@@ -25,9 +25,10 @@
   color: var(--color-primary);
 }
 
+/* History.css updates */
 .history-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Widen cards */
   gap: var(--spacing-16);
 }
 
@@ -35,25 +36,47 @@
   padding: var(--spacing-16);
   border-radius: var(--radius-md);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-12);
   cursor: pointer;
   border: 1px solid var(--color-border);
+  /* Min height for consistency */
+  min-height: 80px;
+}
+
+.history-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  background: white;
+  padding: 4px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+.history-info {
+  flex: 1;
+  overflow: hidden;
 }
 
 .history-name {
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: 4px;
-  white-space: nowrap;
+  /* Limit to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 120px;
+  line-height: 1.2;
 }
 
-.history-date {
+.history-meta {
   font-size: 0.8rem;
   color: var(--color-text-muted);
+  display: flex;
+  gap: 8px;
 }
 
 .history-badge {
