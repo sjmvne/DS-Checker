@@ -89,6 +89,8 @@
             // Parsing della risposta JSON dell'AI (con schema structured non dovrebbe servire strip markdown)
             let content = data.choices[0].message.content;
             const jsonResult = JSON.parse(content);
+            
+            console.log('✅ AI Response:', JSON.stringify(jsonResult, null, 2));
 
             res.json({
                 status: 'success',
