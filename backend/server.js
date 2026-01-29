@@ -23,10 +23,30 @@
             
             console.log(`🤖 AI Search Request: ${product_name} (${brand})`);
 
+            const jsonSchema = {
+                type: "object",
+                properties: {
+                    product_name: { type: "string" },
+                    brand: { type: "string" },
+                    product_image_url: { type: ["string", "null"] },
+                    ingredients_list: { 
+                        type: "array", 
+                        items: { type: "string" } 
+                    },
+                    confidence_reason: { type: "string" },
+                    sources: { 
+                        type: "array", 
+                        items: { type: "string" } 
+                    },
+                    barcode: { type: ["string", "null"] }
+                },
+                required: ["product_name", "brand", "ingredients_list", "confidence_reason", "sources"]
+            };
+
             const messages = [
                 {
                     role: "system",
-                    content: "Sei un esperto cosmetologo. Restituisci SOLO un oggetto JSON valido con i dettagli del prodotto. Non aggiungere markdown o testo extra."
+                    content: "Sei un esperto cosmetologo. Restituisci i dettagli del prodotto richiesto rispettando rigorosamente lo schema JSON fornito."
                 },
                 {
                     role: "user",
@@ -34,17 +54,7 @@
                     Prodotto: ${product_name}
                     Marca: ${brand}
                     Paese: ${country || 'IT'}
-                    Barcode: ${barcode || 'N/A'}
-                    
-                    Rispondi esattamente con questo formato JSON:
-                    {
-                      "product_name": "Nome esatto",
-                      "brand": "Marca esatta",
-                      "product_image_url": "URL immagine (o null)",
-                      "ingredients_list": ["Ingrediente1", "Ingrediente2", ...],
-                      "confidence_reason": "Motivo della confidenza",
-                      "sources": ["url1", "url2"]
-                    }`
+                    Barcode: ${barcode || 'N/A'}`
                 }
             ];
 
@@ -55,9 +65,15 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'sonar-reasoning', // o 'sonar-pro'
+                    model: 'sonar-pro', 
                     messages: messages,
-                    temperature: 0.2
+                    temperature: 0.1, // Lower temperature for stricter schema adherence
+                    response_format: {
+                        type: 'json_schema',
+                        json_schema: {
+                            schema: jsonSchema
+                        }
+                    }
                 })
             });
 
@@ -68,17 +84,14 @@
 
             const data = await response.json();
             
-            // Parsing della risposta JSON dell'AI
+            // Parsing della risposta JSON dell'AI (con schema structured non dovrebbe servire strip markdown)
             let content = data.choices[0].message.content;
-            // Rimuovi eventuali backticks markdown ```json ... ```
-            content = content.replace(/```json/g, '').replace(/```/g, '').trim();
-            
             const jsonResult = JSON.parse(content);
 
             res.json({
                 status: 'success',
                 data: jsonResult,
-                confidence: 0.9 // Simulato o calcolato
+                confidence: 0.95 
             });
 
         } catch (error) {
