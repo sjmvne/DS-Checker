@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: '/sezia-scanner-pro/', // Commented out for easier local dev, uncomment for GH Pages deploy
+  base: '/DS-Checker/', // Uncommented for GH Pages deploy
 })
