@@ -12,7 +12,7 @@ const Header = () => {
         <div className="logo-container">
           <span className="logo-icon">🧴</span>
           <h1 className="title">
-            Sezia<span className="accent">Scanner</span> Pro
+            DS<span className="accent">Checker</span>
           </h1>
         </div>
         <p className="tagline">

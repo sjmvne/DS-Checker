@@ -4,7 +4,7 @@
 
 **DS Checker** è una web app moderna progettata per analizzare la sicurezza dei prodotti cosmetici (shampoo, creme, lozioni) per chi soffre di Dermatite Seborroica. Utilizza un database dermatologico rigoroso per identificare ingredienti che nutrono la *Malassezia* (il fungo responsabile della DS).
 
-![DS Checker Preview](https://via.placeholder.com/800x400?text=Sezia+Scanner+Pro+2.0+Preview)
+![DS Checker Preview](https://via.placeholder.com/800x400?text=DS+Checker+2.0+Preview)
 
 ## ✨ Funzionalità Principali
 
