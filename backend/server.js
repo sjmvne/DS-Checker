@@ -38,9 +38,11 @@
                         type: "array", 
                         items: { type: "string" } 
                     },
-                    barcode: { type: ["string", "null"] }
+                    barcode: { type: ["string", "null"] },
+                    product_type: { type: "string" },
+                    confidence_score: { type: "number" }
                 },
-                required: ["product_name", "brand", "ingredients_list", "confidence_reason", "sources"]
+                required: ["product_name", "brand", "ingredients_list", "confidence_reason", "sources", "confidence_score", "product_type", "product_image_url"]
             };
 
             const messages = [
@@ -65,7 +67,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'sonar-pro', 
+                    model: 'sonar', 
                     messages: messages,
                     temperature: 0.1, // Lower temperature for stricter schema adherence
                     response_format: {
@@ -91,7 +93,8 @@
             res.json({
                 status: 'success',
                 data: jsonResult,
-                confidence: 0.95 
+                data: jsonResult,
+                confidence: jsonResult.confidence_score || 0.95 
             });
 
         } catch (error) {

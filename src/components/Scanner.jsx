@@ -2,13 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import Quagga from '@ericblade/quagga2';
 import Card from './Card';
 import Emoji from './Emoji';
+import AiSearchPrompt from './AiSearchPrompt';
 import { useOpenBeautyFacts } from '../hooks/useOpenBeautyFacts';
 import './Scanner.css';
 
-const Scanner = ({ onAnalyze }) => {
+const Scanner = ({ onAnalyze, onAiRequest }) => {
   const [scanning, setScanning] = useState(false);
   const [barcode, setBarcode] = useState('');
   const [cameraError, setCameraError] = useState(null);
+  const [showAiPrompt, setShowAiPrompt] = useState(false);
   const scannerRef = useRef(null);
   const { searchProduct, loading, error: apiError } = useOpenBeautyFacts();
 
@@ -78,9 +80,22 @@ const Scanner = ({ onAnalyze }) => {
   const handleSearch = async () => {
     if (!barcode) return;
     
+    // Reset previous states
+    setShowAiPrompt(false);
+
     const product = await searchProduct(barcode);
     if (product) {
       onAnalyze(product.productName, product.ingredientsText);
+    } else {
+      // Product not found -> Show Custom AI Prompt
+      setShowAiPrompt(true);
+    }
+  };
+
+  const handleConfirmAi = () => {
+    setShowAiPrompt(false);
+    if (onAiRequest) {
+      onAiRequest(barcode);
     }
   };
 
@@ -139,6 +154,14 @@ const Scanner = ({ onAnalyze }) => {
       </div>
       
       {apiError && <div className="error-message">Errore API: {apiError}</div>}
+
+      {/* AI Search Prompt Modal */}
+      <AiSearchPrompt 
+        isOpen={showAiPrompt} 
+        barcode={barcode}
+        onClose={() => setShowAiPrompt(false)}
+        onConfirm={handleConfirmAi}
+      />
     </Card>
   );
 };

@@ -30,6 +30,7 @@ export default function App() {
   const [results, setResults] = useState(null)
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState('home') // 'home', 'database', 'references', 'credits', 'science', 'protocols'
+  const [aiRequest, setAiRequest] = useState(null) // For scanner -> search communication
 
   const handleAnalyze = (productName, ingredientsInput, metadata = {}) => {
     // Determine if input is valid (string or non-empty array)
@@ -108,8 +109,14 @@ export default function App() {
         return (
           <>
             <div className="main-grid">
-              <Scanner onAnalyze={handleAnalyze} />
-              <Search onAnalyze={handleAnalyze} />
+              <Scanner 
+                onAnalyze={handleAnalyze} 
+                onAiRequest={(barcode) => setAiRequest({ barcode, timestamp: Date.now() })}
+              />
+              <Search 
+                onAnalyze={handleAnalyze} 
+                aiRequest={aiRequest}
+              />
             </div>
 
             {results && (

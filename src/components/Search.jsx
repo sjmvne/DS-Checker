@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import OCRReader from './OCRReader';
 import Emoji from './Emoji';
 import { searchProductIngredients } from '../utils/aiSearchService';
 import './Search.css';
 
-const Search = ({ onAnalyze }) => {
+const Search = ({ onAnalyze, aiRequest }) => {
   // Manual Mode State
   const [productName, setProductName] = useState('');
   const [ingredientsText, setIngredientsText] = useState('');
@@ -16,6 +16,15 @@ const Search = ({ onAnalyze }) => {
   const [aiLoading, setAiLoading] = useState(false);
   const [aiResult, setAiResult] = useState(null);
   const [aiError, setAiError] = useState(null);
+
+  // Handle incoming AI requests (e.g. from Scanner)
+  useEffect(() => {
+    if (aiRequest && aiRequest.barcode) {
+      setAiMode(true);
+      setAiForm(prev => ({ ...prev, barcode: aiRequest.barcode }));
+      // Optional: Auto-focus or scroll?
+    }
+  }, [aiRequest]);
 
   // Manual Handlers
   const handleAnalyze = () => {
@@ -219,10 +228,14 @@ const Search = ({ onAnalyze }) => {
                   <div className="ai-meta">
                     <h4>{aiResult.data.product_name}</h4>
                     <p className="ai-brand">{aiResult.data.brand}</p>
-                    <div className="confidence-badge">
-                      Confidence: {Math.round(aiResult.confidence * 100)}%
+                    <div className="confidence-badge" title={aiResult.data.confidence_reason}>
+                      {Math.round(aiResult.confidence * 100)}% Match
                     </div>
                   </div>
+                  {aiResult.data.product_type && <span className="ai-type-tag">{aiResult.data.product_type}</span>}
+                  {aiResult.data.confidence_reason && (
+                    <p className="ai-confidence-reason"><small>{aiResult.data.confidence_reason}</small></p>
+                  )}
                 </div>
 
                 <div className="ai-ingredients-preview">
