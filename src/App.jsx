@@ -31,8 +31,13 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState('home') // 'home', 'database', 'references', 'credits', 'science', 'protocols'
 
-  const handleAnalyze = (productName, ingredientsText) => {
-    if (!ingredientsText.trim()) {
+  const handleAnalyze = (productName, ingredientsInput) => {
+    // Determine if input is valid (string or non-empty array)
+    const isValidInput = Array.isArray(ingredientsInput) 
+      ? ingredientsInput.length > 0
+      : ingredientsInput && ingredientsInput.trim();
+
+    if (!isValidInput) {
       alert('Per favore inserisci gli ingredienti!')
       return
     }
@@ -41,14 +46,19 @@ export default function App() {
     
     // Simulate slight delay for better UX
     setTimeout(() => {
-      const analysis = analyzeIngredients(ingredientsText)
+      const analysis = analyzeIngredients(ingredientsInput)
       
-      // Use same robust regex as analyzer
-      const ingredients = ingredientsText
-        .replace(/^ingredients[:\s]*/i, '')
-        .split(/[,|\n\r•*;\t]/)
-        .map(i => i.trim())
-        .filter(i => i.length > 0)
+      let ingredients = [];
+      if (Array.isArray(ingredientsInput)) {
+        ingredients = ingredientsInput;
+      } else {
+        // Use same robust regex as analyzer
+        ingredients = ingredientsInput
+          .replace(/^ingredients[:\s]*/i, '')
+          .split(/[,|\n\r•*;\t]/)
+          .map(i => i.trim())
+          .filter(i => i.length > 0)
+      }
       
       const result = {
         productName: productName || 'Prodotto Senza Nome',
