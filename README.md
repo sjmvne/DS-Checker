@@ -53,8 +53,8 @@ Ogni ingrediente analizzato offre una scheda dettagliata con:
 
 1. **Clona la repository**:
    ```bash
-   git clone https://github.com/tuo-username/sezia-scanner-pro.git
-   cd sezia-scanner-pro
+   git clone https://github.com/tuo-username/DS-Checker.git
+   cd DS-Checker
    ```
 
 2. **Installa le dipendenze**:
