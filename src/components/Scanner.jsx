@@ -14,6 +14,13 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
   const scannerRef = useRef(null);
   const { searchProduct, loading, error: apiError } = useOpenBeautyFacts();
 
+  // Log API errors as warnings instead of showing them
+  useEffect(() => {
+    if (apiError) {
+      console.warn("OpenBeautyFacts API Warning:", apiError);
+    }
+  }, [apiError]);
+
   const startScanner = async () => {
     setScanning(true);
     setCameraError(null);
@@ -152,8 +159,6 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
           </button>
         </div>
       </div>
-      
-      {apiError && <div className="error-message">Errore API: {apiError}</div>}
 
       {/* AI Search Prompt Modal */}
       <AiSearchPrompt 

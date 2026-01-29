@@ -48,15 +48,21 @@
             const messages = [
                 {
                     role: "system",
-                    content: "Sei un esperto cosmetologo. Restituisci i dettagli del prodotto richiesto rispettando rigorosamente lo schema JSON fornito."
+                    content: "Sei un motore di ricerca cosmetico avanzato. Il tuo compito è trovare i dati UFFICIALI del prodotto online. \n1. Correggi il nome e la marca se quelli forniti sono incompleti o errati.\n2. Cerca attivamente un URL di immagine valido (jpg/png) da e-commerce o siti ufficiali.\n3. Estrai la lista INCI reale."
                 },
                 {
                     role: "user",
-                    content: `Trova gli ingredienti (INCI) per:
-                    Prodotto: ${product_name}
-                    Marca: ${brand}
+                    content: `Analizza questo prodotto e trova i dati reali online:
+                    Input Utente: "${product_name}"
+                    Marca Probabile: "${brand}"
                     Paese: ${country || 'IT'}
-                    Barcode: ${barcode || 'N/A'}`
+                    Barcode: ${barcode || 'N/A'}
+                    
+                    Istruzioni:
+                    - Usa il barcode o il nome per trovare il prodotto esatto.
+                    - "product_name": Usa il nome commerciale completo trovato su internet.
+                    - "brand": Usa la marca ufficiale trovata.
+                    - "product_image_url": Trova un link diretto all'immagine (es. che finisce in .jpg o .png). Se non trovi nulla di affidabile, metti null.`
                 }
             ];
 

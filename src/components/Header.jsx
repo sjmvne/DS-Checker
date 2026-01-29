@@ -1,5 +1,6 @@
 import React from 'react';
 import Emoji from './Emoji';
+import logo from '../assets/logo.webp';
 import './Header.css';
 
 /**
@@ -11,9 +12,7 @@ const Header = () => {
     <header className="header glass fade-in">
       <div className="header-content">
         <div className="logo-container">
-          <span className="logo-icon">
-            <Emoji name="Lotion Bottle" fallback="🧴" size="3rem" />
-          </span>
+          <img src={logo} alt="DS Checker Logo" className="logo-img" />
           <h1 className="title">
             DS<span className="accent">Checker</span>
           </h1>

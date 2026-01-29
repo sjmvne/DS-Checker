@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import LoadingOverlay from './LoadingOverlay';
 import Card from './Card';
 import OCRReader from './OCRReader';
 import Emoji from './Emoji';
 import { searchProductIngredients } from '../utils/aiSearchService';
+import perplexityLogo from '../assets/perplexity.svg';
 import './Search.css';
 
 const Search = ({ onAnalyze, aiRequest }) => {
@@ -207,9 +209,19 @@ const Search = ({ onAnalyze, aiRequest }) => {
                    onClick={handleAiSearch}
                    disabled={aiLoading || !aiForm.productName || !aiForm.brand}
                  >
-                   {aiLoading ? '🤖 Ricerca in corso...' : '🔮 Cerca con Perplexity'}
+                   {aiLoading ? (
+                     '🤖 Ricerca in corso...'
+                   ) : (
+                     <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                        <img src={perplexityLogo} alt="Perplexity" className="perplexity-icon" />
+                        Cerca con Perplexity
+                     </span>
+                   )}
                  </button>
                </div>
+               
+               {/* Global Loader for AI Search */}
+               <LoadingOverlay isVisible={aiLoading} />
                
                {aiError && (
                  <div className="ai-error glass-panel">

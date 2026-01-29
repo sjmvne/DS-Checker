@@ -1,31 +1,47 @@
 .search-mode-toggle {
   display: flex;
-  background: rgba(0,0,0,0.05);
+  background: var(--color-surface); /* Slightly darker/lighter depending on theme */
   padding: 4px;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-full);
   margin-bottom: var(--spacing-20);
+  border: 1px solid var(--color-border);
+  position: relative;
+  isolation: isolate;
 }
 
 .mode-btn {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 8px;
-  border-radius: var(--radius-md);
+  padding: 8px 16px; /* slightly more padding */
+  border-radius: var(--radius-full);
   cursor: pointer;
   font-weight: 600;
   color: var(--color-text-muted);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Sliding active state using background directly on the button since strict separation is harder without extra DOM. 
+   BUT, to make it really smooth like a pill, we can use the 'active' class to style the button itself 
+   and use transitions. For a true "sliding pill" we usually need a separate bg div, but styling the active button 
+   to look like a popped pill works well too. */
+
 .mode-btn.active {
-  background: var(--color-surface);
-  color: var(--color-primary);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  background: var(--color-primary); /* Use primary color for active pill */
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  transform: scale(1.02);
+}
+
+.mode-btn:not(.active):hover {
+  background: rgba(139, 92, 246, 0.05);
+  color: var(--color-text);
 }
 
 .form-row {
@@ -74,6 +90,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  flex-direction: column;
 }
 
 .ai-product-img {
@@ -192,4 +209,11 @@
 
 .button-group .btn {
   flex: 1;
+}
+
+.perplexity-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1); /* White icon */
 }
