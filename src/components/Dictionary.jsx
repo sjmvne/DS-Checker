@@ -1,25 +1,15 @@
 import React, { useState } from 'react';
 import Card from './Card';
+import Emoji from './Emoji';
 import dictionaryData from '../data/dictionary.json';
 import './Dictionary.css';
 
 const Dictionary = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  
-  // Sort terms alphabetically
-  const sortedTerms = [...dictionaryData.terms].sort((a, b) => 
-    a.term.localeCompare(b.term)
-  );
-
-  const filteredTerms = sortedTerms.filter(item => 
-    item.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.definition.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+// ...
   return (
     <div className="page-container fade-in">
       <div className="dict-header">
-        <h1>📖 Dizionario DS</h1>
+        <h1><Emoji name="Open Book" fallback="📖" /> Dizionario DS</h1>
         <p>Glossario dei termini tecnici, chimici e biologici</p>
         
         <input 

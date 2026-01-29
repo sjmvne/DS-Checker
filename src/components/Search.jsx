@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import OCRReader from './OCRReader';
+import Emoji from './Emoji';
 import './Search.css';
 
 const Search = ({ onAnalyze }) => {

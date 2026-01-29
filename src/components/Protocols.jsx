@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fullDatabase } from '../services/ingredientDatabase';
+import Emoji from './Emoji';
 import './Protocols.css';
 
 const ChecklistSection = ({ data }) => {
@@ -20,7 +21,7 @@ const ChecklistSection = ({ data }) => {
 
   return (
     <section className="proto-section">
-      <h2 className="section-title">✅ Checklist Sicurezza INCI</h2>
+      <h2 className="section-title"><Emoji name="Check Mark Button" fallback="✅" /> Checklist Sicurezza INCI</h2>
       <div className="checklist-wrapper glass-panel">
         <div className="checklist-intro">
           Controlla QUALSIASI prodotto con questa lista. Se spunti tutto, è sicuro.
@@ -49,7 +50,7 @@ const ChecklistSection = ({ data }) => {
           </div>
         ))}
         <div className="score-box">
-          <strong>📊 Guida Punteggio:</strong> {data.scoring}
+          <strong><Emoji name="Bar Chart" fallback="📊" /> Guida Punteggio:</strong> {data.scoring}
         </div>
       </div>
     </section>
@@ -75,17 +76,17 @@ const Protocols = () => {
   return (
     <div className="protocols-page">
       <header className="protocols-header">
-        <h1>📚 Protocolli Pratici</h1>
+        <h1><Emoji name="Books" fallback="📚" /> Protocolli Pratici</h1>
         <p className="subtitle">Guide operative per la cura quotidiana</p>
       </header>
 
       <div className="protocols-nav-container">
-        <NavButton id="brands" icon="🧴" label="Marchi Sicuri" />
-        <NavButton id="checklist" icon="✅" label="Checklist" />
-        <NavButton id="routine" icon="📅" label="Routine" />
-        <NavButton id="flare" icon="🚨" label="SOS Flare" />
-        <NavButton id="alternatives" icon="🔄" label="Sostituti" />
-        <NavButton id="faq" icon="❓" label="FAQ" />
+        <NavButton id="brands" icon={<Emoji name="Lotion Bottle" fallback="🧴" />} label="Marchi Sicuri" />
+        <NavButton id="checklist" icon={<Emoji name="Check Mark Button" fallback="✅" />} label="Checklist" />
+        <NavButton id="routine" icon={<Emoji name="Spiral  Calendar" fallback="📅" />} label="Routine" />
+        <NavButton id="flare" icon={<Emoji name="Police Car Light" fallback="🚨" />} label="SOS Flare" />
+        <NavButton id="alternatives" icon={<Emoji name="Counterclockwise Arrows Button" fallback="🔄" />} label="Sostituti" />
+        <NavButton id="faq" icon={<Emoji name="Question Mark" fallback="❓" />} label="FAQ" />
       </div>
 
       <div className="protocols-content animate-fade-in">
@@ -93,10 +94,10 @@ const Protocols = () => {
         {/* === SECTION 1: SAFE BRANDS === */}
         {activeSection === 'brands' && (
           <section className="proto-section">
-            <h2 className="section-title">🏆 {data.safe_brand_recommendations?.section_description}</h2>
+            <h2 className="section-title"><Emoji name="Trophy" fallback="🏆" /> {data.safe_brand_recommendations?.section_description}</h2>
             
             <div className="brands-category">
-               <h3>🌟 Raccomandazioni Premium</h3>
+               <h3><Emoji name="Glowing Star" fallback="🌟" /> Raccomandazioni Premium</h3>
                <div className="brands-grid">
                 {data.safe_brand_recommendations?.premium_brands?.map((brand, i) => (
                   <div key={i} className="brand-card glass-panel">
@@ -116,7 +117,7 @@ const Protocols = () => {
             </div>
 
             <div className="brands-avoid-section">
-               <h3>🚫 Marchi da EVITARE ASSOLUTAMENTE</h3>
+               <h3><Emoji name="No Entry" fallback="🚫" /> Marchi da EVITARE ASSOLUTAMENTE</h3>
                <div className="avoid-grid">
                  {data.safe_brand_recommendations?.brands_to_absolutely_avoid?.map((bad, k) => (
                    <div key={k} className="avoid-card">
@@ -140,10 +141,10 @@ const Protocols = () => {
         {/* === SECTION 3: ROUTINE === */}
         {activeSection === 'routine' && (
           <section className="proto-section">
-             <h2 className="section-title">📅 Routine Giornaliera & Flare</h2>
+             <h2 className="section-title"><Emoji name="Spiral Calendar" fallback="📅" /> Routine Giornaliera & Flare</h2>
              
              <div className="principles-box glass-panel">
-               <h3>✋ Principi Generali</h3>
+               <h3><Emoji name="Raised Hand" fallback="✋" /> Principi Generali</h3>
                <ul className="principles-list">
                  {data.routine_recommendations?.general_principles?.map((p, i) => <li key={i}>{p}</li>)}
                </ul>
@@ -151,9 +152,9 @@ const Protocols = () => {
 
              <div className="routines-grid">
                <div className="routine-card flare-mode">
-                 <h3>🚨 Protocollo Flare Acuto</h3>
+                 <h3><Emoji name="Police Car Light" fallback="🚨" /> Protocollo Flare Acuto</h3>
                  <div className="phase-block">
-                   <h4>☀️ Mattina</h4>
+                   <h4><Emoji name="Sun" fallback="☀️" /> Mattina</h4>
                    {data.routine_recommendations?.basic_routine_flare_protocol?.morning?.map((step, i) => (
                      <div key={i} className="routine-step">
                        <span className="step-num">{step.step}</span>
@@ -165,14 +166,14 @@ const Protocols = () => {
                    ))}
                  </div>
                  <div className="phase-block">
-                   <h4>🌙 Sera</h4>
+                   <h4><Emoji name="First Quarter Moon Face" fallback="🌙" /> Sera</h4>
                    {data.routine_recommendations?.basic_routine_flare_protocol?.evening?.map((step, i) => (
                      <div key={i} className="routine-step">
                        <span className="step-num">{step.step}</span>
                        <div className="step-info">
                          <strong>{step.product}</strong>
                          <p>{step.reason}</p>
-                         {step.technique && <span className="tip">💡 {step.technique}</span>}
+                         {step.technique && <span className="tip"><Emoji name="Light Bulb" fallback="💡" /> {step.technique}</span>}
                        </div>
                      </div>
                    ))}
@@ -180,7 +181,7 @@ const Protocols = () => {
                </div>
 
                <div className="routine-card maintenance-mode">
-                 <h3>🛡️ Mantenimento</h3>
+                 <h3><Emoji name="Shield" fallback="🛡️" /> Mantenimento</h3>
                  <div className="phase-block">
                    <h4>Piano</h4>
                    <ul className="maintenance-list">
@@ -195,7 +196,7 @@ const Protocols = () => {
         {/* === SECTION 4: FLARE SOS === */}
         {activeSection === 'flare' && (
           <section className="proto-section">
-             <h2 className="section-title">🚨 Tempistiche Gestione Flare</h2>
+             <h2 className="section-title"><Emoji name="Police Car Light" fallback="🚨" /> Tempistiche Gestione Flare</h2>
              <div className="timeline-container">
                
                <div className="timeline-phase urgent">
@@ -204,7 +205,7 @@ const Protocols = () => {
                  <div className="phase-cards">
                    {data.flare_management_protocol?.immediate_response_first_24h?.map((step, i) => (
                      <div key={i} className="action-card">
-                       <div className="action-icon">⚡</div>
+                       <div className="action-icon"><Emoji name="High Voltage" fallback="⚡" /></div>
                        <div className="action-content">
                          <strong>{step.action}</strong>
                          <p>{step.reason}</p>
@@ -220,7 +221,7 @@ const Protocols = () => {
                  <div className="phase-cards">
                    {data.flare_management_protocol?.days_2_7_management?.map((step, i) => (
                      <div key={i} className="action-card">
-                       <div className="action-icon">🛡️</div>
+                       <div className="action-icon"><Emoji name="Shield" fallback="🛡️" /></div>
                        <div className="action-content">
                          <strong>{step.action}</strong>
                          {step.frequency && <span className="freq-tag">{step.frequency}</span>}
@@ -237,18 +238,18 @@ const Protocols = () => {
         {/* === SECTION 5: SUBSTITUTES === */}
         {activeSection === 'alternatives' && (
           <section className="proto-section">
-             <h2 className="section-title">🔄 Sostituti Sicuri</h2>
+             <h2 className="section-title"><Emoji name="Counterclockwise Arrows Button" fallback="🔄" /> Sostituti Sicuri</h2>
              <div className="alternatives-grid">
                {data.ingredient_substitutes_safe_alternatives?.substitution_table?.map((item, i) => (
                  <div key={i} className="substitute-card glass-panel">
                    <div className="comparison-row">
                      <div className="bad-col">
-                       <span className="icon">❌</span>
+                       <span className="icon"><Emoji name="Cross Mark" fallback="❌" /></span>
                        <strong>{item.problematic_ingredient}</strong>
                      </div>
                      <div className="arrow-col">➔</div>
                      <div className="good-col">
-                       <span className="icon">✅</span>
+                       <span className="icon"><Emoji name="Check Mark Button" fallback="✅" /></span>
                        <strong>{item.safe_alternative}</strong>
                      </div>
                    </div>
@@ -265,7 +266,7 @@ const Protocols = () => {
         {/* === SECTION 6: FAQ === */}
         {activeSection === 'faq' && (
            <section className="proto-section">
-             <h2 className="section-title">❓ Miti Comuni & FAQ</h2>
+             <h2 className="section-title"><Emoji name="Question Mark" fallback="❓" /> Miti Comuni & FAQ</h2>
              <div className="faq-grid">
                {data.faq_common_misconceptions?.questions?.map((q, i) => (
                  <div key={i} className="faq-card glass-panel">
@@ -274,8 +275,8 @@ const Protocols = () => {
                      <span className="bool-badge">NO</span>
                      {q.a.replace('NO.', '').replace('NO -', '')}
                    </div>
-                   {q.analogy && <div className="faq-extra">💡 {q.analogy}</div>}
-                   {q.paradox && <div className="faq-extra">⚠️ {q.paradox}</div>}
+                   {q.analogy && <div className="faq-extra"><Emoji name="Light Bulb" fallback="💡" /> {q.analogy}</div>}
+                   {q.paradox && <div className="faq-extra"><Emoji name="Warning" fallback="⚠️" /> {q.paradox}</div>}
                  </div>
                ))}
              </div>

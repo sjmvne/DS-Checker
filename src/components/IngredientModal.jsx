@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './IngredientModal.css';
 import { titleCase } from '../utils/formatters';
+import Emoji from './Emoji';
 
 const IngredientModal = ({ ingredient, onClose }) => {
   if (!ingredient) return null;
@@ -80,7 +81,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {(ingredient.category_description || ingredient.recommendation) && (
             <div className="modal-section category-context">
                <div className="context-header">
-                 <h3>📂 Profilo Categoria: {ingredient.type || ingredient.category}</h3>
+                 <h3><Emoji name="File Folder" fallback="📂" /> Profilo Categoria: {ingredient.type || ingredient.category}</h3>
                </div>
                {ingredient.category_description && <p><strong>Panoramica:</strong> {ingredient.category_description}</p>}
                {ingredient.recommendation && <p><strong>Raccomandazione:</strong> {ingredient.recommendation}</p>}
@@ -93,7 +94,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* Tech Specs Section - Conditional */}
           {(ingredient.carbon_chain || ingredient.molecular_weight || ingredient.saturation || ingredient.ahr_activation_level || ingredient.malassezia_affinity || ingredient.hydrolysis_product) && (
             <div className="modal-section tech-specs">
-               <h3>🔬 Profilo Scientifico</h3>
+               <h3><Emoji name="Microscope" fallback="🔬" /> Profilo Scientifico</h3>
                <div className="tech-grid">
                  {ingredient.carbon_chain && (
                    <div className="tech-item">
@@ -144,7 +145,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* Fatty Acid Composition Table (For Oils) */}
           {ingredient.fatty_acid_composition && (
             <div className="modal-section">
-              <h3>🧪 Profilo Acidi Grassi</h3>
+              <h3><Emoji name="Test Tube" fallback="🧪" /> Profilo Acidi Grassi</h3>
               <div className="composition-grid">
                 {Object.entries(ingredient.fatty_acid_composition).map(([key, value]) => (
                   <div key={key} className="composition-row">
@@ -158,7 +159,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
 
           {ingredient.description && (
             <div className="modal-section">
-              <h3>📝 Descrizione</h3>
+              <h3><Emoji name="Memo" fallback="📝" /> Descrizione</h3>
               <p className="modal-description">{ingredient.description}</p>
             </div>
           )}
@@ -166,28 +167,28 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* Intelligent Deduplication of Reason/Mechanism */}
           {ingredient.reason && (
             <div className="modal-section">
-              <h3>⚠️ Perché Problematico</h3>
+              <h3><Emoji name="Warning" fallback="⚠️" /> Perché Problematico</h3>
               <p className="modal-reason">{ingredient.reason}</p>
             </div>
           )}
 
           {ingredient.marketing_deception && (
             <div className="modal-section warning-box">
-              <h3>🚫 Avviso Marketing</h3>
+              <h3><Emoji name="No Entry" fallback="🚫" /> Avviso Marketing</h3>
               <p>{ingredient.marketing_deception}</p>
             </div>
           )}
 
           {ingredient.mechanism && ingredient.mechanism !== ingredient.reason && (
             <div className="modal-section">
-              <h3>🧬 Meccanismo</h3>
+              <h3><Emoji name="DNA" fallback="🧬" /> Meccanismo</h3>
               <p className="modal-text">{ingredient.mechanism}</p>
             </div>
           )}
 
           {ingredient.products_containing && (
              <div className="modal-section">
-               <h3>🧴 Fonti Comuni</h3>
+               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> Fonti Comuni</h3>
                <div className="tag-list">
                  {ingredient.products_containing.map(prod => (
                    <span key={prod} className="product-tag">{prod}</span>
@@ -198,7 +199,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           
           {ingredient.products_commonly_found && (
              <div className="modal-section">
-               <h3>🧴 Comunemente Trovato In</h3>
+               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> Comunemente Trovato In</h3>
                <p className="modal-text">{ingredient.products_commonly_found}</p>
              </div>
           )}
@@ -206,7 +207,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* EXTENDED DATA MAPPING - CLINICAL CONTEXT */}
           {(ingredient.synergistic_effect || ingredient.sd_issue || ingredient.skin_reaction || ingredient.skin_effect || ingredient.concentration_risk || ingredient.oxidation_risk || ingredient.concentration_impact) && (
             <div className="modal-section warning-box">
-               <h3>⚠️ Contesto Clinico</h3>
+               <h3><Emoji name="Warning" fallback="⚠️" /> Contesto Clinico</h3>
                {ingredient.sd_issue && <p><strong>Impatto DS:</strong> {ingredient.sd_issue}</p>}
                {ingredient.synergistic_effect && <p><strong>Rischio Sinergico:</strong> {ingredient.synergistic_effect}</p>}
                {ingredient.skin_reaction && <p><strong>Reazione:</strong> {ingredient.skin_reaction}</p>}
@@ -220,7 +221,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* DERMATOLOGICAL IMPACT (New Section) */}
           {(ingredient.skin_barrier_effect || ingredient.barrier_function_impact || ingredient.skin_penetration) && (
              <div className="modal-section">
-               <h3>🛡️ Barriera & Penetrazione</h3>
+               <h3><Emoji name="Shield" fallback="🛡️" /> Barriera & Penetrazione</h3>
                {ingredient.skin_barrier_effect && <p><strong>Effetto Barriera:</strong> {ingredient.skin_barrier_effect}</p>}
                {ingredient.barrier_function_impact && <p><strong>Impatto Funzione:</strong> {ingredient.barrier_function_impact}</p>}
                {ingredient.skin_penetration && <p><strong>Penetrazione:</strong> {ingredient.skin_penetration}</p>}
@@ -230,7 +231,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* EXTENDED DATA MAPPING - FORMULATION DETAILS */}
           {(ingredient.concentration_limit || ingredient.concentration_typical || ingredient.function || ingredient.source || ingredient.prevalence) && (
              <div className="modal-section">
-               <h3>⚗️ Dettagli Formulazione</h3>
+               <h3><Emoji name="Alembic" fallback="⚗️" /> Dettagli Formulazione</h3>
                <div className="tech-grid">
                  {ingredient.function && (
                    <div className="tech-item full-width">
@@ -269,7 +270,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* KEY INSIGHTS / PARADOXES (New Section) */}
           {(ingredient.paradox || ingredient.unique_property || ingredient.dual_problem || ingredient.dual_risk || ingredient.research_citation) && (
              <div className="modal-section info-box" style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '12px', padding: '15px' }}>
-                <h3 style={{ color: '#60a5fa' }}>💡 Punti Chiave</h3>
+                <h3 style={{ color: '#60a5fa' }}><Emoji name="Light Bulb" fallback="💡" /> Punti Chiave</h3>
                 {ingredient.paradox && <p style={{marginBottom: '8px'}}><strong>Il Paradosso:</strong> {ingredient.paradox}</p>}
                 {ingredient.unique_property && <p style={{marginBottom: '8px'}}><strong>Proprietà Unica:</strong> {ingredient.unique_property}</p>}
                 {(ingredient.dual_problem || ingredient.dual_risk) && <p style={{marginBottom: '8px'}}><strong>Doppio Rischio:</strong> {ingredient.dual_problem || ingredient.dual_risk}</p>}
@@ -280,7 +281,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* BENEFITS (For Safe Ingredients) */}
           {ingredient.benefits && (
              <div className="modal-section safe-box" style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '15px' }}>
-                <h3 style={{ color: '#34d399' }}>✨ Benefici</h3>
+                <h3 style={{ color: '#34d399' }}><Emoji name="Sparkles" fallback="✨" /> Benefici</h3>
                 <p>{ingredient.benefits}</p>
              </div>
           )}
@@ -288,7 +289,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* COMMON NAMES */}
           {(ingredient.common_names || ingredient.also_listed_as) && (
              <div className="modal-section">
-                <h3>🏷️ Conosciuto Anche Come</h3>
+                <h3><Emoji name="Label" fallback="🏷️" /> Conosciuto Anche Come</h3>
                 <p className="modal-text italic">
                   {Array.isArray(ingredient.common_names) ? ingredient.common_names.join(', ') : ingredient.common_names}
                   {Array.isArray(ingredient.also_listed_as) ? ingredient.also_listed_as.join(', ') : ingredient.also_listed_as}
@@ -299,7 +300,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* CONSOLIDATED SOURCES SECTION */}
           {(ingredient.products_containing || ingredient.common_sources || ingredient.found_in_products || ingredient.sources || ingredient.products) && (
              <div className="modal-section">
-               <h3>🧴 Fonti Comuni</h3>
+               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> Fonti Comuni</h3>
                <div className="tag-list">
                  {/* Helper to merge and render all source arrays/strings */}
                  {[
@@ -321,7 +322,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
 
           {ingredient.safe_alternative && (
             <div className="modal-section">
-              <h3>✅ Alternativa Sicura</h3>
+              <h3><Emoji name="Check Mark Button" fallback="✅" /> Alternativa Sicura</h3>
               <p className="modal-alternative">{ingredient.safe_alternative}</p>
             </div>
           )}

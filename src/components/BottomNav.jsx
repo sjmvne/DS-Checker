@@ -1,5 +1,6 @@
 import React from 'react';
 import './BottomNav.css';
+import Emoji from './Emoji';
 
 const BottomNav = ({ activePage, onNavigate }) => {
   const navItems = [

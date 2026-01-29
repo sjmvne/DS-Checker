@@ -31,7 +31,7 @@
   --radius-full: 9999px;
 
   /* Typography */
-  --font-family: 'Outfit', -apple-system, sans-serif;
+  --font-family: 'Inter', -apple-system, sans-serif;
   
   /* Transitions */
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);

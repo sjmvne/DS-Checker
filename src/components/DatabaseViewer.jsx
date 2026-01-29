@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from './Card';
+import Emoji from './Emoji';
 import './DatabaseViewer.css';
 import { fullDatabase } from '../services/ingredientDatabase';
 import { titleCase } from '../utils/formatters';
@@ -101,16 +102,22 @@ const DatabaseViewer = () => {
   return (
     <div className="page-container fade-in">
        <div className="db-header-section">
-         <h2>🗄️ Database Completo</h2>
+         <h2><Emoji name="File Cabinet" fallback="🗄️" /> Database Completo</h2>
          <p>Esplora gli oltre {allItems.length} ingredienti catalogati.</p>
          
-         <input 
-           type="text" 
-           placeholder="🔍 Cerca ingrediente (es. Coconut, Laureth...)" 
-           value={filter}
-           onChange={(e) => setFilter(e.target.value)}
-           className="db-search glass"
-         />
+         <div className="search-bar-wrapper" style={{position: 'relative'}}>
+             <span style={{position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 1}}>
+                <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" size="1.2em" />
+             </span>
+             <input 
+               type="text" 
+               placeholder="Cerca ingrediente (es. Coconut, Laureth...)" 
+               value={filter}
+               onChange={(e) => setFilter(e.target.value)}
+               className="db-search glass"
+               style={{paddingLeft: '40px', fontSize: '1em'}}
+             />
+         </div>
 
          <div className="db-controls">
            <div className="db-tabs">

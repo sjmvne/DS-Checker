@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Tesseract from 'tesseract.js';
 import './OCRReader.css';
+import Emoji from './Emoji';
 
 const OCRReader = ({ onScanComplete }) => {
   const [image, setImage] = useState(null);

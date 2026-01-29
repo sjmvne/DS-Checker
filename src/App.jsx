@@ -13,6 +13,7 @@ import DatabaseViewer from './components/DatabaseViewer'
 import ScienceGuide from './components/ScienceGuide'
 import Protocols from './components/Protocols'
 import Dictionary from './components/Dictionary'
+import Tutorial from './components/Tutorial'
 
 import { useTheme } from './hooks/useTheme'
 import { useHistory } from './hooks/useHistory'
@@ -138,6 +139,7 @@ export default function App() {
 
 
       <LoadingOverlay isVisible={loading} />
+      <Tutorial />
     </div>
   )
 }

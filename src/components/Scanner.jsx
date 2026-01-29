@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Quagga from '@ericblade/quagga2';
 import Card from './Card';
+import Emoji from './Emoji';
 import { useOpenBeautyFacts } from '../hooks/useOpenBeautyFacts';
 import './Scanner.css';
 
@@ -96,7 +97,7 @@ const Scanner = ({ onAnalyze }) => {
   }, [scanning]);
 
   return (
-    <Card title="Scanner Codice" icon="📷" className="scanner-card">
+    <Card title="Scanner Codice" icon={<Emoji name="Camera with Flash" fallback="📷" />} className="scanner-card">
       <div className="scanner-controls">
         {!scanning ? (
           <button className="btn btn-primary" onClick={startScanner}>
@@ -132,7 +133,7 @@ const Scanner = ({ onAnalyze }) => {
             onClick={handleSearch}
             disabled={loading || !barcode}
           >
-            {loading ? 'Cercando...' : '🔎 Cerca'}
+            {loading ? 'Cercando...' : <><Emoji name="Magnifying Glass Tilted Right" fallback="🔎" /> Cerca</>}
           </button>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Card from './Card';
 import IngredientModal from './IngredientModal';
 import { titleCase } from '../utils/formatters';
 import './Results.css';
+import Emoji from './Emoji';
 
 const Results = ({ data }) => {
   const { productName, date, analysis, score, totalIngredients } = data;
@@ -50,7 +51,7 @@ const Results = ({ data }) => {
           {status === 'safe' && 'SICURO'}
           {status === 'unknown' && 'SCONOSCIUTO'}
         </span>
-        <span className="info-icon">ℹ️</span>
+        <span className="info-icon"><Emoji name="Information" fallback="ℹ️" size="1em" /></span>
       </div>
     </div>
   );
@@ -74,8 +75,8 @@ const Results = ({ data }) => {
           <div className="product-info">
             <h2 className="product-name">{productName}</h2>
             <div className="meta-info">
-              <span>📅 {date}</span>
-              <span>🧪 {totalIngredients} ingredienti</span>
+              <span><Emoji name="Calendar" fallback="📅" /> {date}</span>
+              <span><Emoji name="Test Tube" fallback="🧪" /> {totalIngredients} ingredienti</span>
             </div>
           </div>
           
@@ -85,7 +86,14 @@ const Results = ({ data }) => {
                  <span className="score-number">{Math.round(score)}%</span>
                </div>
              </div>
-             <div className="score-icon-large">{score >= 80 ? '✅' : score >= 50 ? '⚠️' : '❌'}</div>
+             <div className="score-icon-large">
+               {score >= 80 
+                 ? <Emoji name="Check Mark Button" fallback="✅" size="2em" /> 
+                 : score >= 50 
+                   ? <Emoji name="Warning" fallback="⚠️" size="2em" /> 
+                   : <Emoji name="Cross Mark" fallback="❌" size="2em" />
+               }
+             </div>
           </div>
         </div>
         <p className="score-verdict" style={{ color: scoreColor }}>

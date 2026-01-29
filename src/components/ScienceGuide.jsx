@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fullDatabase } from '../services/ingredientDatabase';
+import Emoji from './Emoji';
 import './ScienceGuide.css';
 
 const ScienceGuide = () => {
@@ -26,10 +27,10 @@ const ScienceGuide = () => {
       </header>
 
       <div className="science-nav-container">
-        <TabButton id="malassezia" icon="🍄" label="Biologia Malassezia" />
-        <TabButton id="barrier" icon="🛡️" label="Barriera Cutanea" />
-        <TabButton id="immune" icon="⚠️" label="Sistema Immunitario" />
-        <TabButton id="interactions" icon="⚗️" label="Effetto Cocktail" />
+        <TabButton id="malassezia" icon={<Emoji name="Mushroom" fallback="🍄" />} label="Biologia Malassezia" />
+        <TabButton id="barrier" icon={<Emoji name="Shield" fallback="🛡️" />} label="Barriera Cutanea" />
+        <TabButton id="immune" icon={<Emoji name="Warning" fallback="⚠️" />} label="Sistema Immunitario" />
+        <TabButton id="interactions" icon={<Emoji name="Alembic" fallback="⚗️" />} label="Effetto Cocktail" />
       </div>
 
       <div className="science-content animate-fade-in">
@@ -63,7 +64,7 @@ const ScienceGuide = () => {
                     </div>
                     {org.virulence_factors && (
                       <div className="virulence-box">
-                         <h4>⚔️ Fattori di Virulenza</h4>
+                         <h4><Emoji name="Crossed Swords" fallback="⚔️" size="1.2em" /> Fattori di Virulenza</h4>
                          <ul className="virulence-list">
                            {org.virulence_factors.map((f, i) => <li key={i}>{f}</li>)}
                          </ul>
@@ -76,7 +77,7 @@ const ScienceGuide = () => {
 
             <section className="deep-dive-section">
               <div className="enzyme-mechanism glass-panel highlight-border">
-                <h3>🧪 Il Motore Lipasi (Specificità Enzimatica)</h3>
+                <h3><Emoji name="Test Tube" fallback="🧪" size="1.2em" /> Il Motore Lipasi (Specificità Enzimatica)</h3>
                 <p><strong>Meccanismo:</strong> {data.malassezia_biology?.lipase_enzyme_specificity?.mechanism}</p>
                 
                 <div className="kinetics-grid">
@@ -96,13 +97,13 @@ const ScienceGuide = () => {
 
                 <div className="mechanism-details color-grid">
                   <div className="mech-item safe">
-                    <h4>✅ Inaccessibile (Sicuro)</h4>
+                    <h4><Emoji name="Check Mark Button" fallback="✅" size="1.2em" /> Inaccessibile (Sicuro)</h4>
                     <ul>
                       {data.malassezia_biology?.lipase_enzyme_specificity?.inaccessible_substrates.map((s, i) => <li key={i}>{s}</li>)}
                     </ul>
                   </div>
                   <div className="mech-item danger">
-                    <h4>❌ CIBO OTTIMALE (Evita!)</h4>
+                    <h4><Emoji name="Cross Mark" fallback="❌" size="1.2em" /> CIBO OTTIMALE (Evita!)</h4>
                     <p>{data.malassezia_biology?.lipase_enzyme_specificity?.optimal_substrates}</p>
                   </div>
                 </div>
@@ -110,7 +111,7 @@ const ScienceGuide = () => {
             </section>
             
             <section className="metabolism-deep-dive glass-panel">
-               <h3>🔬 Approfondimento Metabolismo Acidi Grassi</h3>
+               <h3><Emoji name="Microscope" fallback="🔬" size="1.2em" /> Approfondimento Metabolismo Acidi Grassi</h3>
                <p>{data.fatty_acid_metabolism_deep_dive?.section_description}</p>
                
                <div className="lipase-kinetics-details">
@@ -127,7 +128,7 @@ const ScienceGuide = () => {
                   {data.fatty_acid_metabolism_deep_dive?.hydrolysis_pathways?.map((path, i) => (
                     <div key={i} className="pathway-row">
                        <div className="path-input">{path.substrate}</div>
-                       <div className="path-arrow">⬇️ {path.enzyme}</div>
+                       <div className="path-arrow"><Emoji name="Down Arrow" fallback="⬇️" /> {path.enzyme}</div>
                        <div className="path-output">{path.products}</div>
                        <div className="path-note">({path.timeline})</div>
                     </div>
@@ -136,12 +137,12 @@ const ScienceGuide = () => {
             </section>
 
             <section className="byproducts-section">
-              <h3>☠️ Sottoprodotti Tossici</h3>
+              <h3><Emoji name="X-Ray" fallback="☠️" size="1.2em" /> Sottoprodotti Tossici</h3>
               <p>{data.malassezia_biology?.metabolic_byproducts?.description}</p>
               <div className="byproducts-list">
                 {data.malassezia_biology?.metabolic_byproducts?.products?.map((prod, idx) => (
                   <div key={idx} className="byproduct-card">
-                    <div className="icon-header">☢️</div>
+                    <div className="icon-header"><Emoji name="Radioactive" fallback="☢️" size="2em" /></div>
                     <h4>{prod.name}</h4>
                     <p className="source">Fonte: {prod.source}</p>
                     <p className="effect">{prod.inflammatory_effect}</p>
@@ -161,7 +162,7 @@ const ScienceGuide = () => {
             <section className="comparison-section">
               <div className="comparison-wrapper glass-panel">
                 <div className="half healthy">
-                  <h3>✅ Barriera Sana</h3>
+                  <h3><Emoji name="Check Mark Button" fallback="✅" size="1.2em" /> Barriera Sana</h3>
                   <ul>
                     {Object.entries(data.barrier_dysfunction_mechanisms?.stratum_corneum_structure?.normal_composition || {}).map(([k, v]) => (
                       <li key={k}>
@@ -172,7 +173,7 @@ const ScienceGuide = () => {
                   </ul>
                 </div>
                 <div className="half compromised">
-                  <h3>❌ Compromessa da DS</h3>
+                  <h3><Emoji name="Cross Mark" fallback="❌" size="1.2em" /> Compromessa da DS</h3>
                   <ul>
                     {Object.entries(data.barrier_dysfunction_mechanisms?.stratum_corneum_structure?.sd_compromised_composition || {}).map(([k, v]) => (
                       <li key={k}>
@@ -195,18 +196,18 @@ const ScienceGuide = () => {
                     <p><strong>Meccanismo:</strong> {path.mechanism}</p>
                     {(path.timeline || path.tewl_increase) && (
                       <div className="impact-tags">
-                        {path.timeline && <span>⏱️ {path.timeline}</span>}
-                        {path.tewl_increase && <span className="danger-tag">💧 TEWL {path.tewl_increase}</span>}
+                        {path.timeline && <span><Emoji name="Stopwatch" fallback="⏱️" /> {path.timeline}</span>}
+                        {path.tewl_increase && <span className="danger-tag"><Emoji name="Droplet" fallback="💧" /> TEWL {path.tewl_increase}</span>}
                       </div>
                     )}
-                    {path.malassezia_opportunity && <div className="consequence-box">⚠️ {path.malassezia_opportunity}</div>}
+                    {path.malassezia_opportunity && <div className="consequence-box"><Emoji name="Warning" fallback="⚠️" /> {path.malassezia_opportunity}</div>}
                   </div>
                 </div>
               ))}
             </section>
 
              <section className="tight-junctions glass-panel">
-               <h3>🧱 Rottura Giunzioni Strette</h3>
+               <h3><Emoji name="Brick" fallback="🧱" size="1.2em" /> Rottura Giunzioni Strette</h3>
                <p>{data.barrier_dysfunction_mechanisms?.tight_junction_disruption?.description}</p>
                <div className="junction-consequence">
                   <strong>Conseguenza:</strong> {data.barrier_dysfunction_mechanisms?.tight_junction_disruption?.consequence}
@@ -222,7 +223,7 @@ const ScienceGuide = () => {
             
             <div className="immune-grid">
               <div className="cytokine-storm glass-panel danger-glow">
-                <h3>🌪️ La Tempesta di Citochine (Th17)</h3>
+                <h3><Emoji name="Tornado" fallback="🌪️" size="1.2em" /> La Tempesta di Citochine (Th17)</h3>
                 <div className="storm-levels">
                    {Object.entries(data.immune_dysregulation_in_sd?.immune_phenotype || {}).map(([k, v]) => (
                      <div key={k} className="cytokine-row">
@@ -234,7 +235,7 @@ const ScienceGuide = () => {
               </div>
 
               <div className="ahr-receptor glass-panel">
-                <h3>🎮 L'Interruttore Principale (AhR)</h3>
+                <h3><Emoji name="Video Game" fallback="🎮" size="1.2em" /> L'Interruttore Principale (AhR)</h3>
                 <p>{data.immune_dysregulation_in_sd?.aryl_hydrocarbon_receptor_ahr?.role}</p>
                 <div className="alert-box">
                   <strong>Patologia:</strong> {data.immune_dysregulation_in_sd?.aryl_hydrocarbon_receptor_ahr?.sd_pathology}
@@ -247,7 +248,7 @@ const ScienceGuide = () => {
             </div>
 
             <section className="lipid-peroxidation">
-              <h3>🔥 Cascata Perossidazione Lipidica</h3>
+              <h3><Emoji name="Fire" fallback="🔥" size="1.2em" /> Cascata Perossidazione Lipidica</h3>
               <p className="section-intro">{data.lipid_peroxidation_cascade?.section_description}</p>
               
               <div className="risky-fats glass-panel">
@@ -311,7 +312,7 @@ const ScienceGuide = () => {
             </div>
 
             <section className="scoring-system glass-panel">
-              <h3>📊 Sistema Punteggio Severità</h3>
+              <h3><Emoji name="Bar Chart" fallback="📊" size="1.2em" /> Sistema Punteggio Severità</h3>
               <p>{data.risk_severity_scoring_system?.section_description}</p>
               <div className="score-legend">
                  {Object.entries(data.risk_severity_scoring_system?.score_interpretation || {}).map(([range, desc]) => (
@@ -324,13 +325,13 @@ const ScienceGuide = () => {
             </section>
 
              <section className="research-summary">
-               <h3>📚 Studi di Ricerca Chiave</h3>
+               <h3><Emoji name="Books" fallback="📚" size="1.2em" /> Studi di Ricerca Chiave</h3>
                <div className="studies-grid">
                   {data.research_summary_table?.studies?.map((study, i) => (
                     <div key={i} className="study-card glass-panel">
                        <div className="study-citation">{study.citation}</div>
                        <div className="study-finding">"{study.finding}"</div>
-                       <div className="study-imp">👉 {study.implication}</div>
+                       <div className="study-imp"><Emoji name="Backhand Index Pointing Right" fallback="👉" /> {study.implication}</div>
                     </div>
                   ))}
                </div>

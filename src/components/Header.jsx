@@ -1,4 +1,5 @@
 import React from 'react';
+import Emoji from './Emoji';
 import './Header.css';
 
 /**
@@ -7,10 +8,12 @@ import './Header.css';
  */
 const Header = () => {
   return (
-    <header className="header glass">
+    <header className="header glass fade-in">
       <div className="header-content">
         <div className="logo-container">
-          <span className="logo-icon">🧴</span>
+          <span className="logo-icon">
+            <Emoji name="Lotion Bottle" fallback="🧴" size="3rem" />
+          </span>
           <h1 className="title">
             DS<span className="accent">Checker</span>
           </h1>

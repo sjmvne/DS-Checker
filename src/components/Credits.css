@@ -1,0 +1,101 @@
+.credits-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+.credits-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 1.5rem 0;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.creator-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  justify-content: center;
+  margin-top: 1rem;
+  border: 1px solid var(--color-primary);
+  background: rgba(139, 92, 246, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.creator-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.creator-avatar {
+  background: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 4px solid rgba(255,255,255,0.2);
+}
+
+.creator-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.creator-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-bottom: 5px;
+}
+
+.creator-signature {
+  font-family: 'Outfit', sans-serif; /* Keep Outfit just for signature if desired, or inherit Inter */
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.creator-socials {
+  margin-top: 10px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: white;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
