@@ -65,7 +65,7 @@ const Menu = ({ onNavigate, currentTheme, onThemeToggle }) => {
           <button className="theme-toggle-btn" onClick={onThemeToggle}>
              {currentTheme === 'light' ? '🌙 Modalità Scura' : '☀️ Modalità Chiara'}
           </button>
-          <p className="version">Sezia Scanner Pro v1.1</p>
+          <p className="version">DS Checker v1.1</p>
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 /**
- * 🧴 SEZIA SCANNER PRO - COMPLETE INGREDIENT DATABASE
+ * 🧴 DS Checker - COMPLETE INGREDIENT DATABASE
  * Estratto da sezia.co - Fonte ufficiale per dermatite seborroica
  * 
  * Database hardcoded completo con:

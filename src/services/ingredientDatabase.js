@@ -1,5 +1,5 @@
 /**
- * Sezia Scanner Pro - Ingredient Database Service
+ * DS Checker - Ingredient Database Service
  * Aggregates data from JSON files.
  */
 

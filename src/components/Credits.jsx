@@ -7,7 +7,7 @@ const Credits = () => {
       <Card className="credits-card">
         <div style={{ textAlign: 'center', padding: '2rem' }}>
           <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>🧴</h1>
-          <h2 style={{ marginBottom: '0.5rem' }}>Sezia Scanner Pro</h2>
+          <h2 style={{ marginBottom: '0.5rem' }}>DS Checker</h2>
           <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>Creato con ❤️ per la comunità DS</p>
           
           <div className="credits-divider"></div>
