@@ -91,7 +91,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
   return (
     <Card 
       title={aiMode ? "Ricerca AI Intelligente" : "Ricerca Manuale"} 
-      icon={aiMode ? "🤖" : "🔍"} 
+      icon={aiMode ? <Emoji name="Robot" fallback="🤖" /> : <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" />} 
       className="search-card"
     >
       {/* Mode Toggle */}

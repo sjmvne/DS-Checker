@@ -31,19 +31,26 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
           type: "LiveStream",
           target: scannerRef.current,
           constraints: {
-            width: { min: 640 },
-            height: { min: 480 },
+            width: { min: 1280, ideal: 1920 }, // Full HD Preferred
+            height: { min: 720, ideal: 1080 },
             facingMode: "environment",
-            aspectRatio: { min: 1, max: 2 }
+            aspectRatio: { min: 1, max: 2 },
+            focusMode: "continuous"
           },
         },
         locator: {
-          patchSize: "medium",
-          halfSample: true,
+          patchSize: "large", // Detailed scan
+          halfSample: false,
         },
-        numOfWorkers: 2,
+        numOfWorkers: 4,
+        frequency: 10,
         decoder: {
-          readers: ["ean_reader", "code_128_reader", "upc_reader"]
+          readers: [
+            "ean_reader", 
+            "ean_8_reader",
+            "code_128_reader"
+          ],
+          multiple: false
         },
         locate: true,
       }, (err) => {
