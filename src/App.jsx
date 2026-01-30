@@ -15,6 +15,7 @@ import ScienceGuide from './components/ScienceGuide'
 import Protocols from './components/Protocols'
 import Dictionary from './components/Dictionary'
 import Tutorial from './components/Tutorial'
+import EducationLayout from './components/education/EducationLayout'
 
 import { useTheme } from './hooks/useTheme'
 import { useLanguage } from './context/LanguageContext'
@@ -112,6 +113,8 @@ export default function App() {
         return <Dictionary />
       case 'credits':
         return <Credits />
+      case 'education':
+        return <EducationLayout />
       case 'home':
       default:
         return (
