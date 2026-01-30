@@ -1,8 +1,7 @@
  require('dotenv').config();
     const express = require('express');
     const cors = require('cors');
-    const cookieParser = require('cookie-parser');
-    const csrf = require('csurf');
+
     const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     const app = express();
@@ -23,26 +22,8 @@
         credentials: true
     }));
     app.use(express.json());
-    app.use(cookieParser());
     
-    // CSRF Protection
-    const csrfProtection = csrf({ 
-        cookie: { 
-            key: '_csrf',
-            path: '/',
-            httpOnly: true,
-            secure: isProduction, // Must be true for SameSite=None
-            sameSite: isProduction ? 'none' : 'lax' // Required for Cross-Site (GH Pages -> Render)
-        } 
-    });
-    
-    // Expose CSRF token
-    app.get('/api/csrf-token', csrfProtection, (req, res) => {
-        res.json({ csrfToken: req.csrfToken() });
-    });
 
-    // Apply CSRF protection to all unsafe methods (POST, PUT, DELETE)
-    app.use(csrfProtection);
 
     // Endpoint per la ricerca INCI
     app.post('/api/v1/ai/search-inci', async (req, res) => {
