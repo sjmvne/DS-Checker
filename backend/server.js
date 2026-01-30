@@ -11,8 +11,8 @@
     // Trust the first proxy (Render/Heroku load balancer)
     app.set('trust proxy', 1);
     
-    // Determine environment
-    const isProduction = process.env.NODE_ENV === 'production';
+    // Determine environment (Render sets 'RENDER' env var)
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER;
 
     // Configura CORS per alccettare richieste dal tuo frontend
     app.use(cors({
@@ -28,9 +28,11 @@
     // CSRF Protection
     const csrfProtection = csrf({ 
         cookie: { 
+            key: '_csrf',
+            path: '/',
             httpOnly: true,
-            secure: isProduction, // Secure in production (Render HTTPS)
-            sameSite: isProduction ? 'none' : 'lax' // Cross-site in prod, Lax locally
+            secure: isProduction, // Must be true for SameSite=None
+            sameSite: isProduction ? 'none' : 'lax' // Required for Cross-Site (GH Pages -> Render)
         } 
     });
     
