@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import LoadingOverlay from './LoadingOverlay';
 import Card from './Card';
-import OCRReader from './OCRReader';
+// import OCRReader from './OCRReader'; // Removed static import
 import Emoji from './Emoji';
 import { searchProductIngredients } from '../utils/aiSearchService';
 import perplexityLogo from '../assets/perplexity.svg';
 import './Search.css';
+
+// Lazy load OCRReader (heavy dependency: tesseract.js)
+const OCRReader = React.lazy(() => import('./OCRReader'));
 
 const Search = ({ onAnalyze, aiRequest }) => {
   // Manual Mode State
@@ -126,7 +129,9 @@ const Search = ({ onAnalyze, aiRequest }) => {
 
           <label className="form-label">
             Ingredienti (Copia/Incolla o Scansiona)
-            <OCRReader onScanComplete={(text) => setIngredientsText(prev => prev + (prev ? '\n' : '') + text)} />
+            <Suspense fallback={<div className="ocr-loading">Caricamento OCR...</div>}>
+               <OCRReader onScanComplete={(text) => setIngredientsText(prev => prev + (prev ? '\n' : '') + text)} />
+            </Suspense>
             <textarea 
               className="textarea-field"
               placeholder="Incolla qui la lista ingredienti..."
