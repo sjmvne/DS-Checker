@@ -116,28 +116,78 @@
 }
 
 /* Safest Items Blue Highlight */
-.db-card-mini.safe-item {
-  border-left-color: #38bdf8;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(255, 255, 255, 0.02));
-}
-
-.db-card-mini.critical-item {
-  border-left: solid 3px var(--color-danger);
-}
+/* Risk Border Colors */
+.db-card-mini.db-card-risk-safe { border-left-color: #38bdf8; background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(255, 255, 255, 0.02)); }
+.db-card-mini.db-card-risk-low { border-left-color: #34d399; }
+.db-card-mini.db-card-risk-caution { border-left-color: #facc15; }
+.db-card-mini.db-card-risk-warning { border-left-color: #fb923c; }
+.db-card-mini.db-card-risk-critical { border-left-color: #f87171; }
+.db-card-mini.db-card-risk-unknown { border-left-color: var(--color-text-muted); }
 
 .db-card-header {
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   font-size: 0.75rem;
+  margin-bottom: 6px;
 }
 
 .db-type-badge {
   background: var(--color-bg);
   padding: 4px 8px;
   border-radius: 4px;
+  font-size: 0.7rem;
   opacity: 0.8;
   font-weight: 600;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+/* Mobile Optimizations */
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .db-header-section {
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  
+  .db-search {
+    padding: 10px 20px;
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Scrollable Tabs */
+  .db-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch; /* Momentum scroll */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .db-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
+  .db-tab {
+    flex: 0 0 auto; /* Don't shrink */
+    white-space: nowrap;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .db-controls {
+    align-items: stretch;
+  }
+  
+  /* Compact List View */
+  .db-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 5px;
+  }
 }
 
 /* Risk Badges are now global in badges.css */

@@ -49,13 +49,6 @@
     "tagline": "Analisi intelligente ingredienti per la",
     "highlight": "Dermatite Seborroica"
   },
-  "credits": {
-    "title": "DS Checker",
-    "love_msg": "Creato con ❤️ per la comunità DS",
-    "created_by": "Creato con passione da",
-    "thanks": "Grazie per utilizzare questo strumento.",
-    "hope": "Spero ti aiuti a trovare i prodotti giusti per la tua pelle!"
-  },
   "tutorial": {
     "welcome_title": "Benvenuto su DS Checker",
     "welcome_text": "L'assistente intelligente per chi soffre di Dermatite Seborroica. Scopri se i tuoi prodotti sono sicuri per la tua pelle.",
@@ -83,10 +76,10 @@
     "results_found": "Trovati {count} risultati",
     "empty": "Nessun ingrediente trovato con i filtri correnti.",
     "risk_filter": {
-      "all": "🛡️ Tutti i livelli di rischio",
-      "safe": "✅ Solo Sicuri (SAFE/LOW)",
-      "caution": "⚠️ Attenzione (MODERATE/WARNING)",
-      "danger": "🚫 Da Evitare (HIGH/CRITICAL)"
+      "all": "🛡️ Tutti",
+      "safe": "✅ Sicuri",
+      "caution": "⚠️ Attenzione",
+      "danger": "🚫 Da Evitare"
     },
     "tabs": {
       "all": "Tutti",
@@ -104,7 +97,8 @@
       "polysorbates_expanded": "Polisorbati",
       "safe_alternative": "Alternative Sicure",
       "safe_alternatives_comprehensive": "Alternative Sicure",
-      "beneficial": "Ingredienti Benefici"
+      "beneficial": "Ingredienti Benefici",
+      "unknown": "Sconosciuto"
     },
     "legend": {
       "title": "Legenda Rischi",
@@ -140,15 +134,31 @@
     "error_no_text": "Nessun testo trovato. Riprova con un'immagine più nitida.",
     "error_generic": "Errore durante la scansione."
   },
-  "science": {
-    "title": "Guida Scientifica",
-    "subtitle": "Comprendere i meccanismi della Dermatite Seborroica",
-    "tabs": {
-      "malassezia": "Biologia Malassezia",
-      "barrier": "Barriera Cutanea",
-      "immune": "Sistema Immunitario",
-      "interactions": "Effetto Cocktail"
+    "credits": {
+      "title": "Credits",
+      "created_by": "Creato con ❤️ da",
+      "tech_stack": "Stack Tecnologico",
+      "tech": {
+        "core": "Core & Frontend",
+        "ai": "Intelligenza & Visione",
+        "data": "Dati & Infrastruttura"
+      },
+      "powered_by": "Powered by",
+      "disclaimer_title": "Disclaimer AI",
+      "disclaimer_text": "L'analisi è generata da Intelligenza Artificiale (Perplexity Sonar). Sebbene accurata, potrebbe contenere errori. Non sostituisce il parere medico professionale.",
+      "love_msg": "Sviluppato con passione per la community",
+      "thanks": "Grazie per usare DS Checker",
+      "hope": "Spero ti aiuti nel tuo percorso di guarigione"
     },
+    "science": {
+      "title": "Guida Scientifica",
+      "subtitle": "Comprendere i meccanismi della Dermatite Seborroica",
+      "tabs": {
+        "malassezia": "Biologia Malassezia",
+        "barrier": "Barriera Cutanea",
+        "immune": "Sistema Immunitario",
+        "interactions": "Effetto Cocktail"
+      },
     "sections": {
       "lipase_engine": "Il Motore Lipasi (Specificità Enzimatica)",
       "fatty_acid_deep_dive": "Approfondimento Metabolismo Acidi Grassi",
@@ -158,6 +168,12 @@
       "barrier_break": "Come gli Ingredienti Rompono il Muro",
       "tight_junctions": "Rottura Giunzioni Strette",
       "cocktail_intro": "Gli ingredienti sono raramente usati in isolamento. L'\"Effetto Cocktail\" spiega perché un prodotto con ingredienti \"ok\" può comunque causare un flare."
+    },
+    "composition": {
+      "ceramides": "Ceramidi",
+      "cholesterol": "Colesterolo",
+      "fatty_acids": "Acidi Grassi",
+      "proteins": "Proteine"
     },
     "labels": {
       "prevalence": "Prevalenza:",
@@ -246,7 +262,14 @@
     "product_name_required": "Nome Prodotto *",
     "brand_required": "Marca *",
     "country": "Paese",
-    "barcode": "Barcode (Opzionale)"
+    "barcode": "Barcode (Opzionale)",
+    "ai_prompt_modal": {
+      "title": "Prodotto non trovato",
+      "text": "Non abbiamo trovato il barcode <strong>{barcode}</strong> nel database standard.",
+      "sub": "Vuoi usare la nostra <strong>Intelligenza Artificiale</strong> per cercarlo su internet e analizzarlo?",
+      "btn_no": "No, grazie",
+      "btn_yes": "Usa AI"
+    }
   },
   "results": {
     "safe_match": "Match Sicuro",
@@ -347,5 +370,152 @@
     "also_known_as": "Conosciuto Anche Come",
     "safe_alternative": "Alternativa Sicura",
     "close": "Chiudi"
+  },
+  "education": {
+    "title": "SD Intelligence",
+    "subtitle": "Database educativo basato sulle più recenti ricerche dermatologiche (2026).",
+    "footer": "© 2026 SD Intelligence. Basato su studi dermatologici (Prohic, Gupta, Akaza). Non sostituisce il parere medico.",
+    "tabs": {
+        "overview": "Panoramica",
+        "science": "Meccanismi",
+        "protocol": "Protocollo Pratico"
+    },
+    "overview": {
+        "title": "Comprendere la Dermatite Seborroica",
+        "intro": "Benvenuti nel database interattivo. Questa sezione offre una sintesi visiva immediata del meccanismo principale della patologia: l'interazione tra i lipidi specifici e la Malassezia. La chiave per la remissione risiede nella comprensione della lunghezza della catena di carbonio degli acidi grassi.",
+        "stats": {
+            "enemy": {
+                "label": "Nemico #1",
+                "value": "C12 - C24",
+                "desc": "Lunghezza Catena",
+                "sub": "La \"zona di alimentazione\" preferita dalla Malassezia."
+            },
+            "safe": {
+                "label": "Alternativa Sicura",
+                "value": "MCT C8/C10",
+                "desc": "Olio Trigliceridi Medi",
+                "sub": "Non metabolizzabile dal fungo. Sicuro al 100%."
+            },
+            "prevalence": {
+                "label": "Prevalenza Malassezia",
+                "value": "90%+",
+                "desc": "Umani Colonizzati",
+                "sub": "Il problema non è la presenza, ma la proliferazione."
+            }
+        },
+        "chart": {
+            "title": "La Scienza delle Catene di Carbonio",
+            "subtitle": "Questo grafico illustra quali oli e acidi grassi nutrono la Malassezia in base alla loro struttura molecolare.",
+            "y_axis": "Attività Metabolica Fungina",
+            "tooltip_high": "RISCHIO ALTO: Cibo per Malassezia",
+            "tooltip_low": "RISCHIO BASSO: Sicuro",
+            "series_name": "Potenziale di Crescita Malassezia",
+            "labels": ["C8 (Caprilico)", "C10 (Caprico)", "C12 (Laurico)", "C14 (Miristico)", "C16 (Palmitico)", "C18 (Oleico)", "C24+"]
+        }
+    },
+    "mechanisms": {
+        "title": "Meccanismi Patologici",
+        "intro": "Questa sezione analizza perché si verifica la dermatite seborroica. Non è solo \"pelle secca\"; è una complessa interazione infiammatoria. I grafici mostrano come specifici acidi grassi inneschino una tempesta di citochine.",
+        "chart_inflammation": {
+            "title": "Risposta Infiammatoria all'Acido Oleico",
+            "source": "Studio: Akaza et al. (2012)",
+            "y_axis": "% Rispetto al controllo",
+            "series_il6": "IL-6 (Citochina Infiammatoria)",
+            "series_il8": "IL-8 (Chemochina)",
+            "labels": ["Controllo (Senza Lipidi)", "Acido Oleico (C18:1)"],
+            "interpretation": "Interpretazione:",
+            "interpretation_text": "L'Acido Oleico (comune nell'olio d'oliva e nel sebo umano) provoca un aumento massiccio (300-400%) dei marcatori infiammatori IL-6 e IL-8."
+        },
+        "cycle": {
+            "title": "Il Ciclo Vizioso della DS",
+            "steps": [
+                {
+                    "title": "Compromissione della Barriera",
+                    "desc": "La barriera cutanea si indebolisce, permettendo la penetrazione."
+                },
+                {
+                    "title": "Alimentazione Lipidica",
+                    "desc": "La Malassezia consuma lipidi C12-C24 (dal sebo o dai cosmetici)."
+                },
+                {
+                    "title": "Rilascio Acidi Grassi Liberi",
+                    "desc": "Il fungo rilascia acidi grassi insaturi irritanti sulla cute."
+                },
+                {
+                    "title": "Risposta Immunitaria",
+                    "desc": "Attivazione recettori AhR ⮕ Infiammazione ⮕ Forfora."
+                }
+            ]
+        }
+    },
+    "protocol": {
+      "title": "Protocollo e Implementazione",
+      "intro": "Informazioni pratiche e raccomandazioni sui prodotti basate sulla chimica dei lipidi. Qui impari cosa usare e cosa evitare.",
+      "safe_products_title": "Esempi di Prodotti Sicuri",
+      "faq_title": "Domande Frequenti",
+      "myths_title": "Miti da Sfatare"
+    },
+    "safe_products": [
+      {
+        "title": "MCT Oil (C8/C10 Puro)",
+        "tag": "Olio",
+        "desc": "L'unico olio veramente sicuro. Usare come struccante o idratante.",
+        "sub": "Brand: Bulletproof, Kiss My Keto (Verificare solo C8/C10)",
+        "color": "bg-vibrant-green"
+      },
+      {
+        "title": "CeraVe Detergente",
+        "tag": "Detergente",
+        "desc": "Senza solfati aggressivi, contiene ceramidi per la barriera.",
+        "sub": "Verificare INCI locale (formula EU vs US varia).",
+        "color": "bg-vibrant-blue"
+      },
+      {
+        "title": "Squalano (Vegetale)",
+        "tag": "Idratante",
+        "desc": "Idrocarburo saturo stabile. Sicuro.",
+        "sub": "Brand: The Ordinary, Biossance",
+        "color": "bg-vibrant-purple"
+      },
+      {
+        "title": "Nizoral (Keto 2%)",
+        "tag": "Trattamento",
+        "desc": "Gold standard antifungino. 2-3 volte a settimana.",
+        "sub": "Farmaco da banco",
+        "color": "bg-vibrant-orange"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Esiste una cura definitiva per la Dermatite Seborroica?",
+        "a": "NO. La DS è cronica ma altamente gestibile. Molti raggiungono la remissione per mesi o anni con il protocollo corretto, ma le ricadute sono possibili se si usano prodotti trigger."
+      },
+      {
+        "q": "Posso usare il mio shampoo normale se uso anche quello antifungino?",
+        "a": "NO. Usare uno shampoo normale con oli (trigger) è come gettare benzina sul fuoco mentre cerchi di spegnerlo con l'antifungino. Devi eliminare i trigger."
+      },
+      {
+        "q": "Tutti gli oli sono dannosi?",
+        "a": "NO. Solo gli acidi grassi C12-C24. L'olio MCT (C8/C10), l'olio minerale e lo squalano sono sicuri."
+      },
+      {
+        "q": "Se sono in remissione, posso usare un prodotto 'non sicuro' una tantum?",
+        "a": "NON RACCOMANDATO. Una singola esposizione a prodotti ad alto rischio (es. maschera all'olio di cocco) può riattivare una riacutizzazione che dura settimane."
+      }
+    ],
+    "myths": [
+      {
+        "title": "È solo pelle secca",
+        "content": "No, è un'infiammazione causata da funghi. Aggiungere oli tradizionali (Oliva, Cocco) peggiora la situazione quasi istantaneamente."
+      },
+      {
+        "title": "L'olio di cocco è antimicotico",
+        "content": "In provetta sì (acido laurico), ma sulla pelle l'acido laurico (C12) è il principale nutrimento esplosivo per la Malassezia."
+      },
+      {
+        "title": "I prodotti bio sono sicuri",
+        "content": "La Malassezia è naturale! Ama la natura. Molti estratti vegetali e oli organici sono il suo cibo preferito."
+      }
+    ]
   }
 }

@@ -9,6 +9,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { useChartTheme } from '../../hooks/useChartTheme';
+import { useLanguage } from '../../context/LanguageContext';
+import SmartText from '../common/SmartText';
 
 ChartJS.register(
   CategoryScale,
@@ -20,16 +23,21 @@ ChartJS.register(
 );
 
 const Science = () => {
+    const themeOptions = useChartTheme();
+    const { t } = useLanguage();
+
+    const chartLabels = t('education.mechanisms.chart_inflammation.labels', { returnObjects: true });
+
     const chartData = {
-        labels: ['Controllo (Senza Lipidi)', 'Acido Oleico (C18:1)'],
+        labels: Array.isArray(chartLabels) ? chartLabels : [],
         datasets: [
             {
-                label: 'IL-6 (Citochina Infiammatoria)',
+                label: t('education.mechanisms.chart_inflammation.series_il6'),
                 data: [100, 380], 
                 backgroundColor: '#38BDF8'
             },
             {
-                label: 'IL-8 (Chemochina)',
+                label: t('education.mechanisms.chart_inflammation.series_il8'),
                 data: [100, 450],
                 backgroundColor: '#F43F5E'
             }
@@ -37,73 +45,72 @@ const Science = () => {
     };
 
     const chartOptions = {
+        ...themeOptions,
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { position: 'bottom' },
+            ...themeOptions.plugins,
+            legend: { 
+                ...themeOptions.plugins?.legend,
+                position: 'bottom',
+            },
             title: { display: false }
         },
         scales: {
             y: {
+                ...themeOptions.scales?.y,
                 beginAtZero: true,
-                title: { display: true, text: '% Rispetto al controllo' }
+                title: { ...themeOptions.scales?.y?.title, display: true, text: t('education.mechanisms.chart_inflammation.y_axis') },
+            },
+            x: {
+                ...themeOptions.scales?.x
             }
         }
     };
 
+    const steps = t('education.mechanisms.cycle.steps', { returnObjects: true });
+    
     return (
-        <div className="animate-fade-in space-y-8">
-            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Meccanismi Patologici</h2>
-                <p className="text-gray-600 leading-relaxed">
-                    Questa sezione analizza <em>perché</em> si verifica la dermatite seborroica. Non è solo "pelle secca"; 
-                    è una complessa interazione infiammatoria. I grafici mostrano come specifici acidi grassi inneschino una tempesta di citochine.
+        <div className="edu-section">
+            <div className="edu-header-card">
+                <h2>{t('education.mechanisms.title')}</h2>
+                <p>
+                    <SmartText>{t('education.mechanisms.intro')}</SmartText>
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="edu-grid-2">
                 {/* Inflammation Chart */}
-                <div className="bg-white/90 backdrop-blur rounded-xl shadow-md p-6 h-full flex flex-col">
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">Risposta Infiammatoria all'Acido Oleico</h3>
-                    <p className="text-xs text-gray-500 mb-4">Studio: Akaza et al. (2012) - Aumento citochine vs controllo.</p>
-                    
-                    <div className="flex-grow min-h-[300px]">
-                        <Bar data={chartData} options={chartOptions} />
+                <div className="edu-chart-wrapper" style={{display: 'flex', flexDirection: 'column'}}>
+                    <div className="edu-chart-header">
+                        <h3>{t('education.mechanisms.chart_inflammation.title')}</h3>
+                        <p style={{fontSize: '0.75rem', color: 'var(--color-text-muted)'}}>{t('education.mechanisms.chart_inflammation.source')}</p>
                     </div>
                     
-                    <div className="mt-4 bg-red-50 p-3 rounded-lg border border-red-100 text-xs text-red-800">
-                        <strong>Interpretazione:</strong> L'Acido Oleico (comune nell'olio d'oliva e nel sebo umano) provoca un aumento massiccio (300-400%) dei marcatori infiammatori IL-6 e IL-8.
+                    <div className="edu-chart-container" style={{flex: 1, minHeight: '300px'}}>
+                        <Bar key={JSON.stringify(chartOptions)} data={chartData} options={chartOptions} />
+                    </div>
+                    
+                    <div style={{marginTop: '1rem', padding: '12px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.2)', fontSize: '0.75rem', color: '#b91c1c'}}>
+                        <strong>{t('education.mechanisms.chart_inflammation.interpretation')}</strong> <SmartText>{t('education.mechanisms.chart_inflammation.interpretation_text')}</SmartText>
                     </div>
                 </div>
 
                 {/* Vicious Cycle Diagram */}
-                <div className="bg-white/90 backdrop-blur rounded-xl shadow-md p-6">
-                    <h3 className="text-lg font-bold text-gray-800 mb-6">Il Ciclo Vizioso della DS</h3>
+                <div className="edu-stat-card">
+                    <h3 style={{fontSize: '1.25rem', fontWeight: 700, marginBottom: '24px', color: 'var(--color-text)'}}>{t('education.mechanisms.cycle.title')}</h3>
                     
-                    <div className="relative pl-8 space-y-8 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-200">
-                        <div className="relative">
-                            <div className="absolute -left-8 bg-sky-100 text-sky-600 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">1</div>
-                            <h4 className="font-semibold text-gray-800">Compromissione della Barriera</h4>
-                            <p className="text-sm text-gray-600 mt-1">La barriera cutanea si indebolisce (genetica o stress), permettendo la penetrazione.</p>
-                        </div>
-                        
-                        <div className="relative">
-                            <div className="absolute -left-8 bg-red-100 text-red-600 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">2</div>
-                            <h4 className="font-semibold text-gray-800">Alimentazione Lipidica</h4>
-                            <p className="text-sm text-gray-600 mt-1">La Malassezia consuma lipidi C12-C24 (dal sebo o dai prodotti cosmetici sbagliati).</p>
-                        </div>
-                        
-                        <div className="relative">
-                            <div className="absolute -left-8 bg-amber-100 text-amber-600 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">3</div>
-                            <h4 className="font-semibold text-gray-800">Rilascio Acidi Grassi Liberi</h4>
-                            <p className="text-sm text-gray-600 mt-1">Il fungo rilascia acidi grassi insaturi irritanti sulla cute.</p>
-                        </div>
-                        
-                        <div className="relative">
-                            <div className="absolute -left-8 bg-purple-100 text-purple-600 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">4</div>
-                            <h4 className="font-semibold text-gray-800">Risposta Immunitaria (AhR)</h4>
-                            <p className="text-sm text-gray-600 mt-1">Attivazione recettori AhR ⮕ Infiammazione ⮕ Iperproliferazione cellulare (forfora).</p>
-                        </div>
+                    <div className="edu-cycle-list">
+                        {Array.isArray(steps) && steps.map((step, index) => {
+                             const stepColors = ['blue', 'red', 'orange', 'purple'];
+                             return (
+                                <div key={index} className="edu-cycle-item">
+                                    <div className={`cycle-step ${stepColors[index % stepColors.length]}`}>{index + 1}</div>
+                                    <h4 style={{fontWeight: 600, color: 'var(--color-text)'}}>{step.title}</h4>
+                                    <p style={{fontSize: '0.875rem', color: 'var(--color-text-muted)', marginTop: '4px'}}><SmartText>{step.desc}</SmartText></p>
+                                </div>
+                             );
+                        })}
                     </div>
                 </div>
             </div>

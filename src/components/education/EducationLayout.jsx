@@ -3,13 +3,14 @@ import Overview from './Overview';
 import Science from './Science';
 import Protocol from './Protocol';
 import { useLanguage } from '../../context/LanguageContext';
+import './Education.css';
 
 const EducationLayout = () => {
     const [activeTab, setActiveTab] = useState('overview');
     const { t } = useLanguage();
 
     const tabs = [
-        { id: 'overview', label: 'Panoramica' }, // TODO: Internationalize later if needed, hardcoded to IT/Source for now
+        { id: 'overview', label: 'Panoramica' }, 
         { id: 'science', label: 'Scienza & Meccanismi' },
         { id: 'protocol', label: 'Protocollo Pratico' }
     ];
@@ -24,27 +25,23 @@ const EducationLayout = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in-up">
-            <div className="mb-8 text-center">
-                <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 mb-2">
+        <div className="edu-container">
+            <div className="edu-intro">
+                <h1 className="edu-title">
                     SD Intelligence
                 </h1>
-                <p className="text-gray-600 max-w-2xl mx-auto">
+                <p className="edu-subtitle">
                     Database educativo basato sulle più recenti ricerche dermatologiche (2026).
                 </p>
             </div>
 
             {/* Navigation Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8 bg-white/50 backdrop-blur-sm p-2 rounded-xl border border-white/40 shadow-sm">
+            <div className="edu-tabs">
                 {tabs.map(tab => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                            activeTab === tab.id
-                                ? 'bg-white text-blue-600 shadow-md ring-1 ring-black/5'
-                                : 'text-gray-500 hover:text-gray-700 hover:bg-white/50'
-                        }`}
+                        className={`edu-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
                     >
                         {tab.label}
                     </button>
@@ -52,12 +49,19 @@ const EducationLayout = () => {
             </div>
 
             {/* Content Area */}
-            <div className="min-h-[600px]">
+            <div className="edu-content">
                 {renderContent()}
             </div>
 
             {/* Footer Note */}
-            <div className="mt-12 text-center text-xs text-gray-400 border-t pt-8">
+            <div style={{
+                marginTop: '40px', 
+                textAlign: 'center', 
+                fontSize: '0.75rem', 
+                color: 'var(--color-text-muted)', 
+                borderTop: '1px solid var(--color-border)', 
+                paddingTop: '20px'
+            }}>
                 <p>© 2026 SD Intelligence. Basato su studi dermatologici (Prohic, Gupta, Akaza). Non sostituisce il parere medico.</p>
             </div>
         </div>

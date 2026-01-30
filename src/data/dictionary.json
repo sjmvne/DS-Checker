@@ -79,6 +79,166 @@
       "term": "Ferments",
       "definition": "Ingredients derived from microbial fermentation (e.g., Galactomyces). Very popular in K-Beauty, but risky for SD because they often contain nutrient residues for yeasts.",
       "category": "Ingredients"
+    },
+    {
+      "term": "AhR (Aryl Hydrocarbon Receptor)",
+      "definition": "A protein 'sensor' in skin cells. When activated by Malassezia byproducts, it triggers a massive inflammatory response (Th17 pathway), causing redness and itching.",
+      "category": "Biology"
+    },
+    {
+      "term": "Cytokines",
+      "definition": "Small signaling proteins (like IL-17, IL-6) released by the immune system. In SD, a 'cytokine storm' causes the visible inflammation and accelerated skin cell turnover.",
+      "category": "Biology"
+    },
+    {
+      "term": "Keratinocytes",
+      "definition": "The primary cells of the epidermis (90%). In SD, they are attacked by Malassezia metabolites and respond by releasing inflammatory signals and shedding too quickly (dandruff).",
+      "category": "Biology"
+    },
+    {
+      "term": "Microbiome",
+      "definition": "The community of microorganisms (bacteria, fungi, viruses) living on the skin. SD is a state of 'dysbiosis' where Malassezia dominates the scalp microbiome.",
+      "category": "Biology"
+    },
+    {
+      "term": "Dysbiosis",
+      "definition": "An imbalance in the microbial community. In SD, diversity decreases and Malassezia fungi take over, displacing beneficial bacteria.",
+      "category": "Biology"
+    },
+    {
+      "term": "Beta-Glucans",
+      "definition": "Sugars found in cell walls of fungi (like Malassezia and Galactomyces). The immune system recognizes them as 'threats', triggering immediate inflammation.",
+      "category": "Biology"
+    },
+    {
+      "term": "Th17 Pathway",
+      "definition": "The specific arm of the immune system responsible for fighting fungal infections. It is chronically overactive in SD, leading to persistent inflammation even when the fungus is reduced.",
+      "category": "Biology"
+    },
+    {
+      "term": "Carbon Chain Length",
+      "definition": "The number of carbon atoms in a fatty acid molecule. This is the #1 factor in SD safety. C11-C24 feeds the fungus; C8-C10 is safe.",
+      "category": "Chemistry"
+    },
+    {
+      "term": "Saturation",
+      "definition": "Refers to chemical bonds in fats. Unsaturated fats (liquid oils like Olive) have double bonds that oxidize easily. Saturated fats (solid butters) are stable but can still be food for fungus.",
+      "category": "Chemistry"
+    },
+    {
+      "term": "Lipid Peroxidation",
+      "definition": "The process where oils 'go rancid' on the skin due to Malassezia activity or UV light. These oxidized lipids are toxic and cause itching.",
+      "category": "Chemistry"
+    },
+    {
+      "term": "ROS (Reactive Oxygen Species)",
+      "definition": "Unstable molecules (free radicals) released during inflammation. They damage skin cells and barrier proteins, worsening the cycle of SD.",
+      "category": "Chemistry"
+    },
+    {
+      "term": "Hydrophilic vs Lipophilic",
+      "definition": "Hydrophilic loves water; Lipophilic loves oil. Malassezia is 'lipophilic' (fat-loving), which is why it thrives in oil-rich areas like the scalp and face.",
+      "category": "Chemistry"
+    },
+    {
+      "term": "Surfactants",
+      "definition": "Cleansing agents. Harsh ones (SLS) strip all oils, destroying the barrier. Gentle ones (Glucosides) clean without damaging the skin's protection.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Chelating Agents",
+      "definition": "Ingredients like EDTA that bind minerals. They can destabilize the cell walls of fungi (good) but also disrupt the skin barrier (bad) if concentration is too high.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Humectants",
+      "definition": "Ingredients that attract water (Glycerin, Hyaluronic Acid). Essential for SD because the barrier is damaged, but must be used without oils that trap heat.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Occlusives",
+      "definition": "Ingredients that form a seal (Petrolatum, Silicones). In SD, they can be dangerous because they trap sweat and heat, creating a greenhouse for fungus.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Emollient",
+      "definition": "Detailed description of ingredients that soften skin. In SD, use safe emollients like Squalane or MCT, not vegetable oils.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Oleic Acid",
+      "definition": "A C18 monounsaturated fatty acid found in Olive Oil and Sebum. It is a major trigger that breaches the skin barrier and triggers inflammation.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Lauric Acid",
+      "definition": "A C12 fatty acid (50% of Coconut Oil). It is the most explosive fuel for Malassezia. Must be strictly avoided.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Ceramides",
+      "definition": "Lipids that act as the 'mortar' between skin cells. SD skin is deficient in Ceramides, making barrier repair crucial.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "NMF (Natural Moisturizing Factor)",
+      "definition": "A mix of amino acids and salts produced by healthy skin to hold water. SD skin often produces defective NMF.",
+      "category": "Biology"
+    },
+    {
+      "term": "Hyaluronic Acid",
+      "definition": "A sugar molecule that holds 1000x its weight in water. A safe, oil-free hydration hero for Seborrheic Dermatitis.",
+      "category": "Ingredients"
+    },
+    {
+      "term": "Zinc Pyrithione",
+      "definition": "A common antifungal agent. It works by starving the fungus of iron and increasing zinc levels, which inhibits growth.",
+      "category": "Treatment"
+    },
+    {
+      "term": "Ketoconazole",
+      "definition": "A broad-spectrum antifungal medication. It disrupts the fungal cell membrane synthesis. The gold standard for SD treatment.",
+      "category": "Treatment"
+    },
+    {
+      "term": "Salicylic Acid",
+      "definition": "A BHA (Beta Hydroxy Acid) that exfoliates dead skin and penetrates oil ducts to dissolve sebum buildup.",
+      "category": "Treatment"
+    },
+    {
+      "term": "TEWL (Transepidermal Water Loss)",
+      "definition": "The rate at which water evaporates from skin. In SD, the barrier is broken, so TEWL is high, leading to 'oily but dehydrated' skin.",
+      "category": "Dermatology"
+    },
+    {
+      "term": "Acid Mantle",
+      "definition": "The protective acidic film (pH 4.5-5.5) on skin surface. Malassezia hates acid; alkalinizing products (soap) destroy this mantle and invite infection.",
+      "category": "Biology"
+    },
+    {
+      "term": "Non-Comedogenic",
+      "definition": "Means 'does not clog pores'. Crucial for SD because clogged pores trap sebum, creating a feeding ground for yeast.",
+      "category": "Dermatology"
+    },
+    {
+      "term": "Hypoallergenic",
+      "definition": "Formulated to minimize allergy risk. Important because SD skin is 'leaky' and reacts more strongly to allergens like fragrance.",
+      "category": "Dermatology"
+    },
+    {
+      "term": "Flare",
+      "definition": "An acute outbreak of symptoms (redness, itch, flaking). Usually triggered by stress, diet, weather, or incorrect products.",
+      "category": "Dermatology"
+    },
+    {
+      "term": "Remission",
+      "definition": "A period where symptoms disappear. This is the goal. It is not a 'cure', but a controlled state maintained by a safe routine.",
+      "category": "Dermatology"
+    },
+    {
+      "term": "Patch Test",
+      "definition": "Applying a product to a small area (behind ear) for 24-48h to check for reactions before full use. Essential for sensitive SD skin.",
+      "category": "Dermatology"
     }
   ]
 }

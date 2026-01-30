@@ -79,6 +79,166 @@
       "term": "Fermenti",
       "definition": "Ingredienti derivati dalla fermentazione microbica (es. Galactomyces). Molto popolari nella K-Beauty, ma rischiosi per la DS perché spesso contengono residui nutrienti per i lieviti.",
       "category": "Ingredienti"
+    },
+    {
+      "term": "AhR (Recettore Arilico)",
+      "definition": "Un 'sensore' proteico nelle cellule della pelle. Quando attivato dai sottoprodotti della Malassezia, innesca una massiccia risposta infiammatoria (via Th17), causando rossore e prurito.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Citochine",
+      "definition": "Piccole proteine di segnalazione (come IL-17, IL-6) rilasciate dal sistema immunitario. Nella DS, una 'tempesta di citochine' causa l'infiammazione visibile e il turnover cellulare accelerato.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Cheratinociti",
+      "definition": "Le cellule principali dell'epidermide (90%). Nella DS, vengono attaccate dai metaboliti della Malassezia e rispondono rilasciando segnali infiammatori e desquamandosi troppo velocemente (forfora).",
+      "category": "Biologia"
+    },
+    {
+      "term": "Microbioma",
+      "definition": "La comunità di microrganismi (batteri, funghi, virus) che vive sulla pelle. La DS è uno stato di 'disbiosi' in cui i funghi Malassezia dominano il microbioma del cuoio capelluto.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Disbiosi",
+      "definition": "Uno squilibrio nella comunità microbica. Nella DS, la diversità diminuisce e i funghi Malassezia prendono il sopravvento, spiazzando i batteri benefici.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Beta-Glucani",
+      "definition": "Zuccheri presenti nelle pareti cellulari dei funghi (come Malassezia e Galactomyces). Il sistema immunitario li riconosce come 'minacce', scatenando un'infiammazione immediata.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Pathway Th17",
+      "definition": "Il braccio specifico del sistema immunitario responsabile della lotta contro le infezioni fungine. È cronicamente iperattivo nella DS, portando a infiammazione persistente anche quando il fungo è ridotto.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Lunghezza Catena di Carbonio",
+      "definition": "Il numero di atomi di carbonio in una molecola di acido grasso. Questo è il fattore #1 per la sicurezza nella DS. C11-C24 nutre il fungo; C8-C10 è sicuro.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Saturazione",
+      "definition": "Si riferisce ai legami chimici nei grassi. I grassi insaturi (oli liquidi come l'Oliva) hanno doppi legami che si ossidano facilmente. I grassi saturi (burri solidi) sono stabili ma possono comunque nutrire il fungo.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Perossidazione Lipidica",
+      "definition": "Il processo in cui gli oli 'irrancidiscono' sulla pelle a causa dell'attività della Malassezia o dei raggi UV. Questi lipidi ossidati sono tossici e causano prurito.",
+      "category": "Chimica"
+    },
+    {
+      "term": "ROS (Specie Reattive dell'Ossigeno)",
+      "definition": "Molecole instabili (radicali liberi) rilasciate durante l'infiammazione. Danneggiano le cellule della pelle e le proteine della barriera, peggiorando il ciclo della DS.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Idrofilo vs Lipofilo",
+      "definition": "Idrofilo ama l'acqua; Lipofilo ama l'olio. La Malassezia è 'lipofila' (ama i grassi), motivo per cui prospera in aree ricche di olio come cuoio capelluto e viso.",
+      "category": "Chimica"
+    },
+    {
+      "term": "Tensioattivi",
+      "definition": "Agenti detergenti. Quelli aggressivi (SLS) rimuovono tutti gli oli, distruggendo la barriera. Quelli delicati (Glucosidi) puliscono senza danneggiare la protezione della pelle.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Agenti Chelanti",
+      "definition": "Ingredienti come l'EDTA che legano i minerali. Possono destabilizzare le pareti cellulari dei funghi (bene) ma anche disturbare la barriera cutanea (male) se la concentrazione è troppo alta.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Umettanti",
+      "definition": "Ingredienti che attirano l'acqua (Glicerina, Acido Ialuronico). Essenziali per la DS perché la barriera è danneggiata, ma devono essere usati senza oli che intrappolano il calore.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Occlusivi",
+      "definition": "Ingredienti che formano un sigillo (Petrolato, Siliconi). Nella DS possono essere pericolosi perché intrappolano sudore e calore, creando una serra per il fungo.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Emollienti",
+      "definition": "Ingredienti che ammorbidiscono la pelle. Nella DS, usare emollienti sicuri come Squalano o MCT, non oli vegetali.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Acido Oleico",
+      "definition": "Un acido grasso monoinsaturo C18 trovato nell'Olio d'Oliva e nel Sebo. È un importante trigger che rompe la barriera cutanea e stimola l'infiammazione.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Acido Laurico",
+      "definition": "Un acido grasso C12 (50% dell'Olio di Cocco). È il carburante più esplosivo per la Malassezia. Deve essere rigorosamente evitato.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Ceramidi",
+      "definition": "Lipidi che agiscono come 'cemento' tra le cellule della pelle. La pelle con DS è carente di Ceramidi, rendendo cruciale la riparazione della barriera.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "NMF (Fattore Naturale di Idratazione)",
+      "definition": "Un mix di aminoacidi e sali prodotti dalla pelle sana per trattenere l'acqua. La pelle con DS produce spesso NMF difettoso.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Acido Ialuronico",
+      "definition": "Una molecola di zucchero che trattiene 1000 volte il suo peso in acqua. Un eroe dell'idratazione sicuro e senza oli per la Dermatite Seborroica.",
+      "category": "Ingredienti"
+    },
+    {
+      "term": "Zinco Piritione",
+      "definition": "Un comune agente antifungino. Funziona affamando il fungo di ferro e aumentando i livelli di zinco, inibendone la crescita.",
+      "category": "Trattamento"
+    },
+    {
+      "term": "Chetoconazolo",
+      "definition": "Un farmaco antifungino ad ampio spettro. Disturba la sintesi della membrana cellulare fungina. Il gold standard per il trattamento della DS.",
+      "category": "Trattamento"
+    },
+    {
+      "term": "Acido Salicilico",
+      "definition": "Un BHA (Beta Idrossiacido) che esfolia la pelle morta e penetra nei dotti sebacei per sciogliere l'accumulo di sebo.",
+      "category": "Trattamento"
+    },
+    {
+      "term": "TEWL (Perdita Acqua Trans-epidermica)",
+      "definition": "Il tasso di evaporazione dell'acqua dalla pelle. Nella DS la barriera è rotta, quindi la TEWL è alta, portando a pelle 'oleosa ma disidratata'.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Mantello Acido",
+      "definition": "Il film acido protettivo (pH 4.5-5.5) sulla superficie della pelle. La Malassezia odia l'acido; i prodotti alcalinizzanti (sapone) distruggono questo mantello e invitano all'infezione.",
+      "category": "Biologia"
+    },
+    {
+      "term": "Non Comedogenico",
+      "definition": "Significa 'non ostruisce i pori'. Cruciale per la DS perché i pori ostruiti intrappolano il sebo, creando un terreno fertile per il lievito.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Ipoallergenico",
+      "definition": "Formulato per ridurre al minimo il rischio di allergie. Importante perché la pelle con DS è 'permeabile' e reagisce più fortemente agli allergeni come i profumi.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Flare (Riacutizzazione)",
+      "definition": "Un episodio acuto di sintomi (rossore, prurito, desquamazione). Solitamente scatenato da stress, dieta, clima o prodotti scorretti.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Remissione",
+      "definition": "Un periodo in cui i sintomi scompaiono. Questo è l'obiettivo. Non è una 'cura', ma uno stato controllato mantenuto da una routine sicura.",
+      "category": "Dermatologia"
+    },
+    {
+      "term": "Patch Test",
+      "definition": "Applicare un prodotto su una piccola area (dietro l'orecchio) per 24-48 ore per controllare le reazioni prima dell'uso completo. Essenziale per la pelle sensibile con DS.",
+      "category": "Dermatologia"
     }
   ]
 }

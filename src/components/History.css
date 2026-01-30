@@ -86,3 +86,52 @@
   border-radius: var(--radius-sm);
   border: 1px solid;
 }
+
+/* Swipe to Delete Styles */
+.swipe-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  /* Ensure it takes full width of grid cell */
+  min-width: 0; 
+  /* Transition for height/opacity collapse */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 200px; /* Arbitrary max to allow animation */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.swipe-container.deleting {
+  max-height: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.swipe-action-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Cover full width but show only when uncovered */
+  background: var(--color-danger); /* Red background */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Icon on the right */
+  padding-right: 25px;
+  border-radius: var(--radius-md);
+  z-index: 1; /* Behind card */
+}
+
+.trash-icon {
+  font-size: 1.5rem;
+  color: white;
+  animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

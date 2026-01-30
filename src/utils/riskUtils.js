@@ -38,9 +38,11 @@ export const getRiskLabelKey = (level) => {
   if (l.includes('low') || l.includes('basso')) return 'database.legend.low.label';
   if (l.includes('moderate') || l.includes('moderato') || l.includes('caution')) return 'database.legend.moderate.label';
   
-  // High -> Critical Label (since Visual is Red)
-  if (l.includes('high') || l.includes('alto') || l.includes('warning')) return 'database.legend.critical.label';
-  if (l.includes('critical') || l.includes('critico') || l.includes('danger')) return 'database.legend.critical.label';
+  // Warning -> High Label (Orange)
+  if (l.includes('warning')) return 'database.legend.high.label';
+  
+  // High/Critical -> Critical Label (Red)
+  if (l.includes('high') || l.includes('alto') || l.includes('critical') || l.includes('critico') || l.includes('danger')) return 'database.legend.critical.label';
   
   return 'database.legend.moderate.label';
 };

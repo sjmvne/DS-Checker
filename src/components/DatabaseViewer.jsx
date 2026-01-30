@@ -4,6 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { useData } from '../hooks/useData';
 import Card from './Card';
 import Emoji from './Emoji';
+import IngredientModal from './IngredientModal';
+import IngredientRow from './IngredientRow';
 import './DatabaseViewer.css';
 import { titleCase } from '../utils/formatters';
 import { getRiskClass, getRiskLabelKey } from '../utils/riskUtils';
@@ -15,10 +17,13 @@ const DatabaseViewer = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [riskFilter, setRiskFilter] = useState('all');
   const [showLegend, setShowLegend] = useState(false);
+  const [selectedIngredient, setSelectedIngredient] = useState(null);
   
   // Aggregate all items with metadata
   const getAllItems = () => {
-    // ... (logic remains same as existing getAllItems, assumed preserved)
+    if (!fullDatabase || !fullDatabase.catalog) return [];
+    
+    // Direct array accumulation for performance
     const list = [];
     const addCategory = (catKey, type, defaultRisk) => {
       const category = fullDatabase.catalog[catKey];
@@ -26,7 +31,8 @@ const DatabaseViewer = () => {
       items.forEach(item => {
         list.push({ 
           ...item, 
-          type, 
+          type,
+          categoryKey: catKey, 
           risk_level: item.risk_level || defaultRisk, 
           categoryDesc: category?.category_description 
         });
@@ -45,7 +51,13 @@ const DatabaseViewer = () => {
        const safeTypes = ['fatty_acids_safe', 'oils_safe', 'esters_safe', 'alcohols_safe', 'sugars_humectants_safe', 'cleansers_safe', 'humectants_safe', 'preservatives_safe', 'ph_buffers_safe'];
        safeTypes.forEach(subKey => {
           (safeSection[subKey] || []).forEach(item => {
-             list.push({ ...item, type: 'Safe Alternative', risk_level: 'SAFE', categoryDesc: safeSection.category_description });
+             list.push({ 
+               ...item, 
+               type: 'Safe Alternative', 
+               categoryKey: 'safe_alternative',
+               risk_level: 'SAFE', 
+               categoryDesc: safeSection.category_description 
+             });
           });
        });
     }
@@ -85,32 +97,38 @@ const DatabaseViewer = () => {
     'Safe Alternative': t('database.tabs.safe_alternative')
   };
 
-  // Risk helpers imported from riskUtils 
-  
-  // Re-reading user request: "CRITICO should be red". 
-  // If the data comes as "CRITICO", getRiskLabel returns "CRITICO" (currently returns level fallback).
-  // getRiskClass logic correction IS the fix.
-  // The user didn't ask to translate the label itself, just fix the color.
-  // Although translating it makes sense. I will keep the label as is (or uppercase) but fix the CLASS logic which is the root cause.
-
   return (
     <div className="page-container fade-in">
        <div className="db-header-section">
          <h2><Emoji name="File Cabinet" fallback="🗄️" /> {t('database.title')}</h2>
          <p>{t('database.subtitle').replace('{count}', allItems.length)}</p>
          
-         <div className="search-bar-wrapper" style={{position: 'relative'}}>
-             <span style={{position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 1}}>
-                <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" size="1.2em" />
-             </span>
-             <input 
-               type="text" 
-               placeholder={t('database.search_placeholder')}
-               value={filter}
-               onChange={(e) => setFilter(e.target.value)}
-               className="db-search glass"
-               style={{paddingLeft: '40px', fontSize: '1em'}}
-             />
+         <div className="search-bar-wrapper" style={{position: 'relative', display: 'flex', alignItems: 'center', gap: '10px', width: '100%', maxWidth: '700px'}}>
+             <div style={{position: 'relative', flex: 1}}>
+                 <span style={{position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 1}}>
+                    <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" size="1.2em" />
+                 </span>
+                 <input 
+                   type="text" 
+                   placeholder={t('database.search_placeholder')}
+                   value={filter}
+                   onChange={(e) => setFilter(e.target.value)}
+                   className="db-search glass"
+                   style={{paddingLeft: '40px', fontSize: '1em', width: '100%', maxWidth: 'none'}}
+                 />
+             </div>
+             
+             <select 
+                className="risk-filter-select glass"
+                value={riskFilter} 
+                onChange={(e) => setRiskFilter(e.target.value)}
+                style={{minWidth: '100px'}}
+             >
+               <option value="all">{t('database.risk_filter.all')}</option>
+               <option value="safe">{t('database.risk_filter.safe')}</option>
+               <option value="caution">{t('database.risk_filter.caution')}</option>
+               <option value="danger">{t('database.risk_filter.danger')}</option>
+             </select>
          </div>
 
          <div className="db-controls">
@@ -120,26 +138,6 @@ const DatabaseViewer = () => {
                <button key={cat} className={`db-tab ${activeTab === cat ? 'active' : ''}`} onClick={() => setActiveTab(cat)}>{categoryLabels[cat] || cat}</button>
              ))}
            </div>
-           
-           <select 
-              className="risk-filter-select glass"
-              value={riskFilter} 
-              onChange={(e) => setRiskFilter(e.target.value)}
-           >
-             <option value="all">{t('database.risk_filter.all')}</option>
-             <option value="safe">{t('database.risk_filter.safe')}</option>
-             <option value="caution">{t('database.risk_filter.caution')}</option>
-             <option value="danger">{t('database.risk_filter.danger')}</option>
-           </select>
-           
-           <button 
-             className="info-btn glass" 
-             onClick={() => setShowLegend(true)}
-             aria-label="Risk Legend"
-             style={{marginLeft: '10px', padding: '8px 12px', cursor: 'pointer'}}
-           >
-             <Emoji name="Information" fallback="ℹ️" />
-           </button>
          </div>
        </div>
 
@@ -220,8 +218,16 @@ const DatabaseViewer = () => {
          document.body
        )}
 
-       <div className="db-stats">
-          {t('database.results_found').replace('{count}', filtered.length)}
+       <div className="db-stats" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '15px'}}>
+          <span>{t('database.results_found').replace('{count}', filtered.length)}</span>
+           <button 
+             className="info-btn glass" 
+             onClick={() => setShowLegend(true)}
+             aria-label="Risk Legend"
+             style={{padding: '5px 10px', width: 'auto', height: 'auto', borderRadius: '12px', fontSize: '0.8rem'}}
+           >
+             <Emoji name="Information" fallback="ℹ️" />
+           </button>
        </div>
 
        <div className="db-grid">
@@ -230,35 +236,22 @@ const DatabaseViewer = () => {
            const isSafe = riskClass === 'risk-safe';
            const isCritical = riskClass === 'risk-critical';
            
-           return (
-            <Card key={idx} className={`db-card-mini ${isSafe ? 'safe-item' : ''} ${isCritical ? 'critical-item' : ''}`}>
-              <div className="db-card-header">
-                <span className="db-type-badge">{categoryLabels[item.type] || item.type}</span>
-                <span className={`db-risk-badge ${getRiskClass(item.risk_level)}`}>
-                  {t(getRiskLabelKey(item.risk_level))}
-                </span>
-              </div>
-              <h4>{titleCase(item.name)}</h4>
-              {item.inci && item.inci !== item.name && <p className="db-inci">{item.inci}</p>}
-              
-              <div className="db-meta-grid">
-                {item.carbon_chain && (
-                  <div className="meta-item">
-                     <span className="meta-label">Chain</span>
-                     <span>{item.carbon_chain}</span>
-                  </div>
-                )}
-                 {item.molecular_weight && (
-                  <div className="meta-item">
-                     <span className="meta-label">Mol. Weight</span>
-                     <span>{item.molecular_weight}</span>
-                  </div>
-                )}
-              </div>
-
-              <p className="db-desc">{item.mechanism || item.categoryDesc || item.reason || 'Dettagli nel database.'}</p>
-            </Card>
-           );
+            return (
+             <IngredientRow 
+               key={idx}
+               item={item}
+               status={
+                 riskClass === 'risk-critical' ? 'critical' : 
+                 riskClass === 'risk-high' ? 'high' :
+                 riskClass === 'risk-warning' ? 'warning' : 
+                 riskClass === 'risk-caution' ? 'caution' : 
+                 riskClass === 'risk-safe' ? 'safe' : 
+                 riskClass === 'risk-low' ? 'low' :
+                 'low' // Default fallback
+               }
+               onClick={() => setSelectedIngredient(item)}
+             />
+            );
          })}
        </div>
        
@@ -266,6 +259,14 @@ const DatabaseViewer = () => {
          <div className="db-empty">
            <p>{t('database.empty')}</p>
          </div>
+       )}
+
+       {/* Ingredient Detail Modal */}
+       {selectedIngredient && (
+           <IngredientModal 
+               ingredient={selectedIngredient} 
+               onClose={() => setSelectedIngredient(null)} 
+           />
        )}
     </div>
   );

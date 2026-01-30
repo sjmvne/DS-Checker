@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import Emoji from './Emoji';
+import SmartText from './common/SmartText';
 import './Tutorial.css';
 
 const Tutorial = () => {
@@ -34,7 +35,7 @@ const Tutorial = () => {
     {
       emoji: <Emoji name="Waving Hand" fallback="👋" size="4rem" />,
       title: t('tutorial.welcome_title'),
-      text: t('tutorial.welcome_text')
+      text: <SmartText>{t('tutorial.welcome_text')}</SmartText>
     },
     {
       emoji: <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" size="4rem" />,
@@ -44,7 +45,7 @@ const Tutorial = () => {
     {
       emoji: <Emoji name="Brain" fallback="🧠" size="4rem" />,
       title: t('tutorial.learn_title'),
-      text: t('tutorial.learn_text')
+      text: <SmartText>{t('tutorial.learn_text')}</SmartText>
     },
     {
       emoji: <Emoji name="Shield" fallback="🛡️" size="4rem" />,

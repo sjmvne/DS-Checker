@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import Card from './Card';
 import IngredientModal from './IngredientModal';
+import IngredientRow from './IngredientRow';
 import { titleCase } from '../utils/formatters';
 import './Results.css';
 import Emoji from './Emoji';
+import SmartText from './common/SmartText';
 
 const Results = ({ data }) => {
   const { t } = useLanguage();
@@ -68,35 +70,6 @@ const Results = ({ data }) => {
   // Update the displayed number:
   // <span className="score-number">{Math.round(animatedScore)}%</span>
 
-  // Helper component for list item
-  const IngredientRow = ({ item, status }) => (
-    <div 
-      className={`ingredient-row row-${status}`} 
-      onClick={() => setSelectedIngredient(item)}
-      role="button"
-      tabIndex={0}
-    >
-      <div className="row-content">
-        <span className="row-name">{titleCase(item.name)}</span>
-        {(item.categoryKey || item.category) && (
-          <span className="row-category">
-            {item.categoryKey ? t(`database.tabs.${item.categoryKey}`, { defaultValue: item.category }) : item.category}
-          </span>
-        )}
-      </div>
-      <div className="row-badge">
-        <span className={`db-risk-badge risk-${status === 'danger' ? 'critical' : status === 'warning' ? 'warning' : status === 'caution' ? 'caution' : status === 'safe' ? 'safe' : 'low'}`}>
-          {status === 'danger' && t('results.status_badge.high_risk')}
-          {status === 'warning' && t('results.status_badge.medium')}
-          {status === 'caution' && t('results.status_badge.low_risk')}
-          {status === 'safe' && t('results.status_badge.safe')}
-          {status === 'unknown' && t('results.status_badge.unknown')}
-        </span>
-        <span className="info-icon"><Emoji name="Information" fallback="ℹ️" size="1em" /></span>
-      </div>
-    </div>
-  );
-
   const hasIssues = analysis.danger.length > 0 || (analysis.warning && analysis.warning.length > 0) || analysis.caution.length > 0;
 
   // Flatten all for "Show All" view
@@ -145,13 +118,13 @@ const Results = ({ data }) => {
       {/* Problematic Ingredients List (Vertical) */}
       <div className="issues-list">
         {analysis.danger.map((item, idx) => (
-          <IngredientRow key={idx} item={item} status="danger" />
+          <IngredientRow key={idx} item={item} status="danger" onClick={() => setSelectedIngredient(item)} />
         ))}
         {analysis.warning && analysis.warning.map((item, idx) => (
-          <IngredientRow key={idx} item={item} status="warning" />
+          <IngredientRow key={idx} item={item} status="warning" onClick={() => setSelectedIngredient(item)} />
         ))}
         {analysis.caution.map((item, idx) => (
-          <IngredientRow key={idx} item={item} status="caution" />
+          <IngredientRow key={idx} item={item} status="caution" onClick={() => setSelectedIngredient(item)} />
         ))}
       </div>
 
@@ -160,7 +133,7 @@ const Results = ({ data }) => {
          <Card className="section-safe">
            <div className="all-clear-message">
              <h3>{t('results.all_clear.title')}</h3>
-             <p>{t('results.all_clear.text')}</p>
+             <p><SmartText>{t('results.all_clear.text')}</SmartText></p>
            </div>
          </Card>
       )}
@@ -180,7 +153,7 @@ const Results = ({ data }) => {
         <Card title={t('results.list.full_analysis')} className="full-list-card">
           <div className="full-list-grid">
             {allIngredientsList.map((item, idx) => (
-              <IngredientRow key={`all-${idx}`} item={item} status={item.status} />
+              <IngredientRow key={`all-${idx}`} item={item} status={item.status} onClick={() => setSelectedIngredient(item)} />
             ))}
           </div>
         </Card>

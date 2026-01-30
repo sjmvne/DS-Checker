@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useData } from '../hooks/useData';
 import Emoji from './Emoji';
+import SmartText from './common/SmartText';
 import './Protocols.css';
 
 const ChecklistSection = ({ data }) => {
@@ -59,11 +60,28 @@ const ChecklistSection = ({ data }) => {
   );
 };
 
+// Product Card Component for Safe Products
+const ProductCard = ({ title, tag, desc, sub, colorClass, bgClass, textClass }) => (
+    <div className={`safe-product-card glass-panel ${bgClass ? 'colored-card' : ''}`} style={bgClass ? {borderLeft: `4px solid var(--color-${bgClass.split('-')[2]})`} : {}}>
+        <div className="product-header">
+            <h4 className="product-title">{title}</h4>
+            <span className={`product-tag ${bgClass || colorClass} ${textClass || 'text-white'}`}>{tag}</span>
+        </div>
+        <p style={{fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5, marginBottom: '8px'}}>{desc}</p>
+        <div style={{fontSize: '0.8rem', color: 'var(--color-text)', fontWeight: 600, opacity: 0.9}}>{sub}</div>
+    </div>
+);
+
 const Protocols = () => {
   const { t } = useLanguage();
   const fullDatabase = useData();
   const data = fullDatabase?.protocols;
   const [activeSection, setActiveSection] = useState('brands');
+
+  // Load new Education data
+  const safeProducts = t('education.safe_products', { returnObjects: true });
+  const myths = t('education.myths', { returnObjects: true });
+  const faqs = t('education.faq', { returnObjects: true });
 
   if (!data) return <div className="loading">Caricamento protocolli...</div>;
 
@@ -95,9 +113,26 @@ const Protocols = () => {
 
       <div className="protocols-content animate-fade-in">
         
-        {/* === SECTION 1: SAFE BRANDS === */}
+        {/* === SECTION 1: SAFE BRANDS & PRODUCTS === */}
         {activeSection === 'brands' && (
           <section className="proto-section">
+             {/* NEW: Safe Product Categories (MCT, Squalane, etc.) */}
+             <div className="safe-products-intro" style={{marginBottom: '32px'}}>
+                <h2 className="section-title"><Emoji name="Gem Stone" fallback="💎" /> {t('education.protocol.safe_products_title')}</h2>
+                <div className="edu-grid" style={{gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px'}}>
+                    {Array.isArray(safeProducts) && safeProducts.map((prod, index) => (
+                        <ProductCard 
+                            key={index}
+                            title={prod.title}
+                            tag={prod.tag} 
+                            desc={prod.desc}
+                            sub={prod.sub}
+                            bgClass={prod.color}
+                        />
+                    ))}
+                </div>
+             </div>
+
             <h2 className="section-title"><Emoji name="Trophy" fallback="🏆" /> {data.safe_brand_recommendations?.section_description}</h2>
             
             <div className="brands-category">
@@ -267,20 +302,65 @@ const Protocols = () => {
           </section>
         )}
 
-        {/* === SECTION 6: FAQ === */}
+        {/* === SECTION 6: MYTHS & FAQ === */}
         {activeSection === 'faq' && (
            <section className="proto-section">
-             <h2 className="section-title"><Emoji name="Question Mark" fallback="❓" /> {t('protocols.faq.title')}</h2>
+             {/* 1. MYTHS SECTION - Distinct Visually */}
+             <div className="myths-section" style={{marginBottom: '40px'}}>
+                <h2 className="section-title" style={{color: 'var(--color-danger)'}}>
+                    <Emoji name="No Entry" fallback="🚫" /> {t('education.protocol.myths_title')}
+                </h2>
+                <div className="myths-grid" style={{
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+                    gap: '20px'
+                }}>
+                    {Array.isArray(myths) && myths.map((myth, index) => (
+                        <div key={index} className="myth-card" style={{
+                            background: 'rgba(239, 68, 68, 0.05)', 
+                            border: '1px solid rgba(239, 68, 68, 0.2)',
+                            borderRadius: '12px',
+                            padding: '20px',
+                            position: 'relative',
+                            overflow: 'hidden'
+                        }}>
+                            <div className="myth-header" style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px'}}>
+                                <span style={{fontSize: '1.5rem'}}>❌</span>
+                                <h3 style={{fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-danger)', margin: 0}}>"{myth.title}"</h3>
+                            </div>
+                             <p style={{fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--color-text)'}}>
+                                <SmartText>{myth.content}</SmartText>
+                             </p>
+                             <div className="myth-stripe" style={{
+                                 position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'var(--color-danger)'
+                             }}></div>
+                        </div>
+                    ))}
+                </div>
+             </div>
+
+             {/* 2. FAQ SECTION */}
+             <h2 className="section-title"><Emoji name="Question Mark" fallback="❓" /> {t('education.protocol.faq_title')}</h2>
              <div className="faq-grid">
+               {/* NEW Translated FAQs */}
+               {Array.isArray(faqs) && faqs.map((faq, i) => (
+                 <div key={`new-${i}`} className="faq-card glass-panel">
+                   <h3 className="faq-q">{faq.q}</h3>
+                   <div className="faq-a">
+                     <SmartText>{faq.a}</SmartText>
+                   </div>
+                 </div>
+               ))}
+               
+               {/* OLD FAQs (Optional - keeping for completeness if needed, or remove if redundant) */}
                {data.faq_common_misconceptions?.questions?.map((q, i) => (
-                 <div key={i} className="faq-card glass-panel">
+                 <div key={`old-${i}`} className="faq-card glass-panel" style={{opacity: 0.8}}>
                    <h3 className="faq-q">{q.q}</h3>
                    <div className="faq-a">
                      <span className="bool-badge">NO</span>
                      {q.a.replace('NO.', '').replace('NO -', '')}
                    </div>
                    {q.analogy && <div className="faq-extra"><Emoji name="Light Bulb" fallback="💡" /> {q.analogy}</div>}
-                   {q.paradox && <div className="faq-extra"><Emoji name="Warning" fallback="⚠️" /> {q.paradox}</div>}
                  </div>
                ))}
              </div>

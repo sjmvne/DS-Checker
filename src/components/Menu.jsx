@@ -47,10 +47,7 @@ const Menu = ({ onNavigate, currentTheme, onThemeToggle }) => {
             <span className="icon"><Emoji name="File Cabinet" fallback="🗄️" /></span>
             <span className="label">{t('menu.database')}</span>
           </button>
-          <button onClick={() => handleNav('education')}>
-            <span className="icon"><Emoji name="Brain" fallback="🧠" /></span>
-            <span className="label">SD Intelligence</span>
-          </button>
+
           <button onClick={() => handleNav('science')}>
             <span className="icon"><Emoji name="DNA" fallback="🧬" /></span>
             <span className="label">{t('menu.science_guide')}</span>

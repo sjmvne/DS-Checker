@@ -6,9 +6,9 @@ import Emoji from './Emoji';
  * Card Component
  * @glass @dark @vars @resp
  */
-const Card = ({ title, icon, children, className = '' }) => {
+const Card = ({ title, icon, children, className = '', ...props }) => {
   return (
-    <div className={`card glass glass-hover ${className}`}>
+    <div className={`card glass glass-hover ${className}`} {...props}>
       {(title || icon) && (
         <div className="card-header">
           {icon && <span className="card-icon">{icon}</span>}

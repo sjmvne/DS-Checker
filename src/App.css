@@ -24,6 +24,20 @@ body {
   padding: var(--spacing-20);
 }
 
+.glossary-term {
+  text-decoration: underline dashed var(--color-primary);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.glossary-term:hover {
+  background: rgba(100, 108, 255, 0.1);
+  text-decoration-style: solid;
+}
+
 .app {
   max-width: 1200px;
   margin: 0 auto;
