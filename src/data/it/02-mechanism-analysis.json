@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Database Dermatite Seborroica - Parte 2: Analisi Scientifica & Meccanismi",
-    "description": "Analisi approfondita dei meccanismi con cui gli ingredienti peggiorano la DS, interazioni, punteggi di rischio e percorsi basati sulla ricerca",
+    "title": "Database Dermatite Seborroica - Parte 2: Analisi Scientifica e Meccanismi",
+    "description": "Analisi meccanicistica profonda di come gli ingredienti peggiorano la DS, interazioni tra ingredienti, punteggio di gravità del rischio e percorsi supportati dalla ricerca",
     "version": "2.0_expanded",
     "last_updated": "2026-01-29",
     "language": "it",
@@ -9,7 +9,7 @@
   },
 
   "malassezia_biology": {
-    "section_description": "Comprendere la Malassezia come motore patogeno primario nella DS",
+    "section_description": "Comprendere la Malassezia come il driver patogeno primario nella DS",
     "key_organisms": [
       {
         "name": "Malassezia globosa",
@@ -17,13 +17,13 @@
         "lipid_preference": "Acidi grassi C12-C24",
         "optimal_lipids": "Laurico (C12), Miristico (C14), Stearico (C18), Oleico (C18)",
         "enzyme_system": "Lipasi, fosfolipasi, colesterolo esterasi della Malassezia",
-        "virulence_factors": ["Metabolismo acido oleico", "Produzione proteasi", "β-glucani immunogenici"]
+        "virulence_factors": ["Metabolismo acido oleico", "Produzione proteasi", "Beta-glucani immunogenici"]
       },
       {
-        "name": "Malassezia \"furfur\"",
+        "name": "Malassezia furfur",
         "prevalence_in_sd": "20-30% dei casi di DS",
         "characteristics": "Più lipofila della M. globosa",
-        "lipid_requirement": "Lipofila obbligata - richiede lipidi esogeni per crescere"
+        "lipid_requirement": "Lipofilo obbligato - richiede lipidi esogeni per la crescita"
       },
       {
         "name": "Malassezia restricta",
@@ -32,45 +32,45 @@
       }
     ],
     "lipase_enzyme_specificity": {
-      "description": "Le lipasi della Malassezia puntano a specifiche lunghezze di catena degli acidi grassi",
-      "optimal_substrates": "C11-C24 (efficienza massima C12-C18)",
+      "description": "Le lipasi della Malassezia colpiscono specifiche lunghezze di catena di acidi grassi",
+      "optimal_substrates": "C11-C24 (picco efficienza C12-C18)",
       "inaccessible_substrates": ["C1-C7 (troppo corti)", "C8-C10 (accesso marginale)", ">C24 (troppo ingombranti)"],
       "km_values": "Km lipasi Malassezia ~5mM per acidi grassi C12-C18 (alta affinità)",
-      "vmax_values": "Velocità massima per C12-C14 (acidi laurico/miristico)",
-      "mechanism": "Serina esterasi simile alla lipasi pancreatica con specificità per catene medie C12-C18"
+      "vmax_values": "Velocità massima più rapida per C12-C14 (acidi laurico/miristico)",
+      "mechanism": "Serina esterasi simile alla lipasi pancreatica con specificità per la catena media C12-C18"
     },
     "metabolic_byproducts": {
       "description": "Il metabolismo della Malassezia produce molecole infiammatorie",
       "products": [
         {
-          "name": "Acidi Grassi Liberi (FFA)",
+          "name": "Acidi Grassi Liberi (FFAs)",
           "source": "Idrolisi lipasica di trigliceridi ed esteri",
-          "inflammatory_effect": "Attivazione diretta TLR2/TLR4 → tempesta di citochine pro-infiammatorie",
+          "inflammatory_effect": "Attivazione diretta TLR2/TLR4 → tempesta citochine pro-infiammatorie",
           "concentration_effect": "Anche 0.1-1 mM di FFA innescano produzione di IL-6, IL-8 nei cheratinociti del 300-500%"
         },
         {
           "name": "Perossidi Lipidici",
           "source": "Ossidazione di FFA insaturi (oleico, linoleico) sul cuoio capelluto",
           "inflammatory_effect": "Generazione ROS; amplificazione stress ossidativo",
-          "skin_penetration": "I perossidi lipidici penetrano lo strato corneo; innescano infiammazione profonda"
+          "skin_penetration": "I perossidi lipidici penetrano lo strato corneo; innescano infiammazione più profonda"
         },
         {
           "name": "Allergeni Derivati da Malassezia (MDA)",
           "types": ["Mal f 1 (proteina 56 kDa)", "Mal g 1", "Mal g 4", "Mal g 5"],
-          "effect": "Ipersensibilità mediata da IgE; amplifica risposta immune Th2"
+          "effect": "Ipersensibilità mediata da IgE; amplificano risposta immunitaria Th2"
         },
         {
-          "name": "β-Glucani",
-          "source": "Polisaccaridi della parete cellulare della Malassezia",
-          "immune_activation": "Dectina-1 (recettore β-glucano) → amplificazione immunità innata",
-          "effect": "Elevazione IL-17, IL-22, TNF-α"
+          "name": "Beta-Glucani",
+          "source": "Polisaccaridi parete cellulare Malassezia",
+          "immune_activation": "Dectin-1 (recettore beta-glucani) → amplificazione immunità innata",
+          "effect": "Elevazione IL-17, IL-22, TNF-alfa"
         }
       ]
     }
   },
 
   "barrier_dysfunction_mechanisms": {
-    "section_description": "Come gli ingredienti danneggiano la barriera cutanea, favorendo la colonizzazione della Malassezia",
+    "section_description": "Come gli ingredienti danneggiano la barriera cutanea, promuovendo la colonizzazione della Malassezia",
     "stratum_corneum_structure": {
       "normal_composition": {
         "ceramides": "~50%",
@@ -79,96 +79,96 @@
         "proteins": "~10%"
       },
       "sd_compromised_composition": {
-        "ceramides": "~30-35% (esaurite)",
-        "cholesterol": "~15-20% (esaurito)",
-        "fatty_acids": "~25-30% (distribuzione anormale e elevata)",
-        "proteins": "~15-20% (degradate)"
+        "ceramides": "~30-35% (depleto)",
+        "cholesterol": "~15-20% (depleto)",
+        "fatty_acids": "~25-30% (distribuzione anormale elevata)",
+        "proteins": "~15-20% (degradato)"
       }
     },
     "barrier_damage_pathways": [
       {
         "pathway": "Stripping da Tensioattivi (SLS, SLES)",
-        "mechanism": "Denaturante proteico + solubilizzante lipidico; rimuove 30-40% lipidi cutanei per lavaggio",
+        "mechanism": "Denaturante proteico + solubilizzante lipidico; rimuove 30-40% lipidi pelle per lavaggio",
         "timeline": "Immediato (minuti)",
         "recovery": "12-24 ore",
         "malassezia_opportunity": "Perdita lipidi = opportunità colonizzazione lievito",
-        "inflammatory_cascade": "Rilascio IL-1α → aumento permeabilità → penetrazione ingredienti"
+        "inflammatory_cascade": "Rilascio IL-1alfa → aumentata permeabilità → penetrazione ingredienti"
       },
       {
         "pathway": "Disidratazione Osmotica (Sale, Alcol)",
         "mechanism": "Il gradiente osmotico estrae acqua dallo strato corneo",
         "timeline": "Da minuti a ore",
         "tewl_increase": "200-400% sopra la base",
-        "malassezia_effect": "Barriera disidratata = favorisce crescita lievito anaerobico"
+        "malassezia_effect": "Barriera disidratata = favorisce crescita lievito anaerobica"
       },
       {
-        "pathway": "Occlusione (Siliconi, Oli Minerali, Petrolati)",
+        "pathway": "Occlusione (Siliconi, Olio Minerale, Petrolato)",
         "mechanism": "Forma barriera impermeabile; intrappola calore, sudore, sebo",
         "microenvironment_effect": "Crea nicchia calda, umida, ricca di lipidi",
         "malassezia_consequence": "Condizioni ideali per crescita esponenziale lievito (tempo raddoppio 2-4 ore)"
       },
       {
         "pathway": "Estrazione Lipidica (pH Alto, Agenti Chelanti)",
-        "mechanism": "EDTA chela Ca2+ → destabilizza lamelle lipidiche; pH alto disturba organizzazione lipidica",
-        "barrier_integrity_loss": "50-70% coesione ridotta",
+        "mechanism": "EDTA chela Ca2+ → destabilizza lamelle lipidiche; pH Alto disgrega organizzazione lipidica",
+        "barrier_integrity_loss": "Coesione ridotta del 50-70%",
         "tewl_increase": "300-500%",
-        "malassezia_opportunity": "Penetrazione potenziata di acidi grassi nell'epidermide vitale"
+        "malassezia_opportunity": "Penetrazione potenziata degli acidi grassi nell'epidermide vitale"
       }
     ],
     "tight_junction_disruption": {
-      "description": "Gli ingredienti danneggiano claudine e proteine zonula occludens (ZO-1)",
-      "consequence": "Aumento permeabilità paracellulare → traslocazione allergeni alimentari",
-      "malassezia_effect": "Disregolazione immune tramite esposizione epitopi cross-reattivi"
+      "description": "Gli ingredienti danneggiano proteine claudine e zonula occludens (ZO-1)",
+      "consequence": "Aumentata permeabilità paracellulare → traslocazione allergeni cibo",
+      "malassezia_effect": "Disregolazione immunitaria attraverso esposizione epitopi cross-reattivi"
     }
   },
 
   "immune_dysregulation_in_sd": {
     "section_description": "Come la DS coinvolge lo squilibrio Th1/Th2/Th17",
     "immune_phenotype": {
-      "th1_profile": "IL-2, IFN-γ (tipicamente normali o leggermente elevati)",
-      "th2_profile": "IL-4, IL-5, IL-13 (marcatamente elevati)",
-      "th17_profile": "IL-17, IL-22, IL-23 (gravemente elevati - PROBLEMA CHIAVE)",
-      "treg_profile": "IL-10, TGF-β (esauriti - perdita tolleranza immune)"
+      "th1_profile": "IL-2, IFN-gamma (tipicamente normale o leggermente elevato)",
+      "th2_profile": "IL-4, IL-5, IL-13 (marcatamente elevato)",
+      "th17_profile": "IL-17, IL-22, IL-23 (gravemente elevato - PROBLEMA CHIAVE)",
+      "treg_profile": "IL-10, TGF-beta (depleto - perdita tolleranza immunitaria)"
     },
     "aryl_hydrocarbon_receptor_ahr": {
-      "role": "Regolatore maestro della barriera cutanea e omeostasi immune",
+      "role": "Regolatore maestro dell'omeostasi barriera cutanea e immunitaria",
       "sd_pathology": "Segnalazione AhR eccessiva nella pelle infetta da Malassezia",
       "elevation_level": "300-400% sopra pelle normale",
       "consequences": [
-        "Produzione eccessiva IL-22 → distruzione barriera",
-        "Produzione eccessiva IL-17 → ambiente pro-infiammatorio",
+        "Eccessiva produzione IL-22 → disgregazione barriera",
+        "Eccessiva produzione IL-17 → ambiente pro-infiammatorio",
         "Perdita regolazione IL-10 → infiammazione incontrollata"
       ],
-      "ingredient_effect": "I fermenti di Galactomyces amplificano segnalazione AhR → peggioramento infiammazione"
+      "ingredient_effect": "I fermenti di Galactomyces amplificano segnalazione AhR → peggior infiammazione"
     },
     "cytokine_cascade": {
-      "initiator": "Antigeni Malassezia (β-glucani, proteine) + FFA",
-      "primary_response": "Attivazione TLR2/TLR4 su cheratinociti + cellule presentanti l'antigene",
-      "amplification": "Produzione IL-1α, IL-6, TNF-α (elevazione 200-400%)",
-      "secondary_response": "Produzione IL-17, IL-22, IL-23 via attivazione cellule T",
+      "initiator": "Antigeni Malassezia (beta-glucani, proteine) + FFA",
+      "primary_response": "Attivazione TLR2/TLR4 su cheratinociti + cellule presentanti antigene",
+      "amplification": "Produzione IL-1alfa, IL-6, TNF-alfa (elevazione 200-400%)",
+      "secondary_response": "Produzione IL-17, IL-22, IL-23 via attivazione T-cell",
       "chronic_state": "Dominanza persistente Th17; perdita soppressione Treg"
     }
   },
 
   "ingredient_interaction_matrix": {
-    "section_description": "Come le combinazioni di ingredienti problematici creano danni sinergici",
+    "section_description": "Come combinazioni di ingredienti problematici creano danno sinergico",
     "synergy_examples": [
       {
         "combination": "SLS + Glicole Propilenico",
         "individual_risk": "SLS: CRITICO (60/100), PG: ALTO (40/100)",
         "synergistic_risk": "130/100 (esponenziale, non additivo)",
-        "mechanism": "SLS strippa i lipidi; PG migliora la penetrazione degli irritanti rimanenti + ingredienti contaminati",
-        "outcome": "Danno barriera 5-8x peggiore del solo SLS"
+        "mechanism": "SLS spoglia i lipidi; PG potenzia penetrazione irritanti rimanenti + qualsiasi ingrediente contaminato",
+        "outcome": "Danno barriera 5-8 volte peggiore del solo SLS"
       },
       {
         "combination": "Acido Laurico + Fermento Galactomyces",
         "individual_risk": "Laurico: 95/100, Galactomyces: 90/100",
         "synergistic_risk": "180/100",
-        "mechanism": "L'acido laurico nutre la Malassezia; Galactomyces stimola disregolazione immune → infiammazione amplificata",
-        "outcome": "Forte reazione entro 12-24 ore; durata 10-21 giorni"
+        "mechanism": "L'acido laurico nutre la Malassezia; Galactomyces stimola disregolazione immunitaria → infiammazione amplificata",
+        "outcome": "Grave riacutizzazione entro 12-24 ore; durata 10-21 giorni"
       },
       {
-        "combination": "Olio Minerale + Olio Cocco + Siliconi",
+        "combination": "Olio Minerale + Olio di Cocco + Siliconi",
         "individual_risks": "80/100 ciascuno",
         "synergistic_risk": "200/100",
         "mechanism": "Tripla occlusione; microambiente anaerobico; crescita esponenziale Malassezia",
@@ -178,7 +178,7 @@
         "combination": "Fragranza Sintetica + Olio Essenziale + Alcol",
         "individual_risks": "85/100, 75/100, 70/100",
         "synergistic_risk": "220/100",
-        "mechanism": "Rottura barriera (alcol) + stress ossidativo (fragranza + generazione allergeni OE) + potenziamento penetrazione",
+        "mechanism": "Disgregazione barriera (alcol) + stress ossidativo (generazione allergeni fragranza + OE) + potenziamento penetrazione",
         "outcome": "Dermatite da contatto acuta; potenziale fotoallergia"
       },
       {
@@ -186,7 +186,7 @@
         "individual_risks": "65/100, 40/100, 85/100",
         "synergistic_risk": "145/100",
         "mechanism": "Disidratazione osmotica + potenziamento penetrazione + generazione allergeni",
-        "outcome": "Tensione immediata cuoio capelluto; reazione 24-72h"
+        "outcome": "Tensione immediata scalpo; riacutizzazione reattiva 24-72h"
       }
     ]
   },
@@ -194,40 +194,40 @@
   "risk_severity_scoring_system": {
     "section_description": "Sistema di punteggio unificato per valutazione rapida sicurezza ingredienti",
     "scoring_method": {
-      "malassezia_feeding_score": "0-40 punti (accessibilità metabolica acidi grassi)",
+      "malassezia_feeding_score": "0-40 punti (accessibilità metabolica acido grasso)",
       "barrier_disruption_score": "0-30 punti (danno alla funzione strato corneo)",
       "immune_dysregulation_score": "0-20 punti (potenziale attivazione Th17/AhR)",
-      "concentration_multiplier": "Regola basandosi su concentrazione tipica prodotto (0.1x a 3x)",
+      "concentration_multiplier": "Aggiustare in base a concentrazione tipica prodotto (0.1x a 3x)",
       "total_score": "0-100 punti"
     },
     "score_interpretation": {
-      "0-20": "SICURO - Basso rischio; generalmente accettabile per DS",
-      "21-40": "ATTENZIONE - Rischio moderato; patch test prima dell'uso",
-      "41-60": "ALTO RISCHIO - Preoccupazione significativa; sconsigliato",
+      "0-20": "SICURO - Rischio basso; generalmente accettabile per DS",
+      "21-40": "CAUTELA - Rischio moderato; patch test prima dell'uso; evitare in fase acuta",
+      "41-60": "RISCHIO ALTO - Preoccupazione significativa; non raccomandato; riacutizzazione probabile",
       "61-80": "CRITICO - Reazione grave prevista; evitare interamente",
-      "81-100": "ESTREMO CRITICO - Reazione grave garantita; non usare mai"
+      "81-100": "ESTREMO CRITICO - Riacutizzazione grave garantita; non usare mai"
     },
     "examples": [
       {
         "ingredient": "Acido Laurico (C12)",
         "malassezia_score": "40 (substrato ottimale Malassezia)",
-        "barrier_score": "5 (minima rottura diretta barriera)",
-        "immune_score": "5 (minima immunogenicità inerente)",
+        "barrier_score": "5 (disgregazione barriera diretta minima)",
+        "immune_score": "5 (immunogenicità intrinseca minima)",
         "concentration_multiplier": "2.0 (anche 1% è problematico)",
         "total": "100/100 - ESTREMO CRITICO"
       },
       {
-        "ingredient": "MCT Oil (C8/C10)",
-        "malassezia_score": "0 (inaccessibile alla Malassezia)",
-        "barrier_score": "2 (idratante; minima rottura)",
+        "ingredient": "Olio MCT (C8/C10)",
+        "malassezia_score": "0 (inaccessibile a Malassezia)",
+        "barrier_score": "2 (idratante; disgregazione minima)",
         "immune_score": "1 (non immunogenico)",
         "concentration_multiplier": "0.5 (sicuro a qualsiasi concentrazione)",
         "total": "3/100 - SICURO"
       },
       {
         "ingredient": "Sodium Lauryl Sulfate (SLS)",
-        "malassezia_score": "15 (non nutriente diretto, ma rimuove lipidi protettivi)",
-        "barrier_score": "30 (estrema rottura barriera)",
+        "malassezia_score": "15 (non nutriente Malassezia diretto, ma spoglia lipidi protettivi)",
+        "barrier_score": "30 (estrema disgregazione barriera)",
         "immune_score": "18 (forte risposta infiammatoria)",
         "concentration_multiplier": "2.5 (8-15% tipico; altamente concentrato)",
         "total": "94/100 - ESTREMO CRITICO"
@@ -235,7 +235,7 @@
       {
         "ingredient": "Galactomyces Fermentation Filtrate",
         "malassezia_score": "10 (non acido grasso, ma abilita Malassezia)",
-        "barrier_score": "8 (minore rottura diretta barriera)",
+        "barrier_score": "8 (disgregazione barriera diretta minore)",
         "immune_score": "20 (massima attivazione AhR/Th17)",
         "concentration_multiplier": "2.0 (0.5-5% tipico; alta potenza)",
         "total": "76/100 - CRITICO"
@@ -251,7 +251,7 @@
       "optimal_temperature": "35-37°C (temperatura pelle umana)",
       "km_lauric": "~3 mM (legame molto stretto = alta affinità)",
       "km_oleic": "~4 mM (affinità ugualmente alta)",
-      "km_caprylic_c8": "~100+ mM (legame povero = metabolismo inefficiente)",
+      "km_caprylic_c8": "~100+ mM (legame povero = non può metabolizzare efficientemente)",
       "vmax": "Varia per specie; più alta per M. globosa"
     },
     "hydrolysis_pathways": [
@@ -260,28 +260,28 @@
         "enzyme": "Lipasi Malassezia (secreta extracellulare)",
         "products": "3 Acidi Grassi Liberi (FFA) + Glicerolo",
         "timeline": "1-4 ore su cuoio capelluto",
-        "ffa_concentration": "Può raggiungere 10-50 mM localmente su cuoio capelluto"
+        "ffa_concentration": "Può raggiungere 10-50 mM localmente su scalpo"
       },
       {
         "substrate": "Esteri (isopropil palmitato, decil oleato, ecc.)",
         "enzyme": "Lipasi Malassezia",
         "products": "FFA + Alcol",
         "timeline": "2-6 ore",
-        "concern": "FFA rilasciati in zone attive; componente alcol aggiunge irritazione"
+        "concern": "FFA rilasciati in zone attive; componente alcolica irritante aggiunto"
       },
       {
-        "substrate": "Fosfolipidi (ceramidi propria pelle)",
+        "substrate": "Fosfolipidi (ceramidi proprie della pelle)",
         "enzyme": "Fosfolipasi A2 Malassezia",
         "products": "FFA + Lisofosfolipidi",
-        "timeline": "Continuo durante colonizzazione",
-        "severity": "AUTO-SOSTENUTO - Il lievito distrugge lipidi barriera mentre si nutre"
+        "timeline": "In corso durante colonizzazione",
+        "severity": "AUTOSOSTENIBILE - Il lievito distrugge lipidi barriera mentre si nutre"
       }
     ],
     "beta_oxidation": {
-      "description": "La Malassezia β-ossida gli FFA per energia e crescita",
+      "description": "La Malassezia beta-ossida gli FFA per energia e crescita",
       "process": "Acido grasso → Acetil-CoA (energia) + FFA catena più corta",
       "iterative_release": "Ogni round di ossidazione rilascia FFA più piccoli",
-      "problem": "FFA rilasciati ancora infiammatori; cascata di irritanti più piccoli"
+      "problem": "Gli FFA rilasciati sono ancora infiammatori; cascata di irritanti più piccoli"
     }
   },
 
@@ -289,33 +289,33 @@
     "section_description": "Come gli acidi grassi insaturi diventano prodotti ossidati tossici",
     "initiators": [
       "ROS derivati da Malassezia (specie reattive ossigeno)",
-      "Esposizione UV su cuoio capelluto",
-      "Calore (cuoio capelluto sotto occlusione)",
-      "Ferro libero da sebo (chimica Fenton)"
+      "Esposizione UV su scalpo",
+      "Calore (scalpo sotto occlusione)",
+      "Ferro libero dal sebo (chimica Fenton)"
     ],
     "unsaturated_fatty_acids_at_risk": {
       "oleic_acid_c18_1": "Monoinsaturo; ossidazione moderata",
-      "linoleic_acid_c18_2": "Polinsaturo; ALTA suscettibilità ossidazione",
-      "arachidonic_acid_c20_4": "Polinsaturo; ESTREMA ossidazione (se presente)"
+      "linoleic_acid_c18_2": "Polinsaturo; suscettibilità ossidazione ALTA",
+      "arachidonic_acid_c20_4": "Polinsaturo; ossidazione ESTREMA (se presente)"
     },
     "oxidation_products": [
       {
         "name": "Idroperossidi Lipidici",
-        "formation": "Prodotto ossidazione primaria da attacco ROS",
+        "formation": "Prodotto ossidazione primario da attacco ROS",
         "effect": "Attivazione TLR4; elevazione IL-6, IL-8 500%+",
         "penetration": "Più lipofilo dell'acido grasso genitore; penetrazione pelle più profonda"
       },
       {
         "name": "Aldeidi (Malondialdeide, 4-HNE)",
         "formation": "Decomposizione secondaria idroperossidi",
-        "effect": "Cross-linking proteico; danno cheratinociti; induzione apoptosi",
+        "effect": "Cross-linking proteine; danno cheratinociti; induzione apoptosi",
         "systemic_effect": "Biomarcatore stress ossidativo in tutto il corpo"
       },
       {
         "name": "Isoprostani",
-        "formation": "Via ossidazione non enzimatica",
-        "effect": "Molecole simili a eicosanoidi; segnalazione pro-infiammatoria",
-        "persistence": "Stabili; accumulo su cuoio capelluto"
+        "formation": "Percorso ossidazione non enzimatico",
+        "effect": "Molecole simil-eicosanoidi; segnalazione pro-infiammatoria",
+        "persistence": "Stabile; accumula su scalpo"
       }
     ]
   },
@@ -325,27 +325,27 @@
     "studies": [
       {
         "citation": "Prohic et al. (2016) - Malassezia e DS",
-        "finding": "Lipasi Malassezia metabolizza preferenzialmente acidi grassi C12-C18",
-        "implication": "Lunghezza catena grassa è deterministica per crescita Malassezia"
+        "finding": "La lipasi della Malassezia metabolizza preferenzialmente acidi grassi C12-C18",
+        "implication": "La lunghezza della catena di acidi grassi è deterministica per la crescita della Malassezia"
       },
       {
-        "citation": "Akaza et al. (2012) - Acido Oleico e DS",
-        "finding": "Esposizione acido oleico aumenta IL-6, IL-8, TNF-α 300-500%",
-        "implication": "C18 insaturi più infiammatori dei saturi"
+        "citation": "Akaza et al. (2012) - Acido oleico e DS",
+        "finding": "L'esposizione all'acido oleico aumenta IL-6, IL-8, TNF-alfa 300-500%",
+        "implication": "C18 insaturo più infiammatorio del saturo"
       },
       {
         "citation": "Gupta et al. (2004) - Malassezia e AhR",
-        "finding": "Metaboliti Malassezia attivano AhR nei cheratinociti",
-        "implication": "Malassezia guida direttamente asse Th17/IL-22"
+        "finding": "I metaboliti della Malassezia attivano AhR nei cheratinociti",
+        "implication": "La Malassezia guida direttamente l'asse Th17/IL-22"
       },
       {
         "citation": "Ro & Dawson (2005) - Fisiopatologia DS",
-        "finding": "Disfunzione barriera + Malassezia = circolo vizioso",
-        "implication": "Entrambi devono essere trattati per efficacia"
+        "finding": "Disfunzione barriera + Malassezia = ciclo vizioso",
+        "implication": "Entrambi devono essere affrontati per un trattamento efficace"
       },
       {
         "citation": "Ceilley & Swinyer (2004) - pH Scalpo e DS",
-        "finding": "pH cuoio capelluto >6.0 promuove crescita Malassezia",
+        "finding": "pH scalpo >6.0 promuove crescita Malassezia",
         "implication": "Mantenimento pH 5.0-5.5 critico per gestione DS"
       }
     ]

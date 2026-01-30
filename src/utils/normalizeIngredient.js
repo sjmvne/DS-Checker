@@ -9,6 +9,7 @@ export const normalizeIngredient = (ingredient) => {
   if (!ingredient) return '';
   return ingredient
     .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents (é -> e)
     .trim()
-    .replace(/[^a-z0-9\-]/g, ''); // Keep hyphens as they can be significant (e.g., polyglyceryl-3)
+    .replace(/[^a-z0-9\-]/g, ''); // Keep hyphens
 };

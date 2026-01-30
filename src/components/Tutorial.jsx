@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import Emoji from './Emoji';
 import './Tutorial.css';
 
 const Tutorial = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [step, setStep] = useState(0);
 
-// ... existing useEffect ...
+  // ... (useEffect remains same) ...
+  useEffect(() => {
+    const seen = localStorage.getItem('ds_tutorial_seen');
+    if (!seen) {
+      // Small delay to appear after generic loading
+      setTimeout(() => setIsVisible(true), 1500);
+    }
+  }, []);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -14,7 +23,7 @@ const Tutorial = () => {
   };
 
   const handleNext = () => {
-    if (step < slides.length - 1) {
+    if (step < 3) { // 4 steps total (0-3)
       setStep(step + 1);
     } else {
       handleClose();
@@ -24,27 +33,27 @@ const Tutorial = () => {
   const steps = [
     {
       emoji: <Emoji name="Waving Hand" fallback="👋" size="4rem" />,
-      title: "Benvenuto su DS Checker",
-      text: "L'assistente intelligente per chi soffre di Dermatite Seborroica. Scopri se i tuoi prodotti sono sicuri per la tua pelle."
+      title: t('tutorial.welcome_title'),
+      text: t('tutorial.welcome_text')
     },
     {
       emoji: <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" size="4rem" />,
-      title: "Analizza i Prodotti",
-      text: <>Usa lo Scanner <Emoji name="Camera with Flash" fallback="📷" size="1.2em" /> per i codici a barre o la Ricerca Manuale <Emoji name="Writing Hand" fallback="✍️" size="1.2em" /> per incollare la lista ingredienti (INCI). Analizziamo ogni componente contro il nostro database.</>
+      title: t('tutorial.analyze_title'),
+      text: <> {t('tutorial.analyze_text').replace('📷', '').replace('✍️', '')} <Emoji name="Camera with Flash" fallback="📷" size="1.2em" /> / <Emoji name="Writing Hand" fallback="✍️" size="1.2em" /> </>
     },
     {
       emoji: <Emoji name="Brain" fallback="🧠" size="4rem" />,
-      title: "Impara & Esplora",
-      text: "Non solo analisi: consulta il Database completo, il Dizionario tecnico e i Protocolli scientifici dal menu per capire meglio la tua pelle."
+      title: t('tutorial.learn_title'),
+      text: t('tutorial.learn_text')
     },
     {
       emoji: <Emoji name="Shield" fallback="🛡️" size="4rem" />,
-      title: "Punteggio Sicurezza",
+      title: t('tutorial.score_title'),
       text: (
         <div style={{ textAlign: 'left', display: 'inline-block' }}>
-          <div><Emoji name="Check Mark Button" fallback="✅" size="1.2em" /> <strong>VERDE:</strong> Sicuro (Malassezia Safe)</div>
-          <div><Emoji name="Warning" fallback="⚠️" size="1.2em" /> <strong>GIALLO:</strong> Attenzione (Rischio moderato)</div>
-          <div><Emoji name="No Entry" fallback="🚫" size="1.2em" /> <strong>ROSSO:</strong> Da evitare (Nutre il fungo)</div>
+          <div><Emoji name="Check Mark Button" fallback="✅" size="1.2em" /> <strong>{t('tutorial.score_green').split(':')[0]}:</strong> {t('tutorial.score_green').split(':')[1]}</div>
+          <div><Emoji name="Warning" fallback="⚠️" size="1.2em" /> <strong>{t('tutorial.score_yellow').split(':')[0]}:</strong> {t('tutorial.score_yellow').split(':')[1]}</div>
+          <div><Emoji name="No Entry" fallback="🚫" size="1.2em" /> <strong>{t('tutorial.score_red').split(':')[0]}:</strong> {t('tutorial.score_red').split(':')[1]}</div>
         </div>
       )
     }
@@ -70,7 +79,7 @@ const Tutorial = () => {
             ))}
           </div>
           <button className="btn-tutorial-next" onClick={handleNext}>
-            {step === steps.length - 1 ? "Iniziamo! 🚀" : "Avanti →"}
+            {step === steps.length - 1 ? t('tutorial.start_btn') : t('tutorial.next_btn')}
           </button>
         </div>
       </div>

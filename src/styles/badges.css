@@ -1,0 +1,59 @@
+/* Global Badge Styles */
+/* Defines standard risk badges used in Database, Scanner Results, and Modals */
+
+.db-risk-badge {
+    display: inline-block;
+    font-weight: 800;
+    padding: 2px 8px; /* Slightly compact by default */
+    border-radius: 12px;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+  
+/* Size variants */
+.db-risk-badge.large {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid transparent;
+}
+
+/* Color definitions */
+.risk-low { 
+    background: rgba(16, 185, 129, 0.2); 
+    color: #34d399; 
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.risk-safe { 
+    background: rgba(56, 189, 248, 0.2); 
+    color: #38bdf8; 
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.risk-caution { 
+    background: rgba(234, 179, 8, 0.2); 
+    color: #facc15; 
+    border-color: rgba(234, 179, 8, 0.3);
+}
+
+.risk-warning { 
+    background: rgba(249, 115, 22, 0.2); 
+    color: #fb923c; 
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.risk-critical, .risk-danger, .risk-high { 
+    background: rgba(239, 68, 68, 0.2); 
+    color: #f87171; 
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Specific overrides for critical/danger if needed (e.g. glowing) */
+.db-risk-badge.risk-critical.large {
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
+}

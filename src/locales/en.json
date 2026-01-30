@@ -1,0 +1,351 @@
+{
+  "app": {
+    "title": "Sezia Scanner Pro",
+    "subtitle": "Analysis against Seborrheic Dermatitis"
+  },
+  "loading_overlay": {
+      "analyzing": "Analyzing...",
+      "ocr": "Processing image..."
+    },
+    "alert": {
+      "empty_ingredients": "Please enter ingredients!"
+    },
+  "menu": {
+    "home": "Home Scanner",
+    "manual_search": "Manual Search",
+    "science_guide": "Science Guide",
+    "protocols": "Protocols",
+    "dictionary": "Dictionary",
+    "database": "Full Database",
+    "tutorial": "Tutorial",
+    "references": "References",
+    "credits": "Credits",
+    "bug_report": "Report Bug",
+    "contribute": "Contribute",
+    "navigation": "Navigation",
+    "contribute_dialog": {
+      "title": "Contribute",
+      "text": "Want to help improve DS Checker?",
+      "email": "Email Me",
+      "github": "Go to Repository",
+      "close": "Close"
+    },
+    "theme": {
+      "dark": "Dark Mode",
+      "light": "Light Mode"
+    },
+    "footer": {
+      "made_by": "Created with passion by",
+      "version": "DS Checker v1.1.2"
+    }
+  },
+  "bottom_nav": {
+    "scanner": "Scanner",
+    "database": "Database",
+    "guide": "Guide",
+    "science": "Science"
+  },
+  "header": {
+    "tagline": "Smart ingredient analysis for",
+    "highlight": "Seborrheic Dermatitis"
+  },
+  "credits": {
+    "title": "DS Checker",
+    "love_msg": "Created with ❤️ for the SD community",
+    "created_by": "Created with passion by",
+    "thanks": "Thank you for using this tool.",
+    "hope": "I hope it helps you find the right products for your skin!"
+  },
+  "tutorial": {
+    "welcome_title": "Welcome to DS Checker",
+    "welcome_text": "The smart assistant for those suffering from Seborrheic Dermatitis. Find out if your products are safe for your skin.",
+    "analyze_title": "Analyze Products",
+    "analyze_text": "Use the Scanner 📷 for barcodes or Manual Search ✍️ to paste the ingredient list (INCI). We analyze every component against our database.",
+    "learn_title": "Learn & Explore",
+    "learn_text": "Not just analysis: check the Full Database, Technical Dictionary, and Scientific Protocols from the menu to better understand your skin.",
+    "score_title": "Safety Score",
+    "score_green": "GREEN: Safe (Malassezia Safe)",
+    "score_yellow": "YELLOW: Caution (Moderate Risk)",
+    "score_red": "RED: Avoid (Feeds the fungus)",
+    "start_btn": "Let's Start! 🚀",
+    "next_btn": "Next →"
+  },
+  "references": {
+    "title": "Scientific Sources & Bibliography",
+    "subtitle": "All information in this app is based on peer-reviewed dermatological literature updated to 2024.",
+    "read_study": "Read Full Study",
+    "useful_resources": "USEFUL RESOURCES SEZIA.CO"
+  },
+  "database": {
+    "title": "Full Database",
+    "subtitle": "Explore over {count} cataloged ingredients.",
+    "search_placeholder": "Search ingredient (e.g. Coconut, Laureth...)",
+    "results_found": "Found {count} results",
+    "empty": "No ingredients found with current filters.",
+    "risk_filter": {
+      "all": "🛡️ All risk levels",
+      "safe": "✅ Safe Only (SAFE/LOW)",
+      "caution": "⚠️ Caution (MODERATE/WARNING)",
+      "danger": "🚫 Avoid (HIGH/CRITICAL)"
+    },
+    "tabs": {
+      "all": "All",
+      "fatty_acid": "Fatty Acids",
+      "fatty_acids": "Fatty Acids",
+      "oil_lipid": "Oils/Lipids",
+      "lipids_and_oils": "Oils/Lipids",
+      "ester": "Esters",
+      "esters_comprehensive": "Esters",
+      "ferment": "Ferments",
+      "galactomyces_ferments_expanded": "Ferments",
+      "irritant": "Irritants",
+      "high_sensitivity_ingredients_expanded": "Irritants",
+      "polysorbate": "Polisorbates",
+      "polysorbates_expanded": "Polisorbates",
+      "safe_alternative": "Safe Alternatives",
+      "safe_alternatives_comprehensive": "Safe Alternatives",
+      "beneficial": "Beneficial Ingredients"
+    },
+    "legend": {
+       "title": "Risk Legend",
+       "safe": {
+         "label": "SAFE",
+         "desc": "Malassezia safe. No known risk."
+       },
+       "low": {
+         "label": "LOW",
+         "desc": "Minimal risk. Generally safe but monitor."
+       },
+       "moderate": {
+         "label": "MODERATE",
+         "desc": "Caution required. Avoid if skin is very reactive."
+       },
+       "high": {
+         "label": "HIGH",
+         "desc": "Feeds Malassezia. Likely to cause flare."
+       },
+       "critical": {
+         "label": "CRITICAL",
+         "desc": "Optimal food for Malassezia. Strongly not recommended."
+       }
+    }
+  },
+  "ocr": {
+    "btn_scan": "Scan Label (Beta)",
+    "btn_scanning": "Scanning...",
+    "status_init": "Initializing OCR engine...",
+    "status_optimize": "Optimizing image...",
+    "status_scanning": "Scanning: {percent}%",
+    "status_complete": "Complete!",
+    "error_no_text": "No text found. Try a clearer image.",
+    "error_generic": "Error scanning image."
+  },
+  "science": {
+    "title": "Scientific Guide",
+    "subtitle": "Understanding Seborrheic Dermatitis Mechanisms",
+    "tabs": {
+      "malassezia": "Malassezia Biology",
+      "barrier": "Skin Barrier",
+      "immune": "Immune System",
+      "interactions": "Cocktail Effect"
+    },
+    "sections": {
+      "lipase_engine": "The Lipase Engine (Enzyme Specificity)",
+      "fatty_acid_deep_dive": "Fatty Acid Metabolism Deep Dive",
+      "enzyme_kinetics": "Enzyme Kinetics",
+      "hydrolysis_pathways": "Hydrolysis Pathways",
+      "risky_unsaturated": "Risky Unsaturated Fatty Acids",
+      "barrier_break": "How Ingredients Break the Wall",
+      "tight_junctions": "Tight Junction Disruption",
+      "cocktail_intro": "Ingredients are rarely used in isolation. The \"Cocktail Effect\" explains why a product with \"ok\" ingredients can still cause a flare."
+    },
+    "labels": {
+      "prevalence": "Prevalence:",
+      "feeds_on": "Feeds on:",
+      "growth": "Growth:",
+      "virulence": "Virulence Factors",
+      "mechanism": "Mechanism:",
+      "optimal_substrates": "Optimal Substrates:",
+      "affinity": "Km Level (Affinity):",
+      "velocity": "Vmax (Velocity):",
+      "safe": "Inaccessible (Safe)",
+      "danger": "OPTIMAL FOOD (Avoid!)",
+      "byproducts": "Toxic Byproducts",
+      "healthy": "Healthy Barrier",
+      "compromised": "Compromised by SD",
+      "cytokine_storm": "Cytokine Storm (Th17)",
+      "ahr_receptor": "Master Switch (AhR)",
+      "lipid_peroxidation": "Lipid Peroxidation Cascade",
+      "individual_risks": "Individual Risks:",
+      "synergy": "SYNERGY",
+      "total_risk": "TOTAL RISK:",
+      "why": "Why?",
+      "outcome": "Outcome:",
+      "severity_score": "Severity Scoring System",
+      "key_studies": "Key Research Studies"
+    }
+  },
+  "protocols": {
+    "title": "Practical Protocols",
+    "subtitle": "Operational guides for daily care",
+    "tabs": {
+      "brands": "Safe Brands",
+      "checklist": "Checklist",
+      "routine": "Routine",
+      "flare": "SOS Flare",
+      "alternatives": "Substitutes",
+      "faq": "FAQ"
+    },
+    "checklist": {
+      "title": "INCI Safety Checklist",
+      "intro": "Check ANY product with this list. If you check everything, it's safe.",
+      "selected": "{count} / {total} Selected ({progress}%)",
+      "guide": "Score Guide:"
+    },
+    "brands": {
+      "premium": "Premium Recommendations",
+      "avoid": "Brands to ABSOLUTELY AVOID",
+      "risk": "RISK:"
+    },
+    "routine": {
+      "title": "Daily Routine & Flare",
+      "general": "General Principles",
+      "flare_protocol": "Acute Flare Protocol",
+      "maintenance": "Maintenance",
+      "morning": "Morning",
+      "evening": "Evening",
+      "plan": "Plan"
+    },
+    "flare": {
+      "title": "Flare Management Timeline",
+      "immediate": "IMMEDIATE RESPONSE",
+      "stabilization": "STABILIZATION"
+    },
+    "alternatives": {
+      "title": "Safe Substitutes",
+      "why": "Why:",
+      "feel": "Feel:"
+    },
+    "faq": {
+      "title": "Common Myths & FAQ"
+    }
+  },
+  "search": {
+    "manual_mode": "Manual Search",
+    "ai_mode": "Smart AI Search",
+    "manual_btn": "Manual",
+    "ai_btn": "AI Search",
+    "product_name": "Product Name (Optional)",
+    "product_placeholder": "E.g., Neutral Shampoo",
+    "ingredients_label": "Ingredients (Copy/Paste or Scan)",
+    "paste_placeholder": "Paste ingredient list here...",
+    "analyze_btn": "Analyze",
+    "clear_btn": "Clear",
+    "ai_search_btn": "Search with Perplexity",
+    "loading_ocr": "Loading OCR...",
+    "product_name_required": "Product Name *",
+    "brand_required": "Brand *",
+    "country": "Country",
+    "barcode": "Barcode (Optional)"
+  },
+  "results": {
+    "safe_match": "Safe Match",
+    "danger_match": "High Risk",
+    "caution_match": "Caution",
+    "analyzed_on": "Analyzed on",
+    "total_ingredients": "Total Ingredients",
+    "no_threats": "No threats detected",
+    "safe_desc": "No ingredients known to feed Malassezia were found.",
+    "caution_desc": "Contains ingredients that might be problematic or sensitizing.",
+    "danger_desc": "Contains specific fatty acids/esters that feed Malassezia.",
+    "learn_more": "Learn more on sezia.co",
+    "status_badge": {
+      "high_risk": "HIGH RISK",
+      "medium": "MEDIUM",
+      "low_risk": "LOW RISK",
+      "safe": "SAFE",
+      "unknown": "UNKNOWN"
+    },
+    "all_clear": {
+      "title": "✅ No problematic ingredients found!",
+      "text": "This product appears safe for Seborrheic Dermatitis based on our database."
+    },
+    "list": {
+      "show": "Show Ingredient List",
+      "hide": "Hide Ingredient List",
+      "full_analysis": "📄 Full Ingredient Analysis"
+    }
+  },
+  "history": {
+    "title": "Scan History",
+    "clear_all": "Clear History",
+    "empty": "No recent scans"
+  },
+  "scanner": {
+    "start": "Scan Barcode",
+    "stop": "Stop Scanner",
+    "grant_permission": "Please grant camera permission",
+    "not_found": "Product not found",
+    "ai_prompt": "Search with AI?",
+    "errors": {
+      "camera": "Cannot access camera. Check permissions.",
+      "init": "Scanner initialization error."
+    },
+    "manual": {
+      "label": "Or enter manually:",
+      "searching": "Searching...",
+      "search": "Search"
+    }
+  },
+  "modal": {
+    "profile_category": "Category: {category}",
+    "overview": "Overview:",
+    "recommendation": "Recommendation:",
+    "mechanism": "Mechanism:",
+    "hydrolysis_rate": "Hydrolysis Rate:",
+    "cumulative_effect": "Cumulative Effect:",
+    "scientific_profile": "Scientific Profile",
+    "tech": {
+      "chain_length": "Chain Length",
+      "mol_weight": "Mol. Weight",
+      "saturation": "Saturation",
+      "ahr_activation": "AhR Activation (Inflammation)",
+      "malassezia_affinity": "Malassezia Affinity",
+      "hydrolysis_byproduct": "Hydrolysis Byproduct",
+      "viscosity": "Viscosity",
+      "function": "Function",
+      "source": "Source",
+      "prevalence": "Prevalence",
+      "concentration_typical": "Typical Conc.",
+      "max_usage": "Max Usage",
+      "fatty_acid_profile": "Fatty Acid Profile"
+    },
+    "description": "Description",
+    "why_problematic": "Why Problematic",
+    "marketing_warning": "Marketing Warning",
+    "common_sources": "Common Sources",
+    "commonly_found_in": "Commonly Found In",
+    "clinical_context": "Clinical Context",
+    "impact_ds": "SD Impact:",
+    "synergistic_risk": "Synergistic Risk:",
+    "reaction": "Reaction:",
+    "skin_effect": "Skin Effect:",
+    "risk_conc": "Conc. Risk:",
+    "impact_conc": "Conc. Impact:",
+    "oxidation": "Oxidation:",
+    "barrier_penetration": "Barrier & Penetration",
+    "barrier_effect": "Barrier Effect:",
+    "function_impact": "Function Impact:",
+    "penetration": "Penetration:",
+    "formulation_details": "Formulation Details",
+    "key_insights": "Key Insights",
+    "paradox": "The Paradox:",
+    "unique_property": "Unique Property:",
+    "dual_risk": "Dual Risk:",
+    "source_citation": "Source:",
+    "benefits": "Benefits",
+    "also_known_as": "Also Known As",
+    "safe_alternative": "Safe Alternative",
+    "close": "Close"
+  }
+}

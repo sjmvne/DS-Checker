@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import Emoji from './Emoji';
 import logo from '../assets/logo.webp';
 import './Header.css';
@@ -8,6 +9,8 @@ import './Header.css';
  * Purpose: Display company logo, app title, and dynamic tagline with Glassmorphism influence.
  */
 const Header = () => {
+  const { t } = useLanguage();
+
   return (
     <header className="header glass fade-in">
       <div className="header-content">
@@ -18,7 +21,7 @@ const Header = () => {
           </h1>
         </div>
         <p className="tagline">
-          Analisi intelligente ingredienti per la <span className="highlight">Dermatite Seborroica</span>
+          {t('header.tagline')} <span className="highlight">{t('header.highlight')}</span>
         </p>
       </div>
     </header>

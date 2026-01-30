@@ -1,0 +1,560 @@
+{
+  "metadata": {
+    "title": "Seborrheic Dermatitis Database - Part 3: Practical Applications & Implementation",
+    "description": "Actionable guides for product selection, brand recommendations, INCI label reading, routine protocols, and flare management",
+    "version": "2.0_expanded",
+    "last_updated": "2026-01-29",
+    "language": "it/en",
+    "disclaimer": "This database provides general guidance. Always consult with a dermatologist before major skincare changes. Individual responses to products vary significantly.",
+    "note": "This is PART 3 of 3. Part 1: Ingredients. Part 2: Scientific Analysis. Part 3: Practical Implementation."
+  },
+
+  "safe_brand_recommendations": {
+    "section_description": "Hair & scalp care brands with SD-appropriate formulations",
+    "selection_criteria": "Brands avoiding C12-C24 fatty acids, ferments, sulfates, and high-risk ingredients",
+    "premium_brands": [
+      {
+        "name": "Vanicream Lite Lotion",
+        "category": "Hydration",
+        "key_properties": ["No fragrances", "No dyes", "Hypoallergenic", "No parabens"],
+        "ingredients_safe_for_sd": ["Glycerin", "Cetyl alcohol (emollient, not irritant)", "Dimethicone-free"],
+        "where_to_buy": "Amazon, Walmart, pharmacies",
+        "price_range": "€8-15"
+      },
+      {
+        "name": "CeraVe Hydrating Shampoo",
+        "category": "Cleanser",
+        "key_properties": ["Sulfate-free", "Ceramic-rich", "Fragrance-free"],
+        "ingredients_safe_for_sd": ["Coco-glucosides", "Ceramides NP, AP, EOP", "Hyaluronic acid"],
+        "concern": "Check batch - formulation varies by region",
+        "where_to_buy": "Pharmacies, Sephora",
+        "price_range": "€10-18"
+      },
+      {
+        "name": "Free & Clear Hair Shampoo",
+        "category": "Cleanser",
+        "key_properties": ["Specifically formulated for scalp conditions", "No fragrance", "No dyes", "No harsh sulfates"],
+        "where_to_buy": "Dermatologist offices, Amazon",
+        "price_range": "€15-25"
+      },
+      {
+        "name": "Eucerin DermatoCLEAN Micellar Water",
+        "category": "Cleansing",
+        "key_properties": ["No fragrance", "Micellar technology", "pH-balanced"],
+        "safe_for_sd": "Yes - MCT oil based micellar formula",
+        "where_to_buy": "Pharmacies, Sephora",
+        "price_range": "€8-12"
+      },
+      {
+        "name": "La Roche-Posay Toleriane Hydrating Gentle Cleanser",
+        "category": "Cleanser",
+        "key_properties": ["Fragrance-free", "Hypoallergenic", "pH 5.5"],
+        "where_to_buy": "Pharmacies, Sephora",
+        "price_range": "€8-14"
+      }
+    ],
+    "budget_safe_options": [
+      {
+        "name": "Cetaphil Gentle Skin Cleanser",
+        "price_range": "€5-10",
+        "advantage": "Affordable; widely available"
+      },
+      {
+        "name": "Simple Kind To Skin Refreshing Facial Wash",
+        "price_range": "€3-6",
+        "advantage": "Very affordable; SD-safe formula"
+      },
+      {
+        "name": "Superdrug B. Calm Hydrating Facial Wash",
+        "price_range": "€2-5",
+        "advantage": "Ultra-budget; SD-appropriate"
+      }
+    ],
+    "ingredients_to_specifically_seek": [
+      "Ceramides (NP, AP, EOP, NG, NS, NE)",
+      "Hyaluronic acid (humectant)",
+      "Glycerin (humectant)",
+      "Citric acid (pH adjustment to 4.5-5.5)",
+      "Decyl glucoside (gentle cleanser)",
+      "Coco-glucosides (gentle cleanser)"
+    ],
+    "brands_to_absolutely_avoid": [
+      {
+        "name": "Most K-beauty brands (Missha, Cosrx, COSRX, Benton, Purito, etc.)",
+        "reason": "Heavy use of Galactomyces fermentation filtrate in 'essence' products",
+        "risk": "Guaranteed severe flare within 12-48 hours"
+      },
+      {
+        "name": "Brands emphasizing 'oil', 'butter', 'natural' (Cantu, SheaMoisture, Carol's Daughter, etc.)",
+        "reason": "Heavy coconut oil, shea butter, castor oil content (even if 'sulfate-free')",
+        "risk": "Severe Malassezia feeding; chronic flare state"
+      },
+      {
+        "name": "Luxury / High-end brands (Olaplex, K18, Bonacure, etc.)",
+        "reason": "Often contain isopropyl palmitate, silicones, fragrances",
+        "risk": "Premium price ≠ SD-safe"
+      },
+      {
+        "name": "Brands claiming 'anti-dandruff' with zinc pyrithione but also containing oils/ferments",
+        "reason": "Antifungal doesn't overcome Malassezia feeding + immune dysregulation",
+        "risk": "False sense of security; continued damage"
+      }
+    ]
+  },
+
+  "inci_label_reading_protocol": {
+    "section_description": "Step-by-step guide to reading ingredient lists safely",
+    "critical_facts": [
+      "INCI = International Nomenclature of Cosmetic Ingredients (required on all products)",
+      "Listed in DESCENDING order by concentration (first ingredient = highest %, last = lowest)",
+      "If ingredient >1%, listed with full name; <1% can be listed in any order",
+      "Fragrance/Parfum can hide 3000+ chemicals",
+      "Natural ≠ Safe (essential oils, coconut oil are 'natural' but problematic)"
+    ],
+    "reading_strategy": [
+      {
+        "step": 1,
+        "action": "Photograph or screenshot INCI list from product packaging",
+        "reason": "Easier to analyze offline; can use search tools"
+      },
+      {
+        "step": 2,
+        "action": "Scan for CRITICAL INGREDIENTS: Coconut, Lauric, Myristic, Oleic, Palmitic, Stearic, Galactomyces, Saccharomyces, SLS, SLES",
+        "red_flag": "If ANY of these present → DO NOT USE"
+      },
+      {
+        "step": 3,
+        "action": "Check for Fatty Acids: Look for any 'Acid' ingredient (Palmitic Acid, Oleic Acid, etc.)",
+        "rule": "Avoid all C12-C24 acids"
+      },
+      {
+        "step": 4,
+        "action": "Scan for Oils: Cocos Nucifera, Olea Europaea, Ricinus Communis, Persea Gratissima, etc.",
+        "rule": "Avoid all except MCT (Caprylic/Capric Triglyceride)"
+      },
+      {
+        "step": 5,
+        "action": "Check for Yeast Ferments: Look for 'Ferment', 'Fermentation', 'Extract'",
+        "yellow_flag": "Galactomyces, Saccharomyces, Bifida = AVOID. Lactobacillus = CAUTION"
+      },
+      {
+        "step": 6,
+        "action": "Identify Surfactants: Check first 2-3 ingredients for cleansing agents",
+        "safe": "Coco-glucosides, Decyl glucoside, Sodium cocoyl isethionate",
+        "avoid": "SLS, SLES, Cocamidopropyl Betaine (>1%), Cocamide DEA/MEA"
+      },
+      {
+        "step": 7,
+        "action": "Check for Esters: Isopropyl Palmitate, Decyl Oleate, etc.",
+        "rule": "Avoid all C12-C24 derived esters. MCT esters (Caprylic/Capric) = SAFE"
+      },
+      {
+        "step": 8,
+        "action": "Assess Fragrance component: If 'Parfum' or 'Fragrance' present → ASSUME HIGH RISK",
+        "rule": "If Essential oils (Tea Tree, Lavender, Eucalyptus, etc.) listed → AVOID"
+      },
+      {
+        "step": 9,
+        "action": "Calculate aggregate risk: Multiple moderate-risk ingredients = HIGH cumulative risk",
+        "rule": "If >3 items raise concern → DO NOT USE"
+      },
+      {
+        "step": 10,
+        "action": "Verify pH if listed: Target 4.5-5.5 (scalp pH range)",
+        "red_flag": "pH >6.5 promotes Malassezia; pH <4.0 irritating"
+      }
+    ],
+    "useful_resources": [
+      {
+        "tool": "INCIDecoder.com",
+        "function": "Searchable INCI ingredient database with safety ratings"
+      },
+      {
+        "tool": "CosDNA.com",
+        "function": "Acne/safety risk ratings for individual ingredients; generates risk profiles"
+      },
+      {
+        "tool": "Skin Deep Cosmetics Database (EWG)",
+        "function": "Environmental Working Group hazard scores for ingredients"
+      }
+    ]
+  },
+
+  "routine_recommendations": {
+    "section_description": "Evidence-based daily/weekly routines for SD management",
+    "general_principles": [
+      "Simplicity > Complexity (fewer ingredients = fewer reactions)",
+      "Consistency > Perfection (same routine every day better than rotating products)",
+      "Minimal > Maximal (avoid 'layering' products)",
+      "Clean > Moisturized (infected skin needs anti-yeast priority over hydration)"
+    ],
+    "basic_routine_flare_protocol": {
+      "target": "Acute SD flare (severe itching, redness, sebum oxidation)",
+      "duration": "7-14 days until symptoms control",
+      "products_needed": 3,
+      "morning": [
+        {
+          "step": 1,
+          "product": "Lukewarm water rinse ONLY (no cleanser)",
+          "reason": "Avoid stripping remaining lipids during flare"
+        },
+        {
+          "step": 2,
+          "product": "Pat dry gently",
+          "reason": "Air drying prevents follicle occlusion"
+        },
+        {
+          "step": 3,
+          "product": "MCT Oil (if scalp feels dry) - 2-3 drops",
+          "reason": "Malassezia-safe hydration; mild antifungal"
+        }
+      ],
+      "evening": [
+        {
+          "step": 1,
+          "product": "Free & Clear Hair Shampoo (or equivalent sulfate-free) - dilute 1:1",
+          "reason": "Gentle cleansing; no barrier disruption",
+          "technique": "Massage 2-3 minutes; rinse thoroughly"
+        },
+        {
+          "step": 2,
+          "product": "Citric acid rinse (optional): 1 tsp citric acid + 1 cup water",
+          "reason": "Lowers scalp pH to 4.5-5.5; inhibits Malassezia",
+          "frequency": "2-3x per week"
+        },
+        {
+          "step": 3,
+          "product": "Air dry completely (no heat)",
+          "reason": "Heat promotes yeast growth"
+        }
+      ]
+    },
+    "maintenance_routine_remission": {
+      "target": "Maintaining clear skin; preventing flare recurrence",
+      "duration": "Ongoing",
+      "frequency": "3-4 times per week shampooing; daily scalp care",
+      "morning": [
+        "Water rinse only OR very gentle sulfate-free shampoo (diluted)",
+        "Optional: MCT oil (1-2 drops) if scalp dry"
+      ],
+      "evening": [
+        "Free & Clear Shampoo 2-3x per week",
+        "Citric acid rinse 2x per week",
+        "Avoid all problematic products permanently"
+      ]
+    },
+    "advanced_protocol_topical_antifungals": {
+      "note": "Use alongside routine; not replacement",
+      "otc_options": [
+        {
+          "name": "Ketoconazole 2% Shampoo (Nizoral)",
+          "frequency": "2x per week",
+          "mechanism": "Direct Malassezia kill; P450 inhibition reduces inflammation",
+          "duration": "Rotate: 4 weeks on, 2 weeks off (prevent resistance)"
+        },
+        {
+          "name": "Pyrithione Zinc 1-2% Shampoo (Head & Shoulders, Selsun, etc.)",
+          "frequency": "3-4x per week",
+          "mechanism": "Chelates Malassezia zinc requirements; bacteriostatic",
+          "advantage": "Milder than ketoconazole; longer-term tolerance"
+        },
+        {
+          "name": "Salicylic Acid 2-3% Shampoo",
+          "frequency": "1-2x per week",
+          "mechanism": "β-hydroxy acid; mild desquamation + antimicrobial",
+          "use_case": "Adjunctive with antifungal; not primary therapy"
+        }
+      ],
+      "prescription_options": [
+        {
+          "name": "Fluconazole 150mg (oral)",
+          "frequency": "Single weekly dose × 4-6 weeks",
+          "mechanism": "Systemic antifungal; resolves chronic SD in 70-80%",
+          "limitations": "Requires dermatologist; potential liver impact"
+        }
+      ]
+    }
+  },
+
+  "flare_management_protocol": {
+    "section_description": "Emergency response for acute SD flares",
+    "flare_definition": "Acute onset severe itching, sebum oxidation smell, visible redness, possible burning sensation",
+    "flare_timeline": {
+      "0-6_hours": "Likely causative product identified",
+      "6-24_hours": "Inflammation peaks; Th17 cytokine elevation",
+      "24-72_hours": "Peak severity; extensive barrier disruption",
+      "3-14_days": "Gradual improvement if causative removed; 3-4x slower if continued",
+      "14-21_days": "Near-complete remission if proper protocol followed"
+    },
+    "immediate_response_first_24h": [
+      {
+        "action": "STOP all products immediately",
+        "reason": "Even 'safe' products can exacerbate acute inflammation"
+      },
+      {
+        "action": "Lukewarm water rinses ONLY (no cleanser) 2-3x per day",
+        "reason": "Remove product residues without stripping"
+      },
+      {
+        "action": "Do NOT apply anything topical for first 6-12 hours",
+        "reason": "Allow barrier to stabilize"
+      },
+      {
+        "action": "Avoid heat (no hot water, no heat styling, no hats)",
+        "reason": "Heat amplifies inflammation 200-300%"
+      },
+      {
+        "action": "Consider oral anti-inflammatory: Ibuprofen 400mg 2-3x daily",
+        "reason": "Reduces TNF-α, IL-6 cascade"
+      },
+      {
+        "action": "Contact dermatologist if severe burning or systemic symptoms",
+        "reason": "May indicate allergic contact dermatitis or infection"
+      }
+    ],
+    "days_2_7_management": [
+      {
+        "action": "Introduce sulfate-free shampoo (diluted 1:1)",
+        "frequency": "Every 2-3 days only",
+        "reason": "Gentle cleansing; monitor tolerance"
+      },
+      {
+        "action": "Apply MCT oil sparingly if scalp feels tight",
+        "amount": "1-2 drops only; excessive oil traps sweat + heat"
+      },
+      {
+        "action": "Citric acid rinse 2-3x (1 tsp + 1 cup water)",
+        "reason": "Lower scalp pH to inhibit Malassezia"
+      },
+      {
+        "action": "If severe itching persists: Introduce ketoconazole 2% shampoo",
+        "frequency": "2x per week",
+        "timing": "Start if Day 3-4 without improvement"
+      },
+      {
+        "action": "Avoid ALL other products (no conditioner, oils, masks, treatments)",
+        "reason": "Risk of re-flaring"
+      }
+    ],
+    "days_7_14_recovery": [
+      {
+        "action": "Continue minimal protocol (sulfate-free shampoo 2-3x/week + citric acid rinse)",
+        "reason": "Barrier still compromised; risk of secondary infection"
+      },
+      {
+        "action": "If itching resolved by Day 7: Begin preventative protocol",
+        "reason": "Lock in improvement; prevent recurrence"
+      },
+      {
+        "action": "If itching persists past Day 10: Escalate to prescription antifungal",
+        "recommendation": "Consult dermatologist for ketoconazole cream or oral fluconazole"
+      }
+    ],
+    "prevention_of_future_flares": [
+      "Never reintroduce causative product",
+      "Maintain strict INCI label review before trying anything new",
+      "Patch test new products: Apply to small scalp area × 3 days before full use",
+      "Stick with one 'safe' routine permanently",
+      "Prophylactic ketoconazole 2% shampoo 1x per month (if history of frequent flares)",
+      "Avoid seasonal triggers (heat, humidity, sweating)"
+    ]
+  },
+
+  "ingredient_substitutes_safe_alternatives": {
+    "section_description": "What to use instead of problematic ingredients",
+    "substitution_table": [
+      {
+        "problematic_ingredient": "Coconut Oil (Cocos Nucifera Oil)",
+        "reason_avoided": "47% Lauric Acid (C12) - prime Malassezia substrate",
+        "safe_alternative": "MCT Oil (Caprylic/Capric Triglyceride)",
+        "performance_comparison": "MCT equally hydrating, lighter, Malassezia-safe",
+        "cost_difference": "MCT slightly more expensive (+$2-5 per bottle)"
+      },
+      {
+        "problematic_ingredient": "Shea Butter (Butyrospermum Parkii)",
+        "reason_avoided": "40-55% Stearic + Oleic Acid (C18); highly occlusive",
+        "safe_alternative": "Glycerin + Sodium Hyaluronate",
+        "performance_comparison": "Lighter; less occlusive; non-comedogenic",
+        "cost_difference": "Usually cheaper"
+      },
+      {
+        "problematic_ingredient": "Argan Oil (Argania Spinosa Kernel Oil)",
+        "reason_avoided": "55-80% Oleic Acid (C18 unsaturated); oxidizes easily",
+        "safe_alternative": "MCT Oil or Glycerin",
+        "performance_comparison": "MCT provides similar silkiness without inflammatory risk"
+      },
+      {
+        "problematic_ingredient": "Castor Oil (Ricinus Communis Oil)",
+        "reason_avoided": "90% Ricinoleic Acid (C18 hydroxylated) - direct irritant + yeast nutrient",
+        "safe_alternative": "MCT Oil for hydration; avoid entirely for styling",
+        "performance_comparison": "MCT lacks viscosity; consider thin silicone alternatives if styling needed"
+      },
+      {
+        "problematic_ingredient": "Synthetic Fragrance (Parfum)",
+        "reason_avoided": "3000+ undisclosed chemicals; ~60% are allergens after oxidation",
+        "safe_alternative": "Fragrance-free formulation; if scent desired, use micro-dose (0.01%) of approved essential oil (Chamomile only - non-allergenic)",
+        "performance_comparison": "Fragrance-free products perform identically without irritation"
+      },
+      {
+        "problematic_ingredient": "SLS / SLES (Sodium Lauryl/Laureth Sulfate)",
+        "reason_avoided": "Strips 30-40% skin lipids per wash; severe barrier damage",
+        "safe_alternative": "Coco-Glucosides, Decyl Glucoside, Sodium Cocoyl Isethionate",
+        "performance_comparison": "Gentle surfactants still cleanse effectively; require slightly longer rinse"
+      },
+      {
+        "problematic_ingredient": "Polysorbate 20/40/60/80",
+        "reason_avoided": "Derived from C12-C24 fatty acids; Malassezia accessible after hydrolysis",
+        "safe_alternative": "If emulsification needed: Use Xanthan Gum or use oil-free formulation",
+        "performance_comparison": "Less silky feel; but eliminates Malassezia feeding risk"
+      },
+      {
+        "problematic_ingredient": "Silicones (Dimethicone, Cyclomethicone)",
+        "reason_avoided": "Occlusive; traps yeast byproducts; bioaccumulates",
+        "safe_alternative": "Non-silicone conditioning: Hydrolyzed proteins, BTMS, MCT oil",
+        "performance_comparison": "Less slick feel; improved scalp health long-term"
+      },
+      {
+        "problematic_ingredient": "Galactomyces Fermentation Filtrate",
+        "reason_avoided": "Directly activates AhR; 400-500% IL-22 elevation",
+        "safe_alternative": "None - simply exclude. No ferment replaces this safely.",
+        "recommendation": "Use hyaluronic acid + glycerin for humectant effects instead"
+      },
+      {
+        "problematic_ingredient": "Mineral Oil / Petrolatum",
+        "reason_avoided": "Petroleum-derived; occlusive; traps heat/moisture",
+        "safe_alternative": "MCT Oil or Caprylic/Capric Triglyceride",
+        "performance_comparison": "MCT provides equivalent occlusion with Malassezia safety"
+      }
+    ]
+  },
+
+  "quick_reference_safe_ingredient_checklist": {
+    "section_description": "Print-friendly guide for product evaluation",
+    "format": "Yes/No checklist - Product is SAFE if ALL boxes checked",
+    "checklist": [
+      "☐ NO coconut, olive, argan, jojoba, avocado, sunflower, safflower oils (OR ONLY MCT oil present)",
+      "☐ NO fatty acids listed (Lauric, Myristic, Palmitic, Stearic, Oleic, Linoleic, Behenic, Erucic, Lignoceric)",
+      "☐ NO esters derived from C12-C24 (Isopropyl Palmitate, Decyl Oleate, etc.) - ONLY MCT-derived esters if any",
+      "☐ NO yeast ferments (Galactomyces, Saccharomyces, Bifida, Rice Ferment) - Lactobacillus only if <0.1%",
+      "☐ NO sulfates (SLS, SLES, ALES)",
+      "☐ NO synthetic fragrance (Parfum) OR only micro-dose (<0.01%) fragrance",
+      "☐ NO essential oils (Tea Tree, Lavender, Eucalyptus, Peppermint, Rosemary, etc.)",
+      "☐ NO high-concentration Cocamidopropyl Betaine (safe <0.5%)",
+      "☐ NO Cocamide DEA / MEA",
+      "☐ NO high-concentration Propylene Glycol (safe <3%)",
+      "☐ NO Parabens (Methylparaben, Propylparaben, Butylparaben, etc.)",
+      "☐ NO Formaldehyde-releasing agents (Quaternium-15, DMDM Hydantoin)",
+      "☐ NO Triclosan",
+      "☐ NO high-concentration Silicones (Dimethicone >1%, Cyclomethicone)",
+      "☐ NO high-concentration Alcohol (Ethanol >10%)",
+      "☐ NO Polysorbates (Polysorbate 20, 40, 60, 80, 85)",
+      "☐ NO PEG compounds >3%",
+      "☐ NO high-concentration EDTA",
+      "☐ pH indicated or assumed to be 4.5-5.5",
+      "☐ Contains <5 total ingredients (simpler = safer)"
+    ],
+    "scoring": "16-20 boxes = SAFE FOR SD. 12-15 = CAUTION, patch test. <12 = AVOID"
+  },
+
+  "product_database_examples": {
+    "section_description": "Real-world product examples evaluated using risk scoring system",
+    "examples": [
+      {
+        "product_name": "SheaMoisture Raw Shea Butter Restorative Shampoo",
+        "inci_highlights": ["Water, Sodium Cocoyl Isethionate, Cocamidopropyl Betaine, Cocos Nucifera Oil, Stearic Acid, Butyrospermum Parkii Butter"],
+        "risk_assessment": "CRITICAL",
+        "issues": ["Cocos Nucifera Oil (C12 Lauric)", "Stearic Acid (C18)", "Butyrospermum Parkii Butter (C18 oils)"],
+        "overall_score": "92/100",
+        "recommendation": "AVOID - Severe Malassezia feeding"
+      },
+      {
+        "product_name": "Cantu Shea Butter Leave-In Conditioner",
+        "inci_highlights": ["Water, Butyrospermum Parkii Butter, Cocos Nucifera Oil, Cetyl Alcohol, Stearic Acid, Polysorbate 60"],
+        "risk_assessment": "CRITICAL",
+        "issues": ["Shea butter (50%+)", "Coconut oil", "Stearic acid", "Polysorbate 60 (C18)"],
+        "overall_score": "96/100",
+        "recommendation": "AVOID - Multiple high-risk ingredients"
+      },
+      {
+        "product_name": "Free & Clear Hair Shampoo",
+        "inci_highlights": ["Water, Sodium Cocoyl Isethionate, Cocamidopropyl Hydroxysultaine, Glycerin, Citric Acid, Sodium Citrate"],
+        "risk_assessment": "SAFE",
+        "strengths": ["No problematic fatty acids", "No fragrance", "pH adjusted to 4.5", "Gentle surfactants"],
+        "overall_score": "15/100",
+        "recommendation": "EXCELLENT FOR SD - Gold standard"
+      },
+      {
+        "product_name": "CeraVe Hydrating Shampoo",
+        "inci_highlights": ["Water, Sodium Lauroyl Sarcosinate, Cocamidopropyl Hydroxysultaine, Ceramide NP, Ceramide EOP, Hyaluronic Acid"],
+        "risk_assessment": "SAFE",
+        "strengths": ["No oils", "No ferments", "Ceramide-rich", "Hypoallergenic"],
+        "concerns": ["Sodium Lauroyl Sarcosinate (mild surfactant; safe but requires verification)"],
+        "overall_score": "12/100",
+        "recommendation": "VERY GOOD FOR SD - Safe alternative"
+      },
+      {
+        "product_name": "Vanicream Hair Shampoo",
+        "inci_highlights": ["Water, Cocamidopropyl Hydroxysultaine, Sodium Cocoyl Isethionate, Glycerin"],
+        "risk_assessment": "SAFE",
+        "strengths": ["Ultra-minimal formulation", "No fragrance", "No allergens", "Hypoallergenic"],
+        "overall_score": "8/100",
+        "recommendation": "EXCELLENT FOR SD - Minimal formulation = lowest risk"
+      },
+      {
+        "product_name": "Missha First Treatment Essence (K-beauty)",
+        "inci_highlights": ["Galactomyces Fermentation Filtrate (30%+), Water, Glycerin, Propylene Glycol, Butylene Glycol"],
+        "risk_assessment": "CRITICAL",
+        "issues": ["Galactomyces Ferment (30% - EXTREME concentration)", "High AhR activation"],
+        "overall_score": "88/100",
+        "recommendation": "SEVERE AVOID - Guaranteed catastrophic flare within 12-24h"
+      }
+    ]
+  },
+
+  "faq_common_misconceptions": {
+    "section_description": "Addressing common myths about SD and skincare",
+    "questions": [
+      {
+        "q": "Isn't coconut oil 'natural' so it must be safe?",
+        "a": "NO. Natural ≠ Safe for SD. Coconut oil's 47% lauric acid is optimal Malassezia food. Toxins are 'natural' too. Safety is chemical, not botanical."
+      },
+      {
+        "q": "If a product says 'for scalp health', isn't it formulated for SD?",
+        "a": "NO. Marketing claims are unregulated. Many 'anti-dandruff' products still contain problematic oils. Always check INCI; never trust marketing.",
+        "example": "Head & Shoulders contains Zinc Pyrithione (antifungal) BUT many versions also contain oils + silicones → contradictory formulation"
+      },
+      {
+        "q": "Can expensive brands be trusted more than budget brands?",
+        "a": "NO. Price ≠ Safety for SD. Luxury brands (Olaplex, Shiseido) often contain MORE problematic ingredients. Budget brands (Cetaphil, Simple) often safer.",
+        "paradox": "Expensive brands target 'luxury' appeal (fragrance, silky feel) = more problematic"
+      },
+      {
+        "q": "Shouldn't I moisturize more to treat dry SD-prone scalp?",
+        "a": "NO - This is THE biggest mistake. SD scalp feels dry due to barrier damage, NOT moisture deficiency. More moisture feeds Malassezia. Solution: Fix barrier first (MCT oil minimal), then add gentle humectants (glycerin, hyaluronic acid)."
+      },
+      {
+        "q": "Is there a cure for SD?",
+        "a": "NO permanent cure exists currently. SD is chronic but highly manageable. Many achieve remission for months/years with proper protocol. Relapses possible with exposure to trigger products."
+      },
+      {
+        "q": "Can I just use regular shampoo if I use antifungal shampoo alongside?",
+        "a": "NO. Antifungal ≠ barrier support. Using damaging shampoo + antifungal = fighting with one hand tied. Root cause is ingredient exposure.",
+        "analogy": "Like pouring gasoline while trying to extinguish fire"
+      },
+      {
+        "q": "Will my SD go away if I just stop using products?",
+        "a": "Maybe - but takes months. Water-only scalping can work BUT risk of dehydration + secondary infection. Better: Use minimal SD-safe routine while Malassezia naturally declines."
+      },
+      {
+        "q": "Are all oils bad for SD?",
+        "a": "NO - only C12-C24 fatty acids are problematic. MCT oil (C8/C10) is safe and beneficial. Distinction is CRITICAL.",
+        "key_point": "Chain length matters more than 'oil vs not oil'"
+      },
+      {
+        "q": "If I'm in remission, can I occasionally use my favorite problematic product?",
+        "a": "NOT RECOMMENDED. Single exposure to high-risk products (Galactomyces, Coconut Oil) can restart month-long flare. Risk >> Reward.",
+        "biology": "Malassezia doesn't need permission to re-colonize; single exposure sufficient"
+      }
+    ]
+  }
+}

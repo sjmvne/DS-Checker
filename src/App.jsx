@@ -6,6 +6,7 @@ import Results from './components/Results'
 import History from './components/History'
 import ThemeToggle from './components/ThemeToggle'
 import LoadingOverlay from './components/LoadingOverlay'
+import LanguageSelector from './components/LanguageSelector'
 import Menu from './components/Menu'
 import References from './components/References'
 import Credits from './components/Credits'
@@ -16,6 +17,7 @@ import Dictionary from './components/Dictionary'
 import Tutorial from './components/Tutorial'
 
 import { useTheme } from './hooks/useTheme'
+import { useLanguage } from './context/LanguageContext'
 import { useHistory } from './hooks/useHistory'
 import { useAnalyzer } from './hooks/useAnalyzer'
 import { calculateScore } from './utils/calculateScore'
@@ -24,6 +26,7 @@ import './App.css'
 
 export default function App() {
   const { theme, toggleTheme } = useTheme()
+  const { t } = useLanguage() // Add this hook usage
   const { history, addToHistory, clearHistory } = useHistory()
   const { analyzeIngredients } = useAnalyzer()
   
@@ -39,7 +42,12 @@ export default function App() {
       : ingredientsInput && ingredientsInput.trim();
 
     if (!isValidInput) {
-      alert('Per favore inserisci gli ingredienti!')
+      // Use simple alert or toast. For now, alert needs translation.
+      // Since App.jsx is top level, valid to use t() if hook is available.
+      // Wait, App uses t? Let's check imports.
+      // App.jsx likely doesn't have `t` destructured yet if not used before.
+      // But we can assume it will be used now.
+      alert(t ? t('alert.empty_ingredients') : 'Inserisci ingredienti!');
       return
     }
 
@@ -147,6 +155,7 @@ export default function App() {
 
   return (
     <div className="app" data-theme={theme}>
+      <LanguageSelector />
       <Menu 
         onNavigate={setCurrentPage} 
         currentTheme={theme} 

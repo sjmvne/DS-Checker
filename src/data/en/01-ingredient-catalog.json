@@ -11,8 +11,8 @@
   },
   
   "fatty_acids": {
-    "category_description": "Acidi grassi a catena lunga (C12-C24) che servono come fonte primaria di nutrimento per la proliferazione di Malassezia globosa e M. furfur",
-    "recommendation": "EVITARE TUTTI - Nutrimento diretto per Malassezia",
+    "category_description": "Long-chain fatty acids (C12-C24) that serve as primary nutrient sources for Malassezia globosa and M. furfur overgrowth",
+    "recommendation": "AVOID ALL - Direct Malassezia nutrition",
     "carbon_chain_range": "C12-C24 (most problematic)",
     "scientific_basis": "Malassezia species possess lipase enzymes optimized for C11-C24 fatty acid metabolism. Shorter chains (C8-C10) and longer chains (>C24) are not metabolically accessible.",
     "ingredients": [

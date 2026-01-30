@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { useData } from '../hooks/useData';
 import Card from './Card';
 import Emoji from './Emoji';
 import './DatabaseViewer.css';
-import { fullDatabase } from '../services/ingredientDatabase';
 import { titleCase } from '../utils/formatters';
+import { getRiskClass, getRiskLabelKey } from '../utils/riskUtils';
 
 const DatabaseViewer = () => {
+  const { t } = useLanguage();
+  const fullDatabase = useData();
   const [filter, setFilter] = useState('');
   const [activeTab, setActiveTab] = useState('all');
   const [riskFilter, setRiskFilter] = useState('all');
+  const [showLegend, setShowLegend] = useState(false);
   
   // Aggregate all items with metadata
   const getAllItems = () => {
@@ -56,10 +62,11 @@ const DatabaseViewer = () => {
     
     let matchesRisk = true;
     if (riskFilter !== 'all') {
-      const risk = (item.risk_level || '').toLowerCase();
-      if (riskFilter === 'safe') matchesRisk = risk.includes('safe') || risk.includes('low');
-      if (riskFilter === 'caution') matchesRisk = risk.includes('warning') || risk.includes('moderate');
-      if (riskFilter === 'danger') matchesRisk = risk.includes('critical') || risk.includes('high');
+      const riskClass = getRiskClass(item.risk_level);
+      if (riskFilter === 'safe') matchesRisk = riskClass === 'risk-safe' || riskClass === 'risk-low';
+      if (riskFilter === 'caution') matchesRisk = riskClass === 'risk-caution';
+      // High (warning) and Critical (critical) both go to Danger/Avoid
+      if (riskFilter === 'danger') matchesRisk = riskClass === 'risk-critical' || riskClass === 'risk-warning' || riskClass === 'risk-high';
     }
 
     return matchesSearch && matchesTab && matchesRisk;
@@ -67,43 +74,30 @@ const DatabaseViewer = () => {
 
   const categories = ['Fatty Acid', 'Oil/Lipid', 'Ester', 'Ferment', 'Irritant', 'Polysorbate', 'Safe Alternative'];
   
+  // Use translations for category mapping if needed, or stick to hardcoded mapping logic but mapped to t() keys
   const categoryLabels = {
-    'Fatty Acid': 'Acidi Grassi',
-    'Oil/Lipid': 'Oli/Lipidi',
-    'Ester': 'Esteri',
-    'Ferment': 'Fermenti',
-    'Irritant': 'Irritanti',
-    'Polysorbate': 'Polisorbati',
-    'Safe Alternative': 'Alternative Sicure'
+    'Fatty Acid': t('database.tabs.fatty_acid'),
+    'Oil/Lipid': t('database.tabs.oil_lipid'),
+    'Ester': t('database.tabs.ester'),
+    'Ferment': t('database.tabs.ferment'),
+    'Irritant': t('database.tabs.irritant'),
+    'Polysorbate': t('database.tabs.polysorbate'),
+    'Safe Alternative': t('database.tabs.safe_alternative')
   };
 
-  const getRiskClass = (level) => {
-    if (!level) return 'risk-caution';
-    const l = level.toLowerCase();
-    if (l.includes('low to moderate')) return 'risk-caution';
-    if (l.includes('safe') || l.includes('low')) return 'risk-safe';
-    if (l.includes('critical') || l.includes('high')) return 'risk-critical';
-    return 'risk-warning';
-  };
-
-  const getRiskLabel = (level) => {
-    if (!level) return 'SCONOSCIUTO';
-    const l = level.toUpperCase();
-    if (l.includes('CRITICAL')) return 'CRITICO';
-    if (l.includes('HIGH')) return 'ALTO';
-    if (l.includes('LOW TO MODERATE')) return 'BASSO-MODERATO';
-    if (l.includes('MODERATE')) return 'MODERATO';
-    if (l.includes('LOW')) return 'BASSO';
-    if (l.includes('SAFE')) return 'SICURO';
-    if (l.includes('WARNING')) return 'ATTENZIONE';
-    return level;
-  };
+  // Risk helpers imported from riskUtils 
+  
+  // Re-reading user request: "CRITICO should be red". 
+  // If the data comes as "CRITICO", getRiskLabel returns "CRITICO" (currently returns level fallback).
+  // getRiskClass logic correction IS the fix.
+  // The user didn't ask to translate the label itself, just fix the color.
+  // Although translating it makes sense. I will keep the label as is (or uppercase) but fix the CLASS logic which is the root cause.
 
   return (
     <div className="page-container fade-in">
        <div className="db-header-section">
-         <h2><Emoji name="File Cabinet" fallback="🗄️" /> Database Completo</h2>
-         <p>Esplora gli oltre {allItems.length} ingredienti catalogati.</p>
+         <h2><Emoji name="File Cabinet" fallback="🗄️" /> {t('database.title')}</h2>
+         <p>{t('database.subtitle').replace('{count}', allItems.length)}</p>
          
          <div className="search-bar-wrapper" style={{position: 'relative'}}>
              <span style={{position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 1}}>
@@ -111,7 +105,7 @@ const DatabaseViewer = () => {
              </span>
              <input 
                type="text" 
-               placeholder="Cerca ingrediente (es. Coconut, Laureth...)" 
+               placeholder={t('database.search_placeholder')}
                value={filter}
                onChange={(e) => setFilter(e.target.value)}
                className="db-search glass"
@@ -121,7 +115,7 @@ const DatabaseViewer = () => {
 
          <div className="db-controls">
            <div className="db-tabs">
-             <button className={`db-tab ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>Tutti</button>
+             <button className={`db-tab ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>{t('database.tabs.all')}</button>
              {categories.map(cat => (
                <button key={cat} className={`db-tab ${activeTab === cat ? 'active' : ''}`} onClick={() => setActiveTab(cat)}>{categoryLabels[cat] || cat}</button>
              ))}
@@ -132,29 +126,116 @@ const DatabaseViewer = () => {
               value={riskFilter} 
               onChange={(e) => setRiskFilter(e.target.value)}
            >
-             <option value="all">🛡️ Tutti i livelli di rischio</option>
-             <option value="safe">✅ Solo Sicuri (SAFE/LOW)</option>
-             <option value="caution">⚠️ Attenzione (MODERATE/WARNING)</option>
-             <option value="danger">🚫 Da Evitare (HIGH/CRITICAL)</option>
+             <option value="all">{t('database.risk_filter.all')}</option>
+             <option value="safe">{t('database.risk_filter.safe')}</option>
+             <option value="caution">{t('database.risk_filter.caution')}</option>
+             <option value="danger">{t('database.risk_filter.danger')}</option>
            </select>
+           
+           <button 
+             className="info-btn glass" 
+             onClick={() => setShowLegend(true)}
+             aria-label="Risk Legend"
+             style={{marginLeft: '10px', padding: '8px 12px', cursor: 'pointer'}}
+           >
+             <Emoji name="Information" fallback="ℹ️" />
+           </button>
          </div>
        </div>
 
+       {showLegend && ReactDOM.createPortal(
+         <div className="modal-overlay glass" onClick={() => setShowLegend(false)} style={{zIndex: 99999}}>
+            <div className="modal-content glass" onClick={e => e.stopPropagation()} style={{maxWidth: '500px', maxHeight: '80vh', overflowY: 'auto'}}>
+               <div className="modal-header">
+                  <h3 className="modal-title" style={{fontSize: '1.4rem'}}><Emoji name="Bar Chart" fallback="📊" /> {t('database.legend.title')}</h3>
+                  <button className="modal-close" onClick={() => setShowLegend(false)}>&times;</button>
+               </div>
+               
+               <div className="modal-body" style={{paddingTop: '10px'}}>
+                  <div className="legend-timeline">
+                  <div className="timeline-track"></div>
+                  
+                  {/* SAFE (Blue) */}
+                  <div className="timeline-item">
+                     <span className="timeline-point safe"></span>
+                     <div className="timeline-content risk-safe-bg">
+                        <div className="timeline-header">
+                           <span className="timeline-badge" style={{color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)'}}>{t('database.legend.safe.label')}</span>
+                        </div>
+                        <p className="timeline-desc">{t('database.legend.safe.desc')}</p>
+                     </div>
+                  </div>
+
+                  {/* LOW (Green) */}
+                  <div className="timeline-item">
+                     <span className="timeline-point low"></span>
+                     <div className="timeline-content risk-low-bg">
+                        <div className="timeline-header">
+                           <span className="timeline-badge" style={{color: '#34d399', background: 'rgba(52, 211, 153, 0.15)'}}>{t('database.legend.low.label')}</span>
+                        </div>
+                        <p className="timeline-desc">{t('database.legend.low.desc')}</p>
+                     </div>
+                  </div>
+
+                  {/* MODERATE (Yellow) */}
+                  <div className="timeline-item">
+                     <span className="timeline-point caution"></span>
+                     <div className="timeline-content risk-caution-bg">
+                        <div className="timeline-header">
+                           <span className="timeline-badge" style={{color: '#facc15', background: 'rgba(250, 204, 21, 0.15)'}}>{t('database.legend.moderate.label')}</span>
+                        </div>
+                        <p className="timeline-desc">{t('database.legend.moderate.desc')}</p>
+                     </div>
+                  </div>
+
+                  {/* HIGH (Orange) */}
+                  <div className="timeline-item">
+                     <span className="timeline-point warning"></span>
+                     <div className="timeline-content risk-warning-bg">
+                        <div className="timeline-header">
+                           <span className="timeline-badge" style={{color: '#fb923c', background: 'rgba(251, 146, 60, 0.15)'}}>{t('database.legend.high.label')}</span>
+                        </div>
+                        <p className="timeline-desc">{t('database.legend.high.desc')}</p>
+                     </div>
+                  </div>
+
+                  {/* CRITICAL (Red) */}
+                  <div className="timeline-item">
+                     <span className="timeline-point critical"></span>
+                     <div className="timeline-content risk-critical-bg">
+                        <div className="timeline-header">
+                           <span className="timeline-badge" style={{color: '#f87171', background: 'rgba(248, 113, 113, 0.15)'}}>{t('database.legend.critical.label')}</span>
+                        </div>
+                        <p className="timeline-desc">{t('database.legend.critical.desc')}</p>
+                     </div>
+                  </div>
+               </div>
+               </div>
+               
+               <div className="modal-footer">
+                  <button className="modal-btn" onClick={() => setShowLegend(false)}>{t('modal.close')}</button>
+               </div>
+            </div>
+         </div>,
+         document.body
+       )}
+
        <div className="db-stats">
-          Trovati {filtered.length} risultati
+          {t('database.results_found').replace('{count}', filtered.length)}
        </div>
 
        <div className="db-grid">
          {filtered.map((item, idx) => {
-           const isSafe = (item.risk_level || '').toLowerCase().includes('safe');
-           const isCritical = (item.risk_level || '').toLowerCase().includes('critical');
+           const riskClass = getRiskClass(item.risk_level);
+           const isSafe = riskClass === 'risk-safe';
+           const isCritical = riskClass === 'risk-critical';
            
            return (
             <Card key={idx} className={`db-card-mini ${isSafe ? 'safe-item' : ''} ${isCritical ? 'critical-item' : ''}`}>
               <div className="db-card-header">
                 <span className="db-type-badge">{categoryLabels[item.type] || item.type}</span>
                 <span className={`db-risk-badge ${getRiskClass(item.risk_level)}`}>
-                  {getRiskLabel(item.risk_level)}
+                  {t(getRiskLabelKey(item.risk_level))}
                 </span>
               </div>
               <h4>{titleCase(item.name)}</h4>
@@ -183,7 +264,7 @@ const DatabaseViewer = () => {
        
        {filtered.length === 0 && (
          <div className="db-empty">
-           <p>Nessun ingrediente trovato con i filtri correnti.</p>
+           <p>{t('database.empty')}</p>
          </div>
        )}
     </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import LoadingOverlay from './LoadingOverlay';
 import Card from './Card';
 // import OCRReader from './OCRReader'; // Removed static import
@@ -11,6 +12,8 @@ import './Search.css';
 const OCRReader = React.lazy(() => import('./OCRReader'));
 
 const Search = ({ onAnalyze, aiRequest }) => {
+  const { t } = useLanguage();
+  
   // Manual Mode State
   const [productName, setProductName] = useState('');
   const [ingredientsText, setIngredientsText] = useState('');
@@ -47,7 +50,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
   // AI Handlers
   const handleAiSearch = async () => {
     if (!aiForm.productName || !aiForm.brand) {
-      alert('Inserisci almeno Nome Prodotto e Marca');
+      alert(t('search.product_name_required') + ' & ' + t('search.brand_required')); // Simple alert translation fallback
       return;
     }
 
@@ -93,7 +96,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
 
   return (
     <Card 
-      title={aiMode ? "Ricerca AI Intelligente" : "Ricerca Manuale"} 
+      title={aiMode ? t('search.ai_mode') : t('search.manual_mode')} 
       icon={aiMode ? <Emoji name="Robot" fallback="🤖" /> : <Emoji name="Magnifying Glass Tilted Left" fallback="🔍" />} 
       className="search-card"
     >
@@ -103,13 +106,13 @@ const Search = ({ onAnalyze, aiRequest }) => {
           className={`mode-btn ${!aiMode ? 'active' : ''}`}
           onClick={() => setAiMode(false)}
         >
-          <Emoji name="Pencil" fallback="✏️" /> Manuale
+          <Emoji name="Pencil" fallback="✏️" /> {t('search.manual_btn')}
         </button>
         <button 
           className={`mode-btn ${aiMode ? 'active' : ''}`}
           onClick={() => setAiMode(true)}
         >
-          <Emoji name="Sparkles" fallback="✨" /> AI Search
+          <Emoji name="Sparkles" fallback="✨" /> {t('search.ai_btn')}
         </button>
       </div>
 
@@ -117,24 +120,24 @@ const Search = ({ onAnalyze, aiRequest }) => {
       {!aiMode && (
         <div className="search-form fade-in">
           <label className="form-label">
-            Nome Prodotto (Opzionale)
+            {t('search.product_name')}
             <input 
               type="text" 
               className="input-field" 
-              placeholder="Es. Shampoo Neutro"
+              placeholder={t('search.product_placeholder')}
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
             />
           </label>
 
           <label className="form-label">
-            Ingredienti (Copia/Incolla o Scansiona)
-            <Suspense fallback={<div className="ocr-loading">Caricamento OCR...</div>}>
+            {t('search.ingredients_label')}
+            <Suspense fallback={<div className="ocr-loading">{t('search.loading_ocr')}</div>}>
                <OCRReader onScanComplete={(text) => setIngredientsText(prev => prev + (prev ? '\n' : '') + text)} />
             </Suspense>
             <textarea 
               className="textarea-field"
-              placeholder="Incolla qui la lista ingredienti..."
+              placeholder={t('search.paste_placeholder')}
               rows={8}
               value={ingredientsText}
               onChange={(e) => setIngredientsText(e.target.value)}
@@ -147,10 +150,10 @@ const Search = ({ onAnalyze, aiRequest }) => {
               onClick={handleAnalyze}
               disabled={!ingredientsText.trim()}
             >
-              Analizza
+              {t('search.analyze_btn')}
             </button>
             <button className="btn btn-secondary" onClick={handleClear}>
-              Pulisci
+              {t('search.clear_btn')}
             </button>
           </div>
         </div>
@@ -162,7 +165,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
            {!aiResult ? (
              <>
                <label className="form-label">
-                 Nome Prodotto *
+                 {t('search.product_name_required')}
                  <input 
                    type="text" 
                    className="input-field" 
@@ -174,7 +177,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
                
                <div className="form-row">
                  <label className="form-label flex-1">
-                   Marca *
+                   {t('search.brand_required')}
                    <input 
                      type="text" 
                      className="input-field" 
@@ -185,7 +188,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
                  </label>
                  
                  <label className="form-label flex-0">
-                   Paese
+                   {t('search.country')}
                    <select 
                       className="input-field"
                       value={aiForm.country}
@@ -200,7 +203,7 @@ const Search = ({ onAnalyze, aiRequest }) => {
                </div>
                
                <label className="form-label">
-                 Barcode (Opzionale)
+                 {t('search.barcode')}
                  <input 
                    type="text" 
                    className="input-field" 
@@ -217,11 +220,11 @@ const Search = ({ onAnalyze, aiRequest }) => {
                    disabled={aiLoading || !aiForm.productName || !aiForm.brand}
                  >
                    {aiLoading ? (
-                     '🤖 Ricerca in corso...'
+                     '🤖 ...'
                    ) : (
                      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <img src={perplexityLogo} alt="Perplexity" className="perplexity-icon" />
-                        Cerca con Perplexity
+                        {t('search.ai_search_btn')}
                      </span>
                    )}
                  </button>

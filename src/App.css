@@ -1,6 +1,7 @@
 @import './styles/variables.css';
 @import './styles/glassmorphism.css';
 @import './styles/animations.css';
+@import './styles/badges.css';
 /* Responsive is loaded here or in main, often better to import in main CSS or here */
 @import './styles/responsive.css';
 

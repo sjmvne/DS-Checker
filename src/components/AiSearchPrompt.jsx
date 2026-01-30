@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Emoji from './Emoji';
 import './AiSearchPrompt.css';
 
 const AiSearchPrompt = ({ isOpen, onClose, onConfirm, barcode }) => {
   if (!isOpen) return null;
 
-  return (
+  return ReactDOM.createPortal(
     <div className="ai-prompt-overlay fade-in">
       <div className="ai-prompt-card glass scale-in">
         <div className="ai-prompt-icon">
@@ -28,7 +29,8 @@ const AiSearchPrompt = ({ isOpen, onClose, onConfirm, barcode }) => {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

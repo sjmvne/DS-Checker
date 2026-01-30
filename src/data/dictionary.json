@@ -2,83 +2,83 @@
   "terms": [
     {
       "term": "Malassezia",
-      "definition": "Un genere di funghi (lieviti) che vive naturalmente sulla pelle umana. Nella dermatite seborroica, questi lieviti proliferano eccessivamente nutrendosi del sebo e producendo sostanze irritanti.",
-      "category": "Biologia"
+      "definition": "A genus of fungi (yeasts) naturally found on human skin. In Seborrheic Dermatitis, these yeasts proliferate excessively by feeding on sebum and producing irritating substances.",
+      "category": "Biology"
     },
     {
       "term": "Biofilm",
-      "definition": "Uno strato protettivo 'viscido' prodotto dai microrganismi (come la Malassezia) per proteggersi dai trattamenti antifungini e dal sistema immunitario.",
-      "category": "Biologia"
+      "definition": "A protective 'slimy' layer produced by microorganisms (like Malassezia) to protect themselves from antifungal treatments and the immune system.",
+      "category": "Biology"
     },
     {
-      "term": "Acidi Grassi",
-      "definition": "Componenti fondamentali dei grassi e degli oli. Acidi grassi specifici (lunghezza C11-C24) nutrono la Malassezia e devono essere evitati.",
-      "category": "Chimica"
+      "term": "Fatty Acids",
+      "definition": "Fundamental components of fats and oils. Specific fatty acids (chain length C11-C24) feed Malassezia and must be avoided.",
+      "category": "Chemistry"
     },
     {
-      "term": "Barriera Cutanea",
-      "definition": "Lo strato esterno della pelle che trattiene l'umidità e protegge dagli agenti esterni. Nella DS, la barriera è spesso compromessa, causando infiammazione.",
-      "category": "Dermatologia"
+      "term": "Skin Barrier",
+      "definition": "The outer layer of the skin that retains moisture and protects against external agents. In SD, the barrier is often compromised, causing inflammation.",
+      "category": "Dermatology"
     },
     {
-      "term": "Esteri",
-      "definition": "Composti chimici formati dalla reazione tra un acido grasso e un alcol. Molti esteri 'pesanti' (es. Isopropyl Palmitate) sono cibo per la Malassezia.",
-      "category": "Chimica"
+      "term": "Esters",
+      "definition": "Chemical compounds formed by the reaction between a fatty acid and an alcohol. Many 'heavy' esters (e.g., Isopropyl Palmitate) are food for Malassezia.",
+      "category": "Chemistry"
     },
     {
-      "term": "Idrolisi",
-      "definition": "Un processo chimico in cui l'acqua spezza i legami molecolari. La Malassezia usa enzimi (lipasi) per idrolizzare i trigliceridi del sebo e liberare acidi grassi liberi irritanti.",
-      "category": "Chimica"
+      "term": "Hydrolysis",
+      "definition": "A chemical process where water breaks molecular bonds. Malassezia uses enzymes (lipases) to hydrolyze sebum triglycerides and release irritating free fatty acids.",
+      "category": "Chemistry"
     },
     {
-      "term": "Lipidi",
-      "definition": "Termine generale per grassi, oli e cere. Non tutti i lipidi sono dannosi per la DS: lo squalano e l'olio MCT sono lipidi 'sicuri'.",
-      "category": "Chimica"
+      "term": "Lipids",
+      "definition": "General term for fats, oils, and waxes. Not all lipids are harmful to SD: squalane and MCT oil are 'safe' lipids.",
+      "category": "Chemistry"
     },
     {
       "term": "INCI",
-      "definition": "International Nomenclature of Cosmetic Ingredients. È la lista standardizzata degli ingredienti che trovi sul retro dei prodotti cosmetici.",
-      "category": "Legale"
+      "definition": "International Nomenclature of Cosmetic Ingredients. It is the standardized list of ingredients found on the back of cosmetic products.",
+      "category": "Legal"
     },
     {
-      "term": "Sebo",
-      "definition": "Sostanza oleosa prodotta dalle ghiandole sebacee della pelle. È il nutrimento naturale della Malassezia.",
-      "category": "Biologia"
+      "term": "Sebum",
+      "definition": "Oily substance produced by the sebaceous glands of the skin. It is the natural food for Malassezia.",
+      "category": "Biology"
     },
     {
-      "term": "Olio MCT",
-      "definition": "Trigliceridi a Catena Media (C8 e C10). Un olio speciale che la Malassezia NON può metabolizzare, rendendolo l'unico olio sicuro per idratare la pelle con DS.",
-      "category": "Ingredienti"
+      "term": "MCT Oil",
+      "definition": "Medium Chain Triglycerides (C8 and C10). A special oil that Malassezia CANNOT metabolize, making it the only safe oil to moisturize skin with SD.",
+      "category": "Ingredients"
     },
     {
-      "term": "Squalano",
-      "definition": "Un idrocarburo stabile derivato (spesso) dall'oliva o canna da zucchero. È chimicamente identico a parte del sebo umano ma non nutre il fungo.",
-      "category": "Ingredienti"
+      "term": "Squalane",
+      "definition": "A stable hydrocarbon derived (often) from olives or sugarcane. It is chemically identical to part of human sebum but does not feed the fungus.",
+      "category": "Ingredients"
     },
     {
       "term": "pH",
-      "definition": "Misura dell'acidità. Il cuoio capelluto sano ha pH 5.5. Un pH più alto (>6.0) favorisce la crescita della Malassezia.",
-      "category": "Chimica"
+      "definition": "Measure of acidity. Healthy scalp has pH 5.5. A higher pH (>6.0) promotes Malassezia growth.",
+      "category": "Chemistry"
     },
     {
-      "term": "Lipasi",
-      "definition": "Enzimi prodotti dalla Malassezia per 'digerire' i grassi (sebo o prodotti cosmetici) e trasformarli in nutrimento.",
-      "category": "Biologia"
+      "term": "Lipase",
+      "definition": "Enzymes produced by Malassezia to 'digest' fats (sebum or cosmetic products) and transform them into nourishment.",
+      "category": "Biology"
     },
     {
-      "term": "Desquamazione",
-      "definition": "Il distacco accelerato delle cellule morte della pelle, visibile come 'forfora'. È una risposta infiammatoria alla presenza di acidi grassi liberi irritanti.",
-      "category": "Dermatologia"
+      "term": "Desquamation",
+      "definition": "Accelerated detachment of dead skin cells, visible as 'dandruff'. It is an inflammatory response to the presence of irritating free fatty acids.",
+      "category": "Dermatology"
     },
     {
-      "term": "Polisorbati",
-      "definition": "Emulsionanti comuni (es. Polysorbate-20, -80) che contengono acidi grassi. Spesso usati nei farmaci, ma possono nutrire la Malassezia se non bilanciati.",
-      "category": "Chimica"
+      "term": "Polysorbates",
+      "definition": "Common emulsifiers (e.g., Polysorbate-20, -80) that contain fatty acids. Often used in medications, but can feed Malassezia if not balanced.",
+      "category": "Chemistry"
     },
     {
-      "term": "Fermenti",
-      "definition": "Ingredienti derivati dalla fermentazione microbica (es. Galactomyces). Molto popolari nella K-Beauty, ma rischiosi per la DS perché spesso contengono residui nutrienti per i lieviti.",
-      "category": "Ingredienti"
+      "term": "Ferments",
+      "definition": "Ingredients derived from microbial fermentation (e.g., Galactomyces). Very popular in K-Beauty, but risky for SD because they often contain nutrient residues for yeasts.",
+      "category": "Ingredients"
     }
   ]
 }

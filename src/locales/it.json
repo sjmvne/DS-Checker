@@ -1,0 +1,351 @@
+{
+  "app": {
+    "title": "Sezia Scanner Pro",
+    "subtitle": "Analisi contro la Dermatite Seborroica"
+  },
+  "loading_overlay": {
+      "analyzing": "Analisi in corso...",
+      "ocr": "Elaborazione immagine..."
+    },
+    "alert": {
+      "empty_ingredients": "Per favore inserisci gli ingredienti!"
+    },
+  "menu": {
+    "home": "Home Scanner",
+    "manual_search": "Ricerca Manuale",
+    "science_guide": "Guida Scientifica",
+    "protocols": "Protocolli",
+    "dictionary": "Dizionario",
+    "database": "Database Completo",
+    "tutorial": "Tutorial",
+    "references": "Bibliografia",
+    "credits": "Crediti",
+    "bug_report": "Segnala Bug",
+    "contribute": "Contribuisci",
+    "navigation": "Navigazione",
+    "contribute_dialog": {
+      "title": "Contribuisci",
+      "text": "Vuoi aiutare a migliorare DS Checker?",
+      "email": "Scrivimi una Email",
+      "github": "Vai alla Repository",
+      "close": "Chiudi"
+    },
+    "theme": {
+      "dark": "Modalità Dark",
+      "light": "Modalità Light"
+    },
+    "footer": {
+      "made_by": "Creato con passione da",
+      "version": "DS Checker v1.1.2"
+    }
+  },
+  "bottom_nav": {
+    "scanner": "Scanner",
+    "database": "Database",
+    "guide": "Guida",
+    "science": "Scienza"
+  },
+  "header": {
+    "tagline": "Analisi intelligente ingredienti per la",
+    "highlight": "Dermatite Seborroica"
+  },
+  "credits": {
+    "title": "DS Checker",
+    "love_msg": "Creato con ❤️ per la comunità DS",
+    "created_by": "Creato con passione da",
+    "thanks": "Grazie per utilizzare questo strumento.",
+    "hope": "Spero ti aiuti a trovare i prodotti giusti per la tua pelle!"
+  },
+  "tutorial": {
+    "welcome_title": "Benvenuto su DS Checker",
+    "welcome_text": "L'assistente intelligente per chi soffre di Dermatite Seborroica. Scopri se i tuoi prodotti sono sicuri per la tua pelle.",
+    "analyze_title": "Analizza i Prodotti",
+    "analyze_text": "Usa lo Scanner 📷 per i codici a barre o la Ricerca Manuale ✍️ per incollare la lista ingredienti (INCI). Analizziamo ogni componente contro il nostro database.",
+    "learn_title": "Impara & Esplora",
+    "learn_text": "Non solo analisi: consulta il Database completo, il Dizionario tecnico e i Protocolli scientifici dal menu per capire meglio la tua pelle.",
+    "score_title": "Punteggio Sicurezza",
+    "score_green": "VERDE: Sicuro (Malassezia Safe)",
+    "score_yellow": "GIALLO: Attenzione (Rischio moderato)",
+    "score_red": "ROSSO: Da evitare (Nutre il fungo)",
+    "start_btn": "Iniziamo! 🚀",
+    "next_btn": "Avanti →"
+  },
+  "references": {
+    "title": "Fonti Scientifiche & Bibliografia",
+    "subtitle": "Tutte le informazioni contenute in questa app sono basate sulla letteratura dermatologica peer-reviewed aggiornata al 2024.",
+    "read_study": "Leggi Studio Completo",
+    "useful_resources": "RISORSE UTILI SEZIA.CO"
+  },
+  "database": {
+    "title": "Database Completo",
+    "subtitle": "Esplora gli oltre {count} ingredienti catalogati.",
+    "search_placeholder": "Cerca ingrediente (es. Coconut, Laureth...)",
+    "results_found": "Trovati {count} risultati",
+    "empty": "Nessun ingrediente trovato con i filtri correnti.",
+    "risk_filter": {
+      "all": "🛡️ Tutti i livelli di rischio",
+      "safe": "✅ Solo Sicuri (SAFE/LOW)",
+      "caution": "⚠️ Attenzione (MODERATE/WARNING)",
+      "danger": "🚫 Da Evitare (HIGH/CRITICAL)"
+    },
+    "tabs": {
+      "all": "Tutti",
+      "fatty_acid": "Acidi Grassi",
+      "fatty_acids": "Acidi Grassi",
+      "oil_lipid": "Oli/Lipidi",
+      "lipids_and_oils": "Oli/Lipidi",
+      "ester": "Esteri",
+      "esters_comprehensive": "Esteri",
+      "ferment": "Fermenti",
+      "galactomyces_ferments_expanded": "Fermenti",
+      "irritant": "Irritanti",
+      "high_sensitivity_ingredients_expanded": "Irritanti",
+      "polysorbate": "Polisorbati",
+      "polysorbates_expanded": "Polisorbati",
+      "safe_alternative": "Alternative Sicure",
+      "safe_alternatives_comprehensive": "Alternative Sicure",
+      "beneficial": "Ingredienti Benefici"
+    },
+    "legend": {
+      "title": "Legenda Rischi",
+      "safe": {
+        "label": "SICURO",
+        "desc": "Compatibile con Malassezia. Nessun rischio noto."
+      },
+      "low": {
+        "label": "BASSO",
+        "desc": "Rischio minimo. Generalmente sicuro ma monitorare."
+      },
+      "moderate": {
+        "label": "MODERATO",
+        "desc": "Cautela richiesta. Evitare se pelle molto reattiva."
+      },
+      "high": {
+        "label": "ALTO",
+        "desc": "Nutrimento per Malassezia. Probabile flare."
+      },
+      "critical": {
+        "label": "CRITICO",
+        "desc": "Cibo ottimale per Malassezia. Fortemente sconsigliato."
+      }
+    }
+  },
+  "ocr": {
+    "btn_scan": "Scansiona Etichetta (Beta)",
+    "btn_scanning": "Scansione...",
+    "status_init": "Inizializzazione motore OCR...",
+    "status_optimize": "Ottimizzazione immagine...",
+    "status_scanning": "Scansione: {percent}%",
+    "status_complete": "Completato!",
+    "error_no_text": "Nessun testo trovato. Riprova con un'immagine più nitida.",
+    "error_generic": "Errore durante la scansione."
+  },
+  "science": {
+    "title": "Guida Scientifica",
+    "subtitle": "Comprendere i meccanismi della Dermatite Seborroica",
+    "tabs": {
+      "malassezia": "Biologia Malassezia",
+      "barrier": "Barriera Cutanea",
+      "immune": "Sistema Immunitario",
+      "interactions": "Effetto Cocktail"
+    },
+    "sections": {
+      "lipase_engine": "Il Motore Lipasi (Specificità Enzimatica)",
+      "fatty_acid_deep_dive": "Approfondimento Metabolismo Acidi Grassi",
+      "enzyme_kinetics": "Cinetica Enzimatica",
+      "hydrolysis_pathways": "Percorsi Idrolisi",
+      "risky_unsaturated": "Acidi Grassi Insaturi a Rischio",
+      "barrier_break": "Come gli Ingredienti Rompono il Muro",
+      "tight_junctions": "Rottura Giunzioni Strette",
+      "cocktail_intro": "Gli ingredienti sono raramente usati in isolamento. L'\"Effetto Cocktail\" spiega perché un prodotto con ingredienti \"ok\" può comunque causare un flare."
+    },
+    "labels": {
+      "prevalence": "Prevalenza:",
+      "feeds_on": "Si nutre di:",
+      "growth": "Crescita:",
+      "virulence": "Fattori di Virulenza",
+      "mechanism": "Meccanismo:",
+      "optimal_substrates": "Substrati Ottimali:",
+      "affinity": "Livello Km (Affinità):",
+      "velocity": "Vmax (Velocità):",
+      "safe": "Inaccessibile (Sicuro)",
+      "danger": "CIBO OTTIMALE (Evita!)",
+      "byproducts": "Sottoprodotti Tossici",
+      "healthy": "Barriera Sana",
+      "compromised": "Compromessa da DS",
+      "cytokine_storm": "La Tempesta di Citochine (Th17)",
+      "ahr_receptor": "L'Interruttore Principale (AhR)",
+      "lipid_peroxidation": "Cascata Perossidazione Lipidica",
+      "individual_risks": "Rischi Individuali:",
+      "synergy": "SINERGIA",
+      "total_risk": "RISCHIO TOTALE:",
+      "why": "Perché?",
+      "outcome": "Risultato:",
+      "severity_score": "Sistema Punteggio Severità",
+      "key_studies": "Studi di Ricerca Chiave"
+    }
+  },
+  "protocols": {
+    "title": "Protocolli Pratici",
+    "subtitle": "Guide operative per la cura quotidiana",
+    "tabs": {
+      "brands": "Marchi Sicuri",
+      "checklist": "Checklist",
+      "routine": "Routine",
+      "flare": "SOS Flare",
+      "alternatives": "Sostituti",
+      "faq": "FAQ"
+    },
+    "checklist": {
+      "title": "Checklist Sicurezza INCI",
+      "intro": "Controlla QUALSIASI prodotto con questa lista. Se spunti tutto, è sicuro.",
+      "selected": "{count} / {total} Selezionati ({progress}%)",
+      "guide": "Guida Punteggio:"
+    },
+    "brands": {
+      "premium": "Raccomandazioni Premium",
+      "avoid": "Marchi da EVITARE ASSOLUTAMENTE",
+      "risk": "RISCHIO:"
+    },
+    "routine": {
+      "title": "Routine Giornaliera & Flare",
+      "general": "Principi Generali",
+      "flare_protocol": "Protocollo Flare Acuto",
+      "maintenance": "Mantenimento",
+      "morning": "Mattina",
+      "evening": "Sera",
+      "plan": "Piano"
+    },
+    "flare": {
+      "title": "Tempistiche Gestione Flare",
+      "immediate": "RISPOSTA IMMEDIATA",
+      "stabilization": "STABILIZZAZIONE"
+    },
+    "alternatives": {
+      "title": "Sostituti Sicuri",
+      "why": "Perché:",
+      "feel": "Sensazione:"
+    },
+    "faq": {
+      "title": "Miti Comuni & FAQ"
+    }
+  },
+  "search": {
+    "manual_mode": "Ricerca Manuale",
+    "ai_mode": "Ricerca AI Intelligente",
+    "manual_btn": "Manuale",
+    "ai_btn": "AI Search",
+    "product_name": "Nome Prodotto (Opzionale)",
+    "product_placeholder": "Es. Shampoo Neutro",
+    "ingredients_label": "Ingredienti (Copia/Incolla o Scansiona)",
+    "paste_placeholder": "Incolla qui la lista ingredienti...",
+    "analyze_btn": "Analizza",
+    "clear_btn": "Pulisci",
+    "ai_search_btn": "Cerca con Perplexity",
+    "loading_ocr": "Caricamento OCR...",
+    "product_name_required": "Nome Prodotto *",
+    "brand_required": "Marca *",
+    "country": "Paese",
+    "barcode": "Barcode (Opzionale)"
+  },
+  "results": {
+    "safe_match": "Match Sicuro",
+    "danger_match": "Alto Rischio",
+    "caution_match": "Attenzione",
+    "analyzed_on": "Analizzato il",
+    "total_ingredients": "Ingredienti Totali",
+    "no_threats": "Nessuna minaccia rilevata",
+    "safe_desc": "Non sono stati trovati ingredienti che nutrono la Malassezia.",
+    "caution_desc": "Contiene ingredienti che potrebbero essere problematici o sensibilizzanti.",
+    "danger_desc": "Contiene acidi grassi/esteri specifici che nutrono la Malassezia.",
+    "learn_more": "Approfondisci su sezia.co",
+    "status_badge": {
+      "high_risk": "ALTO RISCHIO",
+      "medium": "MEDIO",
+      "low_risk": "BASSO RISCHIO",
+      "safe": "SICURO",
+      "unknown": "SCONOSCIUTO"
+    },
+    "all_clear": {
+      "title": "✅ Nessun ingrediente problematico trovato!",
+      "text": "Questo prodotto sembra sicuro per la Dermatite Seborroica basandosi sul nostro database."
+    },
+    "list": {
+      "show": "Mostra Lista Ingredienti",
+      "hide": "Nascondi Lista Ingredienti",
+      "full_analysis": "📄 Analisi Completa Ingredienti"
+    }
+  },
+  "history": {
+    "title": "Cronologia Scansioni",
+    "clear_all": "Cancella Tutto",
+    "empty": "Nessuna scansione recente"
+  },
+  "scanner": {
+    "start": "Scansiona Barcode",
+    "stop": "Ferma Scanner",
+    "grant_permission": "Per favore abilita la fotocamera",
+    "not_found": "Prodotto non trovato",
+    "ai_prompt": "Cercare con AI?",
+    "errors": {
+      "camera": "Impossibile accedere alla fotocamera. Verifica i permessi.",
+      "init": "Errore inizializzazione scanner."
+    },
+    "manual": {
+      "label": "O inserisci manualmente:",
+      "searching": "Cercando...",
+      "search": "Cerca"
+    }
+  },
+  "modal": {
+    "profile_category": "Categoria: {category}",
+    "overview": "Panoramica:",
+    "recommendation": "Raccomandazione:",
+    "mechanism": "Meccanismo:",
+    "hydrolysis_rate": "Tasso Idrolisi:",
+    "cumulative_effect": "Effetto Cumulativo:",
+    "scientific_profile": "Profilo Scientifico",
+    "tech": {
+      "chain_length": "Lungh. Catena",
+      "mol_weight": "Peso Mol.",
+      "saturation": "Saturazione",
+      "ahr_activation": "Attivazione AhR (Infiammazione)",
+      "malassezia_affinity": "Affinità Malassezia",
+      "hydrolysis_byproduct": "Sottoprodotto Idrolisi",
+      "viscosity": "Viscosità",
+      "function": "Funzione",
+      "source": "Fonte",
+      "prevalence": "Prevalenza",
+      "concentration_typical": "Conc. Tipica",
+      "max_usage": "Max Uso",
+      "fatty_acid_profile": "Profilo Acidi Grassi"
+    },
+    "description": "Descrizione",
+    "why_problematic": "Perché Problematico",
+    "marketing_warning": "Avviso Marketing",
+    "common_sources": "Fonti Comuni",
+    "commonly_found_in": "Comunemente Trovato In",
+    "clinical_context": "Contesto Clinico",
+    "impact_ds": "Impatto DS:",
+    "synergistic_risk": "Rischio Sinergico:",
+    "reaction": "Reazione:",
+    "skin_effect": "Effetto Pelle:",
+    "risk_conc": "Rischio Conc.:",
+    "impact_conc": "Impatto Conc.:",
+    "oxidation": "Ossidazione:",
+    "barrier_penetration": "Barriera & Penetrazione",
+    "barrier_effect": "Effetto Barriera:",
+    "function_impact": "Impatto Funzione:",
+    "penetration": "Penetrazione:",
+    "formulation_details": "Dettagli Formulazione",
+    "key_insights": "Punti Chiave",
+    "paradox": "Il Paradosso:",
+    "unique_property": "Proprietà Unica:",
+    "dual_risk": "Doppio Rischio:",
+    "source_citation": "Fonte:",
+    "benefits": "Benefici",
+    "also_known_as": "Conosciuto Anche Come",
+    "safe_alternative": "Alternativa Sicura",
+    "close": "Chiudi"
+  }
+}

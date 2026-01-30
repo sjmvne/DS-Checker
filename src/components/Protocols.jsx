@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { fullDatabase } from '../services/ingredientDatabase';
+import { useLanguage } from '../context/LanguageContext';
+import { useData } from '../hooks/useData';
 import Emoji from './Emoji';
 import './Protocols.css';
 
 const ChecklistSection = ({ data }) => {
+  const { t } = useLanguage();
   const [checkedState, setCheckedState] = useState(
     new Array(data?.checklist?.length || 0).fill(false)
   );
@@ -21,10 +23,10 @@ const ChecklistSection = ({ data }) => {
 
   return (
     <section className="proto-section">
-      <h2 className="section-title"><Emoji name="Check Mark Button" fallback="✅" /> Checklist Sicurezza INCI</h2>
+      <h2 className="section-title"><Emoji name="Check Mark Button" fallback="✅" /> {t('protocols.checklist.title')}</h2>
       <div className="checklist-wrapper glass-panel">
         <div className="checklist-intro">
-          Controlla QUALSIASI prodotto con questa lista. Se spunti tutto, è sicuro.
+          {t('protocols.checklist.intro')}
         </div>
         
         <div className="checklist-progress">
@@ -32,7 +34,7 @@ const ChecklistSection = ({ data }) => {
              <div style={{width: `${progress}%`, background: 'var(--color-success)', height: '100%', borderRadius: '4px', transition: 'width 0.3s'}}></div>
            </div>
            <div style={{fontWeight: 'bold', marginBottom: '20px', textAlign: 'right'}}>
-             {count} / {total} Selezionati ({progress}%)
+             {t('protocols.checklist.selected').replace('{count}', count).replace('{total}', total).replace('{progress}', progress)}
            </div>
         </div>
 
@@ -50,7 +52,7 @@ const ChecklistSection = ({ data }) => {
           </div>
         ))}
         <div className="score-box">
-          <strong><Emoji name="Bar Chart" fallback="📊" /> Guida Punteggio:</strong> {data.scoring}
+          <strong><Emoji name="Bar Chart" fallback="📊" /> {t('protocols.checklist.guide')}</strong> {data.scoring}
         </div>
       </div>
     </section>
@@ -58,35 +60,37 @@ const ChecklistSection = ({ data }) => {
 };
 
 const Protocols = () => {
-  const data = fullDatabase.protocols;
+  const { t } = useLanguage();
+  const fullDatabase = useData();
+  const data = fullDatabase?.protocols;
   const [activeSection, setActiveSection] = useState('brands');
 
   if (!data) return <div className="loading">Caricamento protocolli...</div>;
 
-  const NavButton = ({ id, icon, label }) => (
+  const NavButton = ({ id, icon, labelKey }) => (
     <button 
       className={`proto-tab ${activeSection === id ? 'active' : ''}`}
       onClick={() => setActiveSection(id)}
     >
       <span className="tab-icon">{icon}</span>
-      <span className="tab-label">{label}</span>
+      <span className="tab-label">{t(labelKey)}</span>
     </button>
   );
 
   return (
     <div className="protocols-page">
       <header className="protocols-header">
-        <h1><Emoji name="Books" fallback="📚" /> Protocolli Pratici</h1>
-        <p className="subtitle">Guide operative per la cura quotidiana</p>
+        <h1><Emoji name="Books" fallback="📚" /> {t('protocols.title')}</h1>
+        <p className="subtitle">{t('protocols.subtitle')}</p>
       </header>
 
       <div className="protocols-nav-container">
-        <NavButton id="brands" icon={<Emoji name="Lotion Bottle" fallback="🧴" />} label="Marchi Sicuri" />
-        <NavButton id="checklist" icon={<Emoji name="Check Mark Button" fallback="✅" />} label="Checklist" />
-        <NavButton id="routine" icon={<Emoji name="Spiral  Calendar" fallback="📅" />} label="Routine" />
-        <NavButton id="flare" icon={<Emoji name="Police Car Light" fallback="🚨" />} label="SOS Flare" />
-        <NavButton id="alternatives" icon={<Emoji name="Counterclockwise Arrows Button" fallback="🔄" />} label="Sostituti" />
-        <NavButton id="faq" icon={<Emoji name="Question Mark" fallback="❓" />} label="FAQ" />
+        <NavButton id="brands" icon={<Emoji name="Lotion Bottle" fallback="🧴" />} labelKey="protocols.tabs.brands" />
+        <NavButton id="checklist" icon={<Emoji name="Check Mark Button" fallback="✅" />} labelKey="protocols.tabs.checklist" />
+        <NavButton id="routine" icon={<Emoji name="Spiral  Calendar" fallback="📅" />} labelKey="protocols.tabs.routine" />
+        <NavButton id="flare" icon={<Emoji name="Police Car Light" fallback="🚨" />} labelKey="protocols.tabs.flare" />
+        <NavButton id="alternatives" icon={<Emoji name="Counterclockwise Arrows Button" fallback="🔄" />} labelKey="protocols.tabs.alternatives" />
+        <NavButton id="faq" icon={<Emoji name="Question Mark" fallback="❓" />} labelKey="protocols.tabs.faq" />
       </div>
 
       <div className="protocols-content animate-fade-in">
@@ -97,7 +101,7 @@ const Protocols = () => {
             <h2 className="section-title"><Emoji name="Trophy" fallback="🏆" /> {data.safe_brand_recommendations?.section_description}</h2>
             
             <div className="brands-category">
-               <h3><Emoji name="Glowing Star" fallback="🌟" /> Raccomandazioni Premium</h3>
+               <h3><Emoji name="Glowing Star" fallback="🌟" /> {t('protocols.brands.premium')}</h3>
                <div className="brands-grid">
                 {data.safe_brand_recommendations?.premium_brands?.map((brand, i) => (
                   <div key={i} className="brand-card glass-panel">
@@ -117,7 +121,7 @@ const Protocols = () => {
             </div>
 
             <div className="brands-avoid-section">
-               <h3><Emoji name="No Entry" fallback="🚫" /> Marchi da EVITARE ASSOLUTAMENTE</h3>
+               <h3><Emoji name="No Entry" fallback="🚫" /> {t('protocols.brands.avoid')}</h3>
                <div className="avoid-grid">
                  {data.safe_brand_recommendations?.brands_to_absolutely_avoid?.map((bad, k) => (
                    <div key={k} className="avoid-card">
@@ -125,7 +129,7 @@ const Protocols = () => {
                        <h4>{bad.name}</h4>
                      </div>
                      <p className="avoid-reason">{bad.reason}</p>
-                     <div className="avoid-risk">RISCHIO: {bad.risk}</div>
+                     <div className="avoid-risk">{t('protocols.brands.risk')} {bad.risk}</div>
                    </div>
                  ))}
                </div>
@@ -141,10 +145,10 @@ const Protocols = () => {
         {/* === SECTION 3: ROUTINE === */}
         {activeSection === 'routine' && (
           <section className="proto-section">
-             <h2 className="section-title"><Emoji name="Spiral Calendar" fallback="📅" /> Routine Giornaliera & Flare</h2>
+             <h2 className="section-title"><Emoji name="Spiral Calendar" fallback="📅" /> {t('protocols.routine.title')}</h2>
              
              <div className="principles-box glass-panel">
-               <h3><Emoji name="Raised Hand" fallback="✋" /> Principi Generali</h3>
+               <h3><Emoji name="Raised Hand" fallback="✋" /> {t('protocols.routine.general')}</h3>
                <ul className="principles-list">
                  {data.routine_recommendations?.general_principles?.map((p, i) => <li key={i}>{p}</li>)}
                </ul>
@@ -152,9 +156,9 @@ const Protocols = () => {
 
              <div className="routines-grid">
                <div className="routine-card flare-mode">
-                 <h3><Emoji name="Police Car Light" fallback="🚨" /> Protocollo Flare Acuto</h3>
+                 <h3><Emoji name="Police Car Light" fallback="🚨" /> {t('protocols.routine.flare_protocol')}</h3>
                  <div className="phase-block">
-                   <h4><Emoji name="Sun" fallback="☀️" /> Mattina</h4>
+                   <h4><Emoji name="Sun" fallback="☀️" /> {t('protocols.routine.morning')}</h4>
                    {data.routine_recommendations?.basic_routine_flare_protocol?.morning?.map((step, i) => (
                      <div key={i} className="routine-step">
                        <span className="step-num">{step.step}</span>
@@ -166,7 +170,7 @@ const Protocols = () => {
                    ))}
                  </div>
                  <div className="phase-block">
-                   <h4><Emoji name="First Quarter Moon Face" fallback="🌙" /> Sera</h4>
+                   <h4><Emoji name="First Quarter Moon Face" fallback="🌙" /> {t('protocols.routine.evening')}</h4>
                    {data.routine_recommendations?.basic_routine_flare_protocol?.evening?.map((step, i) => (
                      <div key={i} className="routine-step">
                        <span className="step-num">{step.step}</span>
@@ -181,9 +185,9 @@ const Protocols = () => {
                </div>
 
                <div className="routine-card maintenance-mode">
-                 <h3><Emoji name="Shield" fallback="🛡️" /> Mantenimento</h3>
+                 <h3><Emoji name="Shield" fallback="🛡️" /> {t('protocols.routine.maintenance')}</h3>
                  <div className="phase-block">
-                   <h4>Piano</h4>
+                   <h4>{t('protocols.routine.plan')}</h4>
                    <ul className="maintenance-list">
                       {data.routine_recommendations?.maintenance_routine_remission?.evening?.map((s, i) => <li key={i}>{s}</li>)}
                    </ul>
@@ -196,12 +200,12 @@ const Protocols = () => {
         {/* === SECTION 4: FLARE SOS === */}
         {activeSection === 'flare' && (
           <section className="proto-section">
-             <h2 className="section-title"><Emoji name="Police Car Light" fallback="🚨" /> Tempistiche Gestione Flare</h2>
+             <h2 className="section-title"><Emoji name="Police Car Light" fallback="🚨" /> {t('protocols.flare.title')}</h2>
              <div className="timeline-container">
                
                <div className="timeline-phase urgent">
                  <div className="phase-marker">0-24h</div>
-                 <h3>RISPOSTA IMMEDIATA</h3>
+                 <h3>{t('protocols.flare.immediate')}</h3>
                  <div className="phase-cards">
                    {data.flare_management_protocol?.immediate_response_first_24h?.map((step, i) => (
                      <div key={i} className="action-card">
@@ -217,7 +221,7 @@ const Protocols = () => {
 
                <div className="timeline-phase steady">
                  <div className="phase-marker">Giorni 2-7</div>
-                 <h3>STABILIZZAZIONE</h3>
+                 <h3>{t('protocols.flare.stabilization')}</h3>
                  <div className="phase-cards">
                    {data.flare_management_protocol?.days_2_7_management?.map((step, i) => (
                      <div key={i} className="action-card">
@@ -238,7 +242,7 @@ const Protocols = () => {
         {/* === SECTION 5: SUBSTITUTES === */}
         {activeSection === 'alternatives' && (
           <section className="proto-section">
-             <h2 className="section-title"><Emoji name="Counterclockwise Arrows Button" fallback="🔄" /> Sostituti Sicuri</h2>
+             <h2 className="section-title"><Emoji name="Counterclockwise Arrows Button" fallback="🔄" /> {t('protocols.alternatives.title')}</h2>
              <div className="alternatives-grid">
                {data.ingredient_substitutes_safe_alternatives?.substitution_table?.map((item, i) => (
                  <div key={i} className="substitute-card glass-panel">
@@ -254,8 +258,8 @@ const Protocols = () => {
                      </div>
                    </div>
                    <div className="sub-details">
-                     <p className="reason"><strong>Perché:</strong> {item.reason_avoided}</p>
-                     {item.performance_comparison && <p className="note"><strong>Sensazione:</strong> {item.performance_comparison}</p>}
+                     <p className="reason"><strong>{t('protocols.alternatives.why')}</strong> {item.reason_avoided}</p>
+                     {item.performance_comparison && <p className="note"><strong>{t('protocols.alternatives.feel')}</strong> {item.performance_comparison}</p>}
                    </div>
                  </div>
                ))}
@@ -266,7 +270,7 @@ const Protocols = () => {
         {/* === SECTION 6: FAQ === */}
         {activeSection === 'faq' && (
            <section className="proto-section">
-             <h2 className="section-title"><Emoji name="Question Mark" fallback="❓" /> Miti Comuni & FAQ</h2>
+             <h2 className="section-title"><Emoji name="Question Mark" fallback="❓" /> {t('protocols.faq.title')}</h2>
              <div className="faq-grid">
                {data.faq_common_misconceptions?.questions?.map((q, i) => (
                  <div key={i} className="faq-card glass-panel">

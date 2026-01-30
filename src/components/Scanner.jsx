@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Quagga from '@ericblade/quagga2';
+import { useLanguage } from '../context/LanguageContext';
 import Card from './Card';
 import Emoji from './Emoji';
 import AiSearchPrompt from './AiSearchPrompt';
@@ -56,7 +57,7 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
       }, (err) => {
         if (err) {
           console.error(err);
-          setCameraError("Impossibile accedere alla fotocamera. Verifica i permessi.");
+          setCameraError(t('scanner.errors.camera'));
           setScanning(false);
           return;
         }
@@ -66,7 +67,7 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
       Quagga.onDetected(handleDetected);
     } catch (err) {
       console.error(err);
-      setCameraError("Errore inizializzazione scanner.");
+      setCameraError(t('scanner.errors.init'));
       setScanning(false);
     }
   };
@@ -114,6 +115,7 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
   };
 
   // Cleanup on unmount
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (scanning) {
@@ -125,16 +127,18 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
     };
   }, [scanning]);
 
+  const { t } = useLanguage();
+
   return (
-    <Card title="Scanner Codice" icon={<Emoji name="Camera with Flash" fallback="📷" />} className="scanner-card">
+    <Card title={t('scanner.start')} icon={<Emoji name="Camera with Flash" fallback="📷" />} className="scanner-card">
       <div className="scanner-controls">
         {!scanning ? (
           <button className="btn btn-primary" onClick={startScanner}>
-            Avvia Scanner
+            {t('scanner.start')}
           </button>
         ) : (
           <button className="btn btn-danger" onClick={stopScanner}>
-            Ferma Scanner
+            {t('scanner.stop')}
           </button>
         )}
       </div>
@@ -147,7 +151,7 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
       />
 
       <div className="manual-input-group">
-        <label htmlFor="barcode-input">O inserisci manualmente:</label>
+        <label htmlFor="barcode-input">{t('scanner.manual.label')}</label>
         <div className="input-row">
           <input 
             id="barcode-input"
@@ -162,7 +166,7 @@ const Scanner = ({ onAnalyze, onAiRequest }) => {
             onClick={handleSearch}
             disabled={loading || !barcode}
           >
-            {loading ? 'Cercando...' : <><Emoji name="Magnifying Glass Tilted Right" fallback="🔎" /> Cerca</>}
+            {loading ? t('scanner.manual.searching') : <><Emoji name="Magnifying Glass Tilted Right" fallback="🔎" /> {t('scanner.manual.search')}</>}
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import Card from './Card';
 import IngredientModal from './IngredientModal';
 import { titleCase } from '../utils/formatters';
@@ -6,6 +7,7 @@ import './Results.css';
 import Emoji from './Emoji';
 
 const Results = ({ data }) => {
+  const { t } = useLanguage();
   const { productName, date, analysis, score, totalIngredients } = data;
   const [selectedIngredient, setSelectedIngredient] = useState(null);
   const [showAllIngredients, setShowAllIngredients] = useState(false);
@@ -48,9 +50,9 @@ const Results = ({ data }) => {
   };
 
   const getScoreLabel = (s) => {
-    if (s >= 80) return 'Prodotto Sicuro';
-    if (s >= 50) return 'Usa con Prudenza';
-    return 'Non Sicuro';
+    if (s >= 80) return t('results.safe_match');
+    if (s >= 50) return t('results.caution_match');
+    return t('results.danger_match');
   };
 
   const scoreColor = getScoreColor(score);
@@ -76,15 +78,19 @@ const Results = ({ data }) => {
     >
       <div className="row-content">
         <span className="row-name">{titleCase(item.name)}</span>
-        {item.category && <span className="row-category">{item.category}</span>}
+        {(item.categoryKey || item.category) && (
+          <span className="row-category">
+            {item.categoryKey ? t(`database.tabs.${item.categoryKey}`, { defaultValue: item.category }) : item.category}
+          </span>
+        )}
       </div>
       <div className="row-badge">
-        <span className={`status-pill pill-${status}`}>
-          {status === 'danger' && 'ALTO RISCHIO'}
-          {status === 'warning' && 'MEDIO'}
-          {status === 'caution' && 'BASSO RISCHIO'}
-          {status === 'safe' && 'SICURO'}
-          {status === 'unknown' && 'SCONOSCIUTO'}
+        <span className={`db-risk-badge risk-${status === 'danger' ? 'critical' : status === 'warning' ? 'warning' : status === 'caution' ? 'caution' : status === 'safe' ? 'safe' : 'low'}`}>
+          {status === 'danger' && t('results.status_badge.high_risk')}
+          {status === 'warning' && t('results.status_badge.medium')}
+          {status === 'caution' && t('results.status_badge.low_risk')}
+          {status === 'safe' && t('results.status_badge.safe')}
+          {status === 'unknown' && t('results.status_badge.unknown')}
         </span>
         <span className="info-icon"><Emoji name="Information" fallback="ℹ️" size="1em" /></span>
       </div>
@@ -111,7 +117,7 @@ const Results = ({ data }) => {
             <h2 className="product-name">{productName}</h2>
             <div className="meta-info">
               <span><Emoji name="Calendar" fallback="📅" /> {date}</span>
-              <span><Emoji name="Test Tube" fallback="🧪" /> {totalIngredients} ingredienti</span>
+              <span><Emoji name="Test Tube" fallback="🧪" /> {totalIngredients} {t('results.total_ingredients')}</span>
             </div>
           </div>
           
@@ -153,8 +159,8 @@ const Results = ({ data }) => {
       {!hasIssues && (
          <Card className="section-safe">
            <div className="all-clear-message">
-             <h3>✅ Nessun ingrediente problematico trovato!</h3>
-             <p>Questo prodotto sembra sicuro per la Dermatite Seborroica basandosi sul nostro database.</p>
+             <h3>{t('results.all_clear.title')}</h3>
+             <p>{t('results.all_clear.text')}</p>
            </div>
          </Card>
       )}
@@ -165,13 +171,13 @@ const Results = ({ data }) => {
           className="btn-toggle-all"
           onClick={() => setShowAllIngredients(!showAllIngredients)}
         >
-          {showAllIngredients ? 'Nascondi Lista Ingredienti' : 'Mostra Lista Ingredienti'}
+          {showAllIngredients ? t('results.list.hide') : t('results.list.show')}
         </button>
       </div>
 
       {/* Full List */}
       {showAllIngredients && (
-        <Card title="📄 Analisi Completa Ingredienti" className="full-list-card">
+        <Card title={t('results.list.full_analysis')} className="full-list-card">
           <div className="full-list-grid">
             {allIngredientsList.map((item, idx) => (
               <IngredientRow key={`all-${idx}`} item={item} status={item.status} />

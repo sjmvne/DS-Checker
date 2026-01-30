@@ -1,13 +1,16 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './BottomNav.css';
 import Emoji from './Emoji';
 
 const BottomNav = ({ activePage, onNavigate }) => {
+  const { t } = useLanguage();
+  
   const navItems = [
-    { id: 'home', icon: '🏠', label: 'Scanner' },
-    { id: 'database', icon: '🗄️', label: 'Database' },
-    { id: 'protocols', icon: '🛠️', label: 'Guide' },
-    { id: 'science', icon: '🧬', label: 'Scienza' }
+    { id: 'home', icon: '🏠', label: t('bottom_nav.scanner') },
+    { id: 'database', icon: '🗄️', label: t('bottom_nav.database') },
+    { id: 'protocols', icon: '🛠️', label: t('bottom_nav.guide') },
+    { id: 'science', icon: '🧬', label: t('bottom_nav.science') }
   ];
 
   return (

@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './IngredientModal.css';
+import { useLanguage } from '../context/LanguageContext';
 import { titleCase } from '../utils/formatters';
+import { getRiskClass, getRiskLabelKey } from '../utils/riskUtils';
 import Emoji from './Emoji';
 
 const IngredientModal = ({ ingredient, onClose }) => {
+  const { t } = useLanguage();
+
   if (!ingredient) return null;
 
   // Close on Escape key
@@ -29,29 +33,41 @@ const IngredientModal = ({ ingredient, onClose }) => {
     return 'var(--color-success)';
   };
 
+  // No longer needed to use hardcoded strings for badge labels, we can use translation keys if desired, 
+  // or simply rely on the visual indicator + English text for now if the user wants strict translation of the badge logic.
+  // However, the report said "modal-risk-badge risk-critical non tradotto".
+  // So we need to translate the return value of getRiskLabel.
+  
+  // No longer needed to use hardcoded strings for badge labels, we can use translation keys if desired, 
+  // or simply rely on the visual indicator + English text for now if the user wants strict translation of the badge logic.
+  // However, the report said "modal-risk-badge risk-critical non tradotto".
+  // So we need to translate the return value of getRiskLabel.
+  
+  // const { t } = useLanguage(); // DUPLICATE REMOVED
+
+  // ... Wait checking top of file ...
+  // IngredientModal.jsx imports React already. I need to add useLanguage import.
+  // I will do that in a separate replacement chunk or handle it carefully.
+  
+  // Since I can't easily add the hook inside the component without adding the import first,
+  // I will check if useLanguage is imported. It is NOT.
+  // I will assume for this chunk I will modify the component to use `t`.
+  
   const getRiskLabel = (riskLevel) => {
     if (!riskLevel) return '';
     const l = riskLevel.toUpperCase();
-    if (l.includes('CRITICAL')) return 'CRITICO';
-    if (l.includes('HIGH')) return 'ALTO';
-    if (l.includes('LOW TO MODERATE')) return 'BASSO-MODERATO';
-    if (l.includes('MODERATE')) return 'MODERATO';
-    if (l.includes('LOW')) return 'BASSO';
-    if (l.includes('SAFE')) return 'SICURO';
-    if (l.includes('WARNING')) return 'ATTENZIONE';
+    // Simplified mapping to translation keys would be better
+    if (l.includes('CRITICAL') || l.includes('CRITICO')) return t('results.status_badge.high_risk'); // "ALTO RISCHIO" / "HIGH RISK"
+    if (l.includes('HIGH') || l.includes('ALTO')) return t('results.status_badge.high_risk');
+    if (l.includes('LOW TO MODERATE')) return t('results.status_badge.medium');
+    if (l.includes('MODERATO')) return t('results.status_badge.medium');
+    if (l.includes('LOW') || l.includes('BASSO')) return t('results.status_badge.low_risk');
+    if (l.includes('SAFE') || l.includes('SICURO')) return t('results.status_badge.safe');
+    if (l.includes('WARNING') || l.includes('ATTENZIONE')) return t('results.status_badge.medium'); // Mapping warning to medium for badge text consistency
     return riskLevel;
   };
 
-  const getBadgeClass = (riskLevel) => {
-    if (!riskLevel) return '';
-    const level = riskLevel.toLowerCase();
-    if (level.includes('low to moderate')) return 'risk-caution';
-    if (level.includes('safe') || level.includes('low')) return 'risk-safe';
-    if (level.includes('caution')) return 'risk-caution';
-    if (level.includes('warning') || level.includes('medium')) return 'risk-warning';
-    if (level.includes('high') || level.includes('critical') || level.includes('danger')) return 'risk-critical';
-    return 'risk-warning'; // Default fallback
-  };
+
 
   const color = getRiskColor(ingredient.status);
 
@@ -62,8 +78,8 @@ const IngredientModal = ({ ingredient, onClose }) => {
         
         <div className="modal-header">
           {ingredient.risk_level && (
-            <span className={`modal-risk-badge ${getBadgeClass(ingredient.risk_level)}`}>
-              {getRiskLabel(ingredient.risk_level)}
+            <span className={`db-risk-badge large ${getRiskClass(ingredient.risk_level)}`}>
+              {t(getRiskLabelKey(ingredient.risk_level))}
             </span>
           )}
           <h2 className="modal-title">{titleCase(ingredient.name)}</h2>
@@ -81,60 +97,65 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {(ingredient.category_description || ingredient.recommendation) && (
             <div className="modal-section category-context">
                <div className="context-header">
-                 <h3><Emoji name="File Folder" fallback="📂" /> Profilo Categoria: {ingredient.type || ingredient.category}</h3>
+                 <h3><Emoji name="File Folder" fallback="📂" /> {t('modal.profile_category', { 
+                   category: ingredient.categoryKey 
+                     ? t(`database.tabs.${ingredient.categoryKey}`, { defaultValue: ingredient.type || ingredient.category }) 
+                     : (ingredient.type || ingredient.category)
+                 })}</h3>
                </div>
-               {ingredient.category_description && <p><strong>Panoramica:</strong> {ingredient.category_description}</p>}
-               {ingredient.recommendation && <p><strong>Raccomandazione:</strong> {ingredient.recommendation}</p>}
-               {ingredient.mechanism_explanation && <p><strong>Meccanismo:</strong> {ingredient.mechanism_explanation}</p>}
-               {ingredient.hydrolysis_rate && <p><strong>Tasso Idrolisi:</strong> {ingredient.hydrolysis_rate}</p>}
-               {ingredient.cumulative_effect && <p><strong>Effetto Cumulativo:</strong> {ingredient.cumulative_effect}</p>}
+               {ingredient.category_description && <p><strong>{t('modal.overview')}</strong> {ingredient.category_description}</p>}
+               {ingredient.recommendation && <p><strong>{t('modal.recommendation')}</strong> {ingredient.recommendation}</p>}
+               {ingredient.mechanism_explanation && <p><strong>{t('modal.mechanism')}</strong> {ingredient.mechanism_explanation}</p>}
+               {ingredient.hydrolysis_rate && <p><strong>{t('modal.hydrolysis_rate')}</strong> {ingredient.hydrolysis_rate}</p>}
+               {ingredient.cumulative_effect && <p><strong>{t('modal.cumulative_effect')}</strong> {ingredient.cumulative_effect}</p>}
             </div>
           )}
 
+          
           {/* Tech Specs Section - Conditional */}
           {(ingredient.carbon_chain || ingredient.molecular_weight || ingredient.saturation || ingredient.ahr_activation_level || ingredient.malassezia_affinity || ingredient.hydrolysis_product) && (
             <div className="modal-section tech-specs">
-               <h3><Emoji name="Microscope" fallback="🔬" /> Profilo Scientifico</h3>
+               <h3><Emoji name="Microscope" fallback="🔬" /> {t('modal.scientific_profile')}</h3>
                <div className="tech-grid">
                  {ingredient.carbon_chain && (
                    <div className="tech-item">
-                     <span className="tech-label">Lungh. Catena</span>
+                     <span className="tech-label">{t('modal.tech.chain_length')}</span>
                      <span className="tech-value">{ingredient.carbon_chain}</span>
                    </div>
                  )}
                  {ingredient.molecular_weight && (
                    <div className="tech-item">
-                     <span className="tech-label">Peso Mol.</span>
+                     <span className="tech-label">{t('modal.tech.mol_weight')}</span>
                      <span className="tech-value">{ingredient.molecular_weight}</span>
                    </div>
                  )}
                  {ingredient.saturation && (
                    <div className="tech-item">
-                     <span className="tech-label">Saturazione</span>
+                     <span className="tech-label">{t('modal.tech.saturation')}</span>
                      <span className="tech-value">{ingredient.saturation}</span>
                    </div>
                  )}
                  {ingredient.ahr_activation_level && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Attivazione AhR (Infiammazione)</span>
+                     <span className="tech-label">{t('modal.tech.ahr_activation')}</span>
                      <span className="tech-value warning">{ingredient.ahr_activation_level}</span>
                    </div>
                  )}
                  {ingredient.malassezia_affinity && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Affinità Malassezia</span>
+                     <span className="tech-label">{t('modal.tech.malassezia_affinity')}</span>
                      <span className="tech-value warning">{ingredient.malassezia_affinity}</span>
                    </div>
                  )}
                  {ingredient.hydrolysis_product && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Sottoprodotto Idrolisi</span>
+                     <span className="tech-label">{t('modal.tech.hydrolysis_byproduct')}</span>
                      <span className="tech-value">{ingredient.hydrolysis_product}</span>
                    </div>
                  )}
                  {ingredient.viscosity && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Viscosità</span>
+                     <span className="tech-label">{t('modal.tech.viscosity')}</span>
                      <span className="tech-value">{ingredient.viscosity}</span>
                    </div>
                  )}
@@ -143,9 +164,9 @@ const IngredientModal = ({ ingredient, onClose }) => {
           )}
 
           {/* Fatty Acid Composition Table (For Oils) */}
-          {ingredient.fatty_acid_composition && (
+           {ingredient.fatty_acid_composition && (
             <div className="modal-section">
-              <h3><Emoji name="Test Tube" fallback="🧪" /> Profilo Acidi Grassi</h3>
+              <h3><Emoji name="Test Tube" fallback="🧪" /> {t('modal.tech.fatty_acid_profile')}</h3>
               <div className="composition-grid">
                 {Object.entries(ingredient.fatty_acid_composition).map(([key, value]) => (
                   <div key={key} className="composition-row">
@@ -159,7 +180,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
 
           {ingredient.description && (
             <div className="modal-section">
-              <h3><Emoji name="Memo" fallback="📝" /> Descrizione</h3>
+              <h3><Emoji name="Memo" fallback="📝" /> {t('modal.description')}</h3>
               <p className="modal-description">{ingredient.description}</p>
             </div>
           )}
@@ -167,28 +188,28 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* Intelligent Deduplication of Reason/Mechanism */}
           {ingredient.reason && (
             <div className="modal-section">
-              <h3><Emoji name="Warning" fallback="⚠️" /> Perché Problematico</h3>
+              <h3><Emoji name="Warning" fallback="⚠️" /> {t('modal.why_problematic')}</h3>
               <p className="modal-reason">{ingredient.reason}</p>
             </div>
           )}
 
           {ingredient.marketing_deception && (
             <div className="modal-section warning-box">
-              <h3><Emoji name="No Entry" fallback="🚫" /> Avviso Marketing</h3>
+              <h3><Emoji name="No Entry" fallback="🚫" /> {t('modal.marketing_warning')}</h3>
               <p>{ingredient.marketing_deception}</p>
             </div>
           )}
 
           {ingredient.mechanism && ingredient.mechanism !== ingredient.reason && (
             <div className="modal-section">
-              <h3><Emoji name="DNA" fallback="🧬" /> Meccanismo</h3>
+              <h3><Emoji name="DNA" fallback="🧬" /> {t('modal.mechanism')}</h3>
               <p className="modal-text">{ingredient.mechanism}</p>
             </div>
           )}
 
           {ingredient.products_containing && (
              <div className="modal-section">
-               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> Fonti Comuni</h3>
+               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> {t('modal.common_sources')}</h3>
                <div className="tag-list">
                  {ingredient.products_containing.map(prod => (
                    <span key={prod} className="product-tag">{prod}</span>
@@ -199,7 +220,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           
           {ingredient.products_commonly_found && (
              <div className="modal-section">
-               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> Comunemente Trovato In</h3>
+               <h3><Emoji name="Lotion Bottle" fallback="🧴" /> {t('modal.commonly_found_in')}</h3>
                <p className="modal-text">{ingredient.products_commonly_found}</p>
              </div>
           )}
@@ -207,14 +228,14 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* EXTENDED DATA MAPPING - CLINICAL CONTEXT */}
           {(ingredient.synergistic_effect || ingredient.sd_issue || ingredient.skin_reaction || ingredient.skin_effect || ingredient.concentration_risk || ingredient.oxidation_risk || ingredient.concentration_impact) && (
             <div className="modal-section warning-box">
-               <h3><Emoji name="Warning" fallback="⚠️" /> Contesto Clinico</h3>
-               {ingredient.sd_issue && <p><strong>Impatto DS:</strong> {ingredient.sd_issue}</p>}
-               {ingredient.synergistic_effect && <p><strong>Rischio Sinergico:</strong> {ingredient.synergistic_effect}</p>}
-               {ingredient.skin_reaction && <p><strong>Reazione:</strong> {ingredient.skin_reaction}</p>}
-               {ingredient.skin_effect && <p><strong>Effetto Pelle:</strong> {ingredient.skin_effect}</p>}
-               {ingredient.concentration_risk && <p><strong>Rischio Conc.:</strong> {ingredient.concentration_risk}</p>}
-               {ingredient.concentration_impact && <p><strong>Impatto Conc.:</strong> {ingredient.concentration_impact}</p>}
-               {ingredient.oxidation_risk && <p><strong>Ossidazione:</strong> {ingredient.oxidation_risk}</p>}
+               <h3><Emoji name="Warning" fallback="⚠️" /> {t('modal.clinical_context')}</h3>
+               {ingredient.sd_issue && <p><strong>{t('modal.impact_ds')}</strong> {ingredient.sd_issue}</p>}
+               {ingredient.synergistic_effect && <p><strong>{t('modal.synergistic_risk')}</strong> {ingredient.synergistic_effect}</p>}
+               {ingredient.skin_reaction && <p><strong>{t('modal.reaction')}</strong> {ingredient.skin_reaction}</p>}
+               {ingredient.skin_effect && <p><strong>{t('modal.skin_effect')}</strong> {ingredient.skin_effect}</p>}
+               {ingredient.concentration_risk && <p><strong>{t('modal.risk_conc')}</strong> {ingredient.concentration_risk}</p>}
+               {ingredient.concentration_impact && <p><strong>{t('modal.impact_conc')}</strong> {ingredient.concentration_impact}</p>}
+               {ingredient.oxidation_risk && <p><strong>{t('modal.oxidation')}</strong> {ingredient.oxidation_risk}</p>}
             </div>
           )}
 
@@ -231,35 +252,35 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* EXTENDED DATA MAPPING - FORMULATION DETAILS */}
           {(ingredient.concentration_limit || ingredient.concentration_typical || ingredient.function || ingredient.source || ingredient.prevalence) && (
              <div className="modal-section">
-               <h3><Emoji name="Alembic" fallback="⚗️" /> Dettagli Formulazione</h3>
+               <h3><Emoji name="Alembic" fallback="⚗️" /> {t('modal.formulation_details')}</h3>
                <div className="tech-grid">
                  {ingredient.function && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Funzione</span>
+                     <span className="tech-label">{t('modal.tech.function')}</span>
                      <span className="tech-value">{ingredient.function}</span>
                    </div>
                  )}
                  {ingredient.source && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Fonte</span>
+                     <span className="tech-label">{t('modal.tech.source')}</span>
                      <span className="tech-value">{ingredient.source}</span>
                    </div>
                  )}
                   {ingredient.prevalence && (
                    <div className="tech-item full-width">
-                     <span className="tech-label">Prevalenza</span>
+                     <span className="tech-label">{t('modal.tech.prevalence')}</span>
                      <span className="tech-value">{ingredient.prevalence}</span>
                    </div>
                  )}
                  {ingredient.concentration_typical && (
                    <div className="tech-item">
-                     <span className="tech-label">Conc. Tipica</span>
+                     <span className="tech-label">{t('modal.tech.concentration_typical')}</span>
                      <span className="tech-value">{ingredient.concentration_typical}</span>
                    </div>
                  )}
                  {ingredient.concentration_limit && (
                    <div className="tech-item">
-                     <span className="tech-label">Max Uso</span>
+                     <span className="tech-label">{t('modal.tech.max_usage')}</span>
                      <span className="tech-value">{ingredient.concentration_limit}</span>
                    </div>
                  )}
@@ -268,13 +289,13 @@ const IngredientModal = ({ ingredient, onClose }) => {
           )}
 
           {/* KEY INSIGHTS / PARADOXES (New Section) */}
-          {(ingredient.paradox || ingredient.unique_property || ingredient.dual_problem || ingredient.dual_risk || ingredient.research_citation) && (
+           {(ingredient.paradox || ingredient.unique_property || ingredient.dual_problem || ingredient.dual_risk || ingredient.research_citation) && (
              <div className="modal-section info-box" style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '12px', padding: '15px' }}>
-                <h3 style={{ color: '#60a5fa' }}><Emoji name="Light Bulb" fallback="💡" /> Punti Chiave</h3>
-                {ingredient.paradox && <p style={{marginBottom: '8px'}}><strong>Il Paradosso:</strong> {ingredient.paradox}</p>}
-                {ingredient.unique_property && <p style={{marginBottom: '8px'}}><strong>Proprietà Unica:</strong> {ingredient.unique_property}</p>}
-                {(ingredient.dual_problem || ingredient.dual_risk) && <p style={{marginBottom: '8px'}}><strong>Doppio Rischio:</strong> {ingredient.dual_problem || ingredient.dual_risk}</p>}
-                {ingredient.research_citation && <p style={{fontSize: '0.85rem', fontStyle: 'italic', marginTop: '10px', opacity: 0.8}}>🎓 Fonte: {ingredient.research_citation}</p>}
+                <h3 style={{ color: '#60a5fa' }}><Emoji name="Light Bulb" fallback="💡" /> {t('modal.key_insights')}</h3>
+                {ingredient.paradox && <p style={{marginBottom: '8px'}}><strong>{t('modal.paradox')}</strong> {ingredient.paradox}</p>}
+                {ingredient.unique_property && <p style={{marginBottom: '8px'}}><strong>{t('modal.unique_property')}</strong> {ingredient.unique_property}</p>}
+                {(ingredient.dual_problem || ingredient.dual_risk) && <p style={{marginBottom: '8px'}}><strong>{t('modal.dual_risk')}</strong> {ingredient.dual_problem || ingredient.dual_risk}</p>}
+                {ingredient.research_citation && <p style={{fontSize: '0.85rem', fontStyle: 'italic', marginTop: '10px', opacity: 0.8}}>🎓 {t('modal.source_citation')} {ingredient.research_citation}</p>}
              </div>
           )}
 
@@ -289,7 +310,7 @@ const IngredientModal = ({ ingredient, onClose }) => {
           {/* COMMON NAMES */}
           {(ingredient.common_names || ingredient.also_listed_as) && (
              <div className="modal-section">
-                <h3><Emoji name="Label" fallback="🏷️" /> Conosciuto Anche Come</h3>
+                <h3><Emoji name="Label" fallback="🏷️" /> {t('modal.also_known_as')}</h3>
                 <p className="modal-text italic">
                   {Array.isArray(ingredient.common_names) ? ingredient.common_names.join(', ') : ingredient.common_names}
                   {Array.isArray(ingredient.also_listed_as) ? ingredient.also_listed_as.join(', ') : ingredient.also_listed_as}
@@ -322,14 +343,14 @@ const IngredientModal = ({ ingredient, onClose }) => {
 
           {ingredient.safe_alternative && (
             <div className="modal-section">
-              <h3><Emoji name="Check Mark Button" fallback="✅" /> Alternativa Sicura</h3>
+              <h3><Emoji name="Check Mark Button" fallback="✅" /> {t('modal.safe_alternative')}</h3>
               <p className="modal-alternative">{ingredient.safe_alternative}</p>
             </div>
           )}
         </div>
 
         <div className="modal-footer">
-          <button className="modal-btn" onClick={onClose}>Chiudi</button>
+          <button className="modal-btn" onClick={onClose}>{t('modal.close')}</button>
         </div>
       </div>
     </div>
